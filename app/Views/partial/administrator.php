@@ -49,7 +49,7 @@
     <!-- Side Bar Menu -->
     <nav class="sidebar vertical-scroll ps-container ps-theme-default ps-active-y">
         <div class="logo d-flex justify-content-between">
-            <a href="index.html"><img src="<?= base_url() ?>/public/admin_assets/img/logo.png" alt="" /></a>
+            <a href="<?= base_url('/administrator'); ?>"><img src="<?= base_url() ?>/public/admin_assets/img/logo.png" alt="" /></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -64,7 +64,7 @@
                 </a>
             </li>
             <li class="">
-                <a class="" href="#" aria-expanded="false">
+                <a class="" href="<?= base_url('/administrator/video') ?>" aria-expanded="false">
                     <div class="icon_menu">
                         <i class="fa fa-film"></i>
                     </div>
@@ -79,8 +79,8 @@
                     <span>Settings</span>
                 </a>
                 <ul>
-                    <li><a href="#">User Management</a></li>
-                    <li><a href="#">Admin Management</a></li>
+                    <li><a href="<?= base_url('/administrator/admin_management') ?>">Admin Management</a></li>
+                    <li><a href="<?= base_url('/administrator/user_management') ?>">User Management</a></li>
                 </ul>
             </li>
         </ul>

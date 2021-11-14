@@ -18,7 +18,6 @@
 
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="author" content="Dmitry Volkov">
     <title>PUDIDI STREAMS</title>
 
 </head>
@@ -87,7 +86,7 @@
                             toastr.success(json.msg);
                             setTimeout(
                                 function() {
-                                    window.location.replace("<?= base_url('/administrator'); ?>");
+                                    window.location.replace("<?= base_url('/'); ?>");
                                 }, 1000)
                         } else {
                             toastr.error(json.msg);

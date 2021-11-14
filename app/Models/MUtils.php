@@ -16,4 +16,15 @@ class MUtils extends BaseModel
         $data = $DB->get()->getResultArray();
         return $data;
     }
+    public function otpVerify($data)
+    {
+        $email = str_decrypt($data['key']);
+        $DB = $this->db->table('user')
+            ->where('email', $email)
+            ->where('kode_otp', $data['kode_otp']);
+        $i = $DB->countAllResults();
+        if (!$i) $this->ErrorRespon('Kode OTP Tidak Cocok..');
+        $DB->set('is_active', '1')->update();
+        return $email;
+    }
 }

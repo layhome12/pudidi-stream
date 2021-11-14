@@ -51,6 +51,9 @@ class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
+        //Helper
+        helper(['ssl']);
+
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
@@ -93,7 +96,7 @@ class BaseController extends Controller
         $this->email->setSubject('Kode OTP');
         $this->email->setMessage('Hi.. Ini Kode OTP Kamu <b>' . $otp . "</b>\r\n" . 'Jangan Berikan Kode Ini Kesiapapun !');
         if (!$this->email->send()) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
-        $this->SuccessRespon('Kode OTP Telah Dikirim..');
+        $this->SuccessRespon('Kode OTP Telah Dikirim..', ['key' => str_encrypt($address)]);
     }
     public function mailOtp($otp, $address)
     {
@@ -113,9 +116,9 @@ class BaseController extends Controller
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         // Info Pengirim
-        $headers .= 'From: <xignluabreaker>' . "\r\n";
-        $headers .= 'Cc: xignluabreaker' . "\r\n";
+        $headers .= 'From: <pudidistreams>' . "\r\n";
+        $headers .= 'Cc: pudidistreams' . "\r\n";
         if (!mail($to, $subject, $message, $headers)) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
-        $this->SuccessRespon('Kode OTP Telah Dikirim..');
+        $this->SuccessRespon('Kode OTP Telah Dikirim..', ['key' => str_encrypt($address)]);
     }
 }

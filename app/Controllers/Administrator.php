@@ -15,4 +15,12 @@ class Administrator extends BaseController
     {
         echo "TEST";
     }
+    public function users_management()
+    {
+        
+    }
+    public function admin_management()
+    {
+        echo "TEST";
+    }
 }

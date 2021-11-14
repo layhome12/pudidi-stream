@@ -50,11 +50,17 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
     $routes->add('video_save', 'Administrator::video_save');
     $routes->add('video_del', 'Administrator::video_del');
     //Users
-    $routes->add('users', 'Administrator::users');
-    $routes->add('users_fetch', 'Administrator::users_fetch');
-    $routes->add('users_form', 'Administrator::users_form');
-    $routes->add('users_save', 'Administrator::users_save');
-    $routes->add('users_del', 'Administrator::users_del');
+    $routes->add('users_management', 'Administrator::users_management');
+    $routes->add('users_management_fetch', 'Administrator::users_management_fetch');
+    $routes->add('users_management_form', 'Administrator::users_management_form');
+    $routes->add('users_management_save', 'Administrator::users_management_save');
+    $routes->add('users_management_del', 'Administrator::users_management_del');
+    //Admin
+    $routes->add('admin_management', 'Administrator::admin_management');
+    $routes->add('admin_management_fetch', 'Administrator::admin_management_fetch');
+    $routes->add('admin_management_form', 'Administrator::admin_management_form');
+    $routes->add('admin_management_save', 'Administrator::admin_management_save');
+    $routes->add('admin_management_del', 'Administrator::admin_management_del');
 });
 
 /*
