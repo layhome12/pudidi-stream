@@ -8,40 +8,56 @@
     <title>PUDIDI STREAMS - ADMINISTRATOR</title>
 
     <link rel="icon" href="<?= base_url() ?>/public/admin_assets/img/logo.png" type="image/png" />
-    <!-- Bootstrap CSS -->
+    <!-- Main Assets CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/bootstrap.min.css" />
-    <!-- themefy CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/themefy_icon/themify-icons.css" />
-    <!-- select2 CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/niceselect/css/nice-select.css" />
-    <!-- owl carousel CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/owl_carousel/css/owl.carousel.css" />
-    <!-- gijgo css -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/gijgo/gijgo.min.css" />
-    <!-- font awesome CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/font_awesome/css/all.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/tagsinput/tagsinput.css" />
-
-    <!-- date picker -->
+    <!-- Lib Assets -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datepicker/date-picker.css" />
-    <!-- scrollabe  -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable.css" />
-    <!-- datatable CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datatable/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datatable/css/responsive.dataTables.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datatable/css/buttons.dataTables.min.css" />
-    <!-- text editor css -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/text_editor/summernote-bs4.css" />
-    <!-- morris css -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/morris/morris.css" />
-    <!-- metarial icon css -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/material_icon/material-icons.css" />
-
-    <!-- menu css  -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/metisMenu.css" />
-    <!-- style CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/colors/default.css" id="colorSkinCSS" />
+
+    <!-- Main Assets JS -->
+    <script src="<?= base_url() ?>/public/admin_assets/js/jquery-3.4.1.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/popper.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/bootstrap.min.js"></script>
+    <!-- Libs Assets JS  -->
+    <script src="<?= base_url() ?>/public/admin_assets/js/metisMenu.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/count_up/jquery.waypoints.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/chartlist/Chart.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/count_up/jquery.counterup.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/niceselect/js/jquery.nice-select.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/owl_carousel/js/owl.carousel.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.flash.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/jszip.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/pdfmake.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/vfs_fonts.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.print.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/chart.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/progressbar/jquery.barfiller.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/tagsinput/tagsinput.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/text_editor/summernote-bs4.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/am_chart/amcharts.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable-custom.js"></script>
+
 </head>
 
 <body class="crm_body_bg">
@@ -80,7 +96,7 @@
                 </a>
                 <ul>
                     <li><a href="<?= base_url('/administrator/admin_management') ?>">Admin Management</a></li>
-                    <li><a href="<?= base_url('/administrator/user_management') ?>">User Management</a></li>
+                    <li><a href="<?= base_url('/administrator/users_management') ?>">User Management</a></li>
                 </ul>
             </li>
         </ul>
@@ -362,52 +378,15 @@
             <i class="ti-angle-up"></i>
         </a>
     </div>
-
-    <!-- Main Assets  -->
-    <script src="<?= base_url() ?>/public/admin_assets/js/jquery-3.4.1.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/js/popper.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/js/bootstrap.min.js"></script>
-
-    <!-- sidebar menu  -->
-    <script src="<?= base_url() ?>/public/admin_assets/js/metisMenu.js"></script>
-    <!-- waypoints js -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/count_up/jquery.waypoints.min.js"></script>
-    <!-- waypoints js -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/chartlist/Chart.min.js"></script>
-    <!-- counterup js -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/count_up/jquery.counterup.min.js"></script>
-    <!-- nice select -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/niceselect/js/jquery.nice-select.min.js"></script>
-    <!-- owl carousel -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/owl_carousel/js/owl.carousel.min.js"></script>
-    <!-- responsive table -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.flash.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/jszip.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/pdfmake.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/vfs_fonts.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.print.min.js"></script>
-    <!-- ChartJS -->
-    <script src="<?= base_url() ?>/public/admin_assets/js/chart.min.js"></script>
-    <!-- progressbar js -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/progressbar/jquery.barfiller.js"></script>
-    <!-- tag input -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/tagsinput/tagsinput.js"></script>
-    <!-- text editor js -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/text_editor/summernote-bs4.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/am_chart/amcharts.js"></script>
-    <!-- scrollabe  -->
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/perfect-scrollbar.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable-custom.js"></script>
+    
+    <!-- Libs JS -->
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/core.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/charts.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/animated.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/kelly.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/chart-custom.js"></script>
-    <!-- custom js -->
+
+    <!-- Custom JS -->
     <script src="<?= base_url() ?>/public/admin_assets/js/custom.js"></script>
     <?= $this->renderSection('custom_js'); ?>
 </body>

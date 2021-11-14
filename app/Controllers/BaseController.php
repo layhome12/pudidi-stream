@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\Datatables;
 use App\Models\MUsers;
 use App\Models\MUtils;
 use App\Models\MVideos;
@@ -65,6 +66,7 @@ class BaseController extends Controller
         $this->users = new MUsers();
         $this->videos = new MVideos();
         $this->utils = new MUtils();
+        $this->datatables = new Datatables();
     }
 
     public function SuccessRespon($msg, $data = [])

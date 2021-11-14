@@ -1,5 +1,4 @@
 <?= $this->extend('partial/administrator'); ?>
-
 <?= $this->section('content') ?>
 <div class="main_content_iner">
     <div class="container-fluid p-0">
