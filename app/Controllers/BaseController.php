@@ -2,11 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\MUsers;
+use App\Models\MUtils;
+use App\Models\MVideos;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use Config\Database;
+use Config\Services;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -40,6 +45,7 @@ class BaseController extends Controller
     /**
      * Constructor.
      */
+
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
@@ -48,5 +54,68 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+
+        $this->input = Services::request();
+        $this->session = Services::session();
+        $this->email = Services::email();
+        $this->db = Database::connect();
+        $this->users = new MUsers();
+        $this->videos = new MVideos();
+        $this->utils = new MUtils();
+    }
+
+    public function SuccessRespon($msg, $data = [])
+    {
+        $json = ['status' => 1, 'msg' => $msg, 'data' => $data];
+        echo json_encode($json);
+        die;
+    }
+    public function ErrorRespon($msg)
+    {
+        $json = ['status' => 0, 'msg' => $msg];
+        echo json_encode($json);
+        die;
+    }
+    public function sendOtp($otp, $address)
+    {
+        $config['protocol'] = 'smtp';
+        $config['mailType'] = 'html';
+        $config['SMTPTimeout'] = 60;
+        $config['SMTPKeepAlive'] = true;
+        $config['SMTPCrypto'] = 'ssl';
+        $config['SMTPHost'] = 'smtp.googlemail.com';
+        $config['SMTPUser'] = 'layhome12@gmail.com';
+        $config['SMTPPass'] = 'ilhamnm12345';
+        $config['SMTPPort'] = '465';
+        $this->email->initialize($config);
+        $this->email->setFrom('pudidistreamofficial@gmail.com');
+        $this->email->setTo($address);
+        $this->email->setSubject('Kode OTP');
+        $this->email->setMessage('Hi.. Ini Kode OTP Kamu <b>' . $otp . "</b>\r\n" . 'Jangan Berikan Kode Ini Kesiapapun !');
+        if (!$this->email->send()) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
+        $this->SuccessRespon('Kode OTP Telah Dikirim..');
+    }
+    public function mailOtp($otp, $address)
+    {
+        $to = $address;
+        $subject = "Kode OTP";
+        $message = "
+        <b>Hello Buddy..</b>, 
+        <br>
+        This is the code for account activation. 
+        <br>
+        <h3><b>" . $otp . "</b></h3>
+        <br><br>
+        Please keep this code secret.
+        ";
+        // Set HTML Type
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // Info Pengirim
+        $headers .= 'From: <xignluabreaker>' . "\r\n";
+        $headers .= 'Cc: xignluabreaker' . "\r\n";
+        if (!mail($to, $subject, $message, $headers)) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
+        $this->SuccessRespon('Kode OTP Telah Dikirim..');
     }
 }

@@ -31,7 +31,31 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+#======== START ROUTE ========#
+
+$routes->get('/', 'Landing::index');
+$routes->add('logout', 'Login::logout');
+
+#======== ADMINISTRATOR ROUTE ========#
+
+$routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
+
+    $routes->add('/', 'Administrator::index');
+    $routes->add('dashboard_fetch', 'Administrator::index');
+    //Videos
+    $routes->add('video', 'Administrator::video');
+    $routes->add('video_fetch', 'Administrator::video_fetch');
+    $routes->add('video_form', 'Administrator::video_form');
+    $routes->add('video_save', 'Administrator::video_save');
+    $routes->add('video_del', 'Administrator::video_del');
+    //Users
+    $routes->add('users', 'Administrator::users');
+    $routes->add('users_fetch', 'Administrator::users_fetch');
+    $routes->add('users_form', 'Administrator::users_form');
+    $routes->add('users_save', 'Administrator::users_save');
+    $routes->add('users_del', 'Administrator::users_del');
+});
 
 /*
  * --------------------------------------------------------------------

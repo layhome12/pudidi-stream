@@ -1,0 +1,30 @@
+ERROR - 2021-11-14 02:29:07 --> Unknown column 'tgl_lahir' in 'field list'
+CRITICAL - 2021-11-14 02:29:07 --> Unknown column 'tgl_lahir' in 'field list'
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Models\MUsers.php(19): CodeIgniter\Database\BaseBuilder->insert()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Register.php(16): App\Models\MUsers->saveUsers()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Register->save()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-11-14 02:30:19 --> Email: sendWithSmtp throwed fsockopen(): unable to connect to ssl://smtp.gmail.com:456 (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+)
+ERROR - 2021-11-14 02:32:18 --> Email: sendWithSmtp throwed fsockopen(): unable to connect to ssl://smtp.gmail.com:456 (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+)
+ERROR - 2021-11-14 02:35:17 --> Email: sendWithSmtp throwed fsockopen(): unable to connect to ssl://smtp.gmail.com:456 (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+)
+CRITICAL - 2021-11-14 03:03:23 --> Undefined variable: country
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Views\landing\register\register.php(51): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\OpenServer\\d...')
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Register.php(12): view()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Register->index()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
