@@ -15,7 +15,7 @@ class Administrator extends BaseController
     {
         echo "TEST";
     }
-    
+
     //Users
     public function users_management()
     {
@@ -59,7 +59,7 @@ class Administrator extends BaseController
         $data['user'] = $this->users->getUserForm($uid);
         return view('administrator/users_management/users_management_form', $data);
     }
-    public function users_block()
+    public function users_management_block()
     {
         $uid = $this->input->getPost();
         $this->users->usersBlock($uid);

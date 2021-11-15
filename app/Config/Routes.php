@@ -53,8 +53,7 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
     $routes->add('users_management', 'Administrator::users_management');
     $routes->add('users_management_fetch', 'Administrator::users_management_fetch');
     $routes->add('users_management_form', 'Administrator::users_management_form');
-    $routes->add('users_management_save', 'Administrator::users_management_save');
-    $routes->add('users_management_del', 'Administrator::users_management_del');
+    $routes->add('users_management_block', 'Administrator::users_management_block');
     //Admin
     $routes->add('admin_management', 'Administrator::admin_management');
     $routes->add('admin_management_fetch', 'Administrator::admin_management_fetch');

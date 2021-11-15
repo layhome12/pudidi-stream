@@ -102,7 +102,7 @@
                 previous: "<i class='ti-arrow-left'></i>"
             }
         },
-        'responsive':true,
+        'responsive': true,
         'processing': true,
         'serverSide': true,
         'paging': true,
@@ -141,7 +141,7 @@
         }).then((result) => {
             if (result.value) {
                 $.LoadingOverlay('show');
-                $.post('<?= base_url('/administrator/users_block') ?>', {
+                $.post('<?= base_url('/administrator/users_management') . '_block' ?>', {
                     'uid': t.getAttribute('target-id'),
                     'key': 'block'
                 }, function(result, textStatus, xhr) {
@@ -174,7 +174,7 @@
         }).then((result) => {
             if (result.value) {
                 $.LoadingOverlay('show');
-                $.post('<?= base_url('/administrator/users_block') ?>', {
+                $.post('<?= base_url('/administrator/users_management') . '_block' ?>', {
                     'uid': t.getAttribute('target-id'),
                     'key': 'unblock'
                 }, function(result, textStatus, xhr) {
