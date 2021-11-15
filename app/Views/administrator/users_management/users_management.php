@@ -19,16 +19,11 @@
                                 <div class="box_right d-flex lms_block">
                                     <div class="serach_field_2">
                                         <div class="search_inner">
-                                            <form Active="#">
-                                                <div class="search_field">
-                                                    <input type="text" placeholder="Search content here...">
-                                                </div>
-                                                <button type="submit"> <i class="ti-search"></i> </button>
-                                            </form>
+                                            <div class="search_field">
+                                                <input type="text" placeholder="Search content here..." id="search_datatables">
+                                            </div>
+                                            <button type="button"> <i class="ti-search"></i> </button>
                                         </div>
-                                    </div>
-                                    <div class="add_button ml-10">
-                                        <a href="#" data-toggle="modal" data-target="#addcategory" class="btn_1">Add New</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +42,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -61,6 +56,27 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-content">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?= $this->endSection() ?>
 
 <?= $this->section('custom_js') ?>
@@ -71,8 +87,9 @@
             'dataSrc': 'data',
             'type': 'POST',
             'data': function(form) {
-                form.nama_form = $('#select_id').val();
-                form.nama_form = $('#select_id').val();
+                form.search = {
+                    'value': $('#search_datatables').val()
+                };
             }
         },
         bLengthChange: false,
@@ -85,6 +102,7 @@
                 previous: "<i class='ti-arrow-left'></i>"
             }
         },
+        'responsive':true,
         'processing': true,
         'serverSide': true,
         'paging': true,
@@ -94,5 +112,87 @@
         'info': true,
         'autoWidth': false,
     });
+    $('#search_datatables').keyup(
+        function() {
+            datatables.ajax.reload();
+        }
+    );
+
+    function dt_show(t) {
+        $.LoadingOverlay('show');
+        $.post('<?= base_url('/administrator/users_management' . '_form') ?>', {
+            'uid': t.getAttribute('target-id')
+        }, function(result, textStatus, xhr) {
+            $.LoadingOverlay('hide');
+            $('#modal-content').html(result);
+            $('#modal').modal('show');
+        });
+    }
+
+    function dt_block(t) {
+        Swal.fire({
+            title: 'Warning !',
+            text: 'Blokir User Ini ??',
+            type: 'warning', //'success', 'error', 'info', 'question'
+            showCancelButton: true,
+            confirmButtonColor: '#4c6ef8',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Block'
+        }).then((result) => {
+            if (result.value) {
+                $.LoadingOverlay('show');
+                $.post('<?= base_url('/administrator/users_block') ?>', {
+                    'uid': t.getAttribute('target-id'),
+                    'key': 'block'
+                }, function(result, textStatus, xhr) {
+                    if (result.status > 0) {
+                        $.LoadingOverlay('hide');
+                        Swal.fire({
+                            title: 'Success',
+                            text: result.msg,
+                            type: 'success'
+                        }).then(
+                            function() {
+                                datatables.ajax.reload();
+                            }
+                        );
+                    }
+                }, 'json');
+            }
+        });
+    }
+
+    function dt_unblock(t) {
+        Swal.fire({
+            title: 'Warning !',
+            text: 'Unblokir User Ini ??',
+            type: 'warning', //'success', 'error', 'info', 'question'
+            showCancelButton: true,
+            confirmButtonColor: '#4c6ef8',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Unblock'
+        }).then((result) => {
+            if (result.value) {
+                $.LoadingOverlay('show');
+                $.post('<?= base_url('/administrator/users_block') ?>', {
+                    'uid': t.getAttribute('target-id'),
+                    'key': 'unblock'
+                }, function(result, textStatus, xhr) {
+                    if (result.status > 0) {
+                        $.LoadingOverlay('hide');
+                        Swal.fire({
+                            title: 'Success',
+                            text: result.msg,
+                            type: 'success'
+                        }).then(
+                            function() {
+                                datatables.ajax.reload();
+                            }
+                        );
+                    }
+                }, 'json');
+            }
+        });
+    }
 </script>
 <?= $this->endSection() ?>

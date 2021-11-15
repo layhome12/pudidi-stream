@@ -27,4 +27,12 @@ class MUtils extends BaseModel
         $DB->set('is_active', '1')->update();
         return $email;
     }
+    public function historyUser($log)
+    {
+        $log['user_id'] = $this->session->get('user_id');
+        $log['user_level_id'] = $this->session->get('user_level_id');
+        if (!isset($log['history_keterangan'])) $log['history_keterangan'] = "Melakukan " . $log['history_action'] . " Pada Waktu " . date('Y-m-d H:i:s');
+        $log['created_time'] = date('Y-m-d H:i:s');
+        $this->db->table('history_user')->set($log)->insert();
+    }
 }

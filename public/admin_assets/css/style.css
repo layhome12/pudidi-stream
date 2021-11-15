@@ -2284,7 +2284,7 @@ p a:hover {
 
 /* line 1654, G:/admin_project/6 admin/marketing/scss/_reset.scss */
 .text-primary {
-  color: #5664d2 !important;
+  color: #3752bf !important;
 }
 
 /* line 1657, G:/admin_project/6 admin/marketing/scss/_reset.scss */
@@ -3318,7 +3318,7 @@ table.dataTable.dtr-inline.collapsed
   background-color: #ffffff;
   position: fixed;
   top: 0;
-  z-index: 99;
+  z-index: 10;
   padding: 30px;
   position: relative;
   border-radius: 0px;
@@ -3573,16 +3573,17 @@ table.dataTable.dtr-inline.collapsed
 
 /* line 209, G:/admin_project/6 admin/marketing/scss/_header.scss */
 .profile_info img {
-  max-width: 42px;
-  max-height: 42px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   cursor: pointer;
+  object-fit: cover;
 }
 
 @media (max-width: 991px) {
   /* line 209, G:/admin_project/6 admin/marketing/scss/_header.scss */
   .profile_info img {
-    max-width: 30px;
+    max-width: 45px;
   }
 }
 
@@ -3976,7 +3977,6 @@ table.dataTable {
   padding-bottom: 50px;
   position: fixed;
   width: 270px;
-  z-index: 999;
   overflow: hidden;
   overflow-y: auto;
   transition: 0.5s;
@@ -4917,7 +4917,7 @@ body::-webkit-scrollbar {
   position: relative;
   background: #f5f6ff;
   margin: 20px 30px 30px 30px;
-  z-index: 22;
+  z-index: 9;
   border-radius: 10px;
   padding: 40px 30px;
 }

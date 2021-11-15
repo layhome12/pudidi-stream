@@ -29,9 +29,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/colors/default.css" id="colorSkinCSS" />
+    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/custom.css" />
 
     <!-- Main Assets JS -->
-    <script src="<?= base_url() ?>/public/admin_assets/js/jquery-3.4.1.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/jquery-3.5.1.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/popper.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/bootstrap.min.js"></script>
     <!-- Libs Assets JS  -->
@@ -57,6 +58,8 @@
     <script src="<?= base_url() ?>/public/admin_assets/vendors/am_chart/amcharts.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/perfect-scrollbar.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable-custom.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/loadingoverlay.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/sweetalert2.js"></script>
 
 </head>
 
@@ -96,7 +99,7 @@
                 </a>
                 <ul>
                     <li><a href="<?= base_url('/administrator/admin_management') ?>">Admin Management</a></li>
-                    <li><a href="<?= base_url('/administrator/users_management') ?>">User Management</a></li>
+                    <li><a href="<?= base_url('/administrator/users_management') ?>">Users Management</a></li>
                 </ul>
             </li>
         </ul>
@@ -225,11 +228,11 @@
                                 </li>
                             </div>
                             <div class="profile_info">
-                                <img src="<?= base_url() ?>/public/admin_assets/img/client_img.png" alt="#" />
+                                <img src="<?= base_url('/public/users_img') ?>/<?= session()->get('user_img') != '' ? session()->get('user_img') : 'no-profile.png' ?>" alt="#" />
                                 <div class="profile_info_iner">
                                     <div class="profile_author_name">
-                                        <p>Neurologist</p>
-                                        <h5>Dr. Robar Smith</h5>
+                                        <p>Administrator</p>
+                                        <h5><?= session()->get('user_nama'); ?></h5>
                                     </div>
                                     <div class="profile_info_details">
                                         <a href="#">My Profile </a>
@@ -378,7 +381,7 @@
             <i class="ti-angle-up"></i>
         </a>
     </div>
-    
+
     <!-- Libs JS -->
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/core.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/chart_am/charts.js"></script>

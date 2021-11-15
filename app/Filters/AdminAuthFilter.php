@@ -26,7 +26,7 @@ class AdminAuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (session()->get('user_level_id') != 1) {
-            return redirect()->to(base_url('/login'));
+            return redirect()->to(base_url('/'));
         }
     }
 

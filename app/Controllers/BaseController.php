@@ -123,4 +123,8 @@ class BaseController extends Controller
         if (!mail($to, $subject, $message, $headers)) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
         $this->SuccessRespon('Kode OTP Telah Dikirim..', ['key' => str_encrypt($address)]);
     }
+    public function historyUser($log = [])
+    {
+        $this->utils->historyUser($log);
+    }
 }

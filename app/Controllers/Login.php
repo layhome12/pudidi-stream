@@ -15,16 +15,24 @@ class Login extends BaseController
         $form = $this->input->getPost();
         $m = $this->users->getAuth($form);
         if (count($m) > 0) {
-            if (!password_verify($form['password'], $m[0]['password'])) $this->ErrorRespon('Periksa Username dan Password Anda..');
+            if (!password_verify($form['password'], $m[0]['password'])) $this->ErrorRespon('Periksa Email dan Password Anda..');
+            if ($m[0]['is_active'] == 2) $this->ErrorRespon('Akun Anda Terblokir.. Hubungi Customer Sevice !');
+            // if ($m[0]['is_active'] == 0) $this->activate();
             $this->session->set($m[0]);
+            $this->historyUser(['history_icon' => 'fa fa-sign-in-alt', 'history_action' => 'Login']);
             $this->SuccessRespon('Otentikasi Berhasil..');
         } else {
-            $this->ErrorRespon('Periksa Username dan Password Anda..');
+            $this->ErrorRespon('Periksa Email dan Password Anda..');
         }
     }
     public function logout()
     {
+        $this->historyUser(['history_icon' => 'fa fa-sign-out-alt', 'history_action' => 'Logout']);
         $this->session->destroy();
         return redirect()->to('/');
+    }
+    public function activate()
+    {
+        
     }
 }

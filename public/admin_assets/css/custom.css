@@ -1,0 +1,17 @@
+.img-form-profile {
+  width: 260px;
+  height: 260px !important;
+  object-fit: cover;
+  box-shadow: 1px 2px 3px rgb(0, 0, 0, 0.3);
+}
+.card-custom-border {
+  border: 5px solid #eeeeee;
+  border-radius: 15px;
+  box-shadow: 1px 2px 3px rgb(0, 0, 0, 0.3);
+}
+.font-bold {
+  font-weight: bold;
+}
+.icon-user-form {
+  font-size: 20px;
+}
