@@ -53,7 +53,7 @@ class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         //Helper
-        helper(['ssl']);
+        helper(['ssl', 'str']);
 
         // Preload any models, libraries, etc, here.
 
@@ -62,7 +62,10 @@ class BaseController extends Controller
         $this->input = Services::request();
         $this->session = Services::session();
         $this->email = Services::email();
+        $this->image = Services::image();
         $this->db = Database::connect();
+        
+        //Model Load
         $this->users = new MUsers();
         $this->videos = new MVideos();
         $this->utils = new MUtils();

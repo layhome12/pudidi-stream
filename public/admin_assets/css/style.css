@@ -81,6 +81,8 @@ input:focus {
 /* line 39, G:/admin_project/6 admin/marketing/scss/_reset.scss */
 .form-control {
   border-color: #bbc1c9;
+  height: calc(1.8em + 0.9rem + 2px) !important;
+  font-size: 0.8rem !important;
 }
 
 /* line 42, G:/admin_project/6 admin/marketing/scss/_reset.scss */
@@ -5137,7 +5139,7 @@ body::-webkit-scrollbar {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 1001;
+  z-index: 9999;
 }
 
 /* line 238, G:/admin_project/6 admin/marketing/scss/_main_content.scss */

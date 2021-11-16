@@ -1,0 +1,79 @@
+CRITICAL - 2021-11-16 07:03:03 --> Undefined index: country_id
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Views\administrator\admin_management\admin_management_form.php(29): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\OpenServer\\d...')
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(104): view()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_form()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-11-16 08:00:48 --> Unable to save the image. Please make sure the image and file directory are writable.
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Images\Handlers\GDHandler.php(245): CodeIgniter\Images\Exceptions\ImageException::forSaveFailed()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(118): CodeIgniter\Images\Handlers\GDHandler->save()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_save()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-11-16 08:01:29 --> Unable to save the image. Please make sure the image and file directory are writable.
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Images\Handlers\GDHandler.php(245): CodeIgniter\Images\Exceptions\ImageException::forSaveFailed()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(118): CodeIgniter\Images\Handlers\GDHandler->save()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_save()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-11-16 08:01:55 --> Unable to save the image. Please make sure the image and file directory are writable.
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Images\Handlers\GDHandler.php(245): CodeIgniter\Images\Exceptions\ImageException::forSaveFailed()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(118): CodeIgniter\Images\Handlers\GDHandler->save()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_save()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-11-16 08:02:32 --> Use of undefined constant PUBLICPATH - assumed 'PUBLICPATH' (this will throw an Error in a future version of PHP)
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(118): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_save()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#4 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-11-16 08:02:55 --> Use of undefined constant PUBLICPATH - assumed 'PUBLICPATH' (this will throw an Error in a future version of PHP)
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(118): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_save()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#4 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-11-16 08:38:17 --> Undefined variable: uid
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Models\MUsers.php(66): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(121): App\Models\MUsers->adminSave()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_save()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2021-11-16 09:53:21 --> Table 'pudidi_stream.users' doesn't exist
+CRITICAL - 2021-11-16 09:53:21 --> Table 'pudidi_stream.users' doesn't exist
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Models\MUsers.php(93): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(128): App\Models\MUsers->adminDel()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->admin_management_del()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-11-16 10:10:36 --> Trying to access array offset on value of type null
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Models\BaseModel.php(65): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Models\MUsers.php(54): App\Models\BaseModel->historyCrud()
+#2 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(65): App\Models\MUsers->usersBlock()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->users_management_block()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}

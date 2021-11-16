@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-        <img class="img-thumbnail img-form-profile" src="<?= base_url('/public/users_img') ?>/<?= $user['user_img'] != '' ? $user['user_img'] : 'no-profile.png' ?>" alt="Image description">
+        <img class="img-thumbnail img-form-profile" src="<?= base_url('/public/users_img') ?>/<?= isset($user['user_img']) ? img_check($user['user_img']) : 'no-profile.png' ?>" alt="Foto Profile">
     </div>
     <div class="col-md-8">
         <div class="card card-custom-border">

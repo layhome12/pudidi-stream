@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/morris/morris.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/material_icon/material-icons.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/metisMenu.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/colors/default.css" id="colorSkinCSS" />
@@ -60,6 +61,12 @@
     <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable-custom.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/loadingoverlay.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/sweetalert2.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.js"></script>
+    <!-- Date Picker  -->
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.en.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.custom.js"></script>
+
 
 </head>
 
