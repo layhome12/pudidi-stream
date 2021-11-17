@@ -43,12 +43,6 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
 
     $routes->add('/', 'Administrator::index');
     $routes->add('dashboard_fetch', 'Administrator::index');
-    //Videos
-    $routes->add('video', 'Administrator::video');
-    $routes->add('video_fetch', 'Administrator::video_fetch');
-    $routes->add('video_form', 'Administrator::video_form');
-    $routes->add('video_save', 'Administrator::video_save');
-    $routes->add('video_del', 'Administrator::video_del');
     //Users
     $routes->add('users_management', 'Administrator::users_management');
     $routes->add('users_management_fetch', 'Administrator::users_management_fetch');
@@ -60,6 +54,18 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
     $routes->add('admin_management_form', 'Administrator::admin_management_form');
     $routes->add('admin_management_save', 'Administrator::admin_management_save');
     $routes->add('admin_management_del', 'Administrator::admin_management_del');
+    //Kategori Videos
+    $routes->add('kategori_video', 'Administrator::kategori_video');
+    $routes->add('kategori_video_fetch', 'Administrator::kategori_video_fetch');
+    $routes->add('kategori_video_form', 'Administrator::kategori_video_form');
+    $routes->add('kategori_video_save', 'Administrator::kategori_video_save');
+    $routes->add('kategori_video_del', 'Administrator::kategori_video_del');
+    //Videos
+    $routes->add('video/(:any)', 'Administrator::video/$1');
+    $routes->add('video_fetch', 'Administrator::video_fetch');
+    $routes->add('video_form', 'Administrator::video_form');
+    $routes->add('video_save', 'Administrator::video_save');
+    $routes->add('video_del', 'Administrator::video_del');
 });
 
 /*

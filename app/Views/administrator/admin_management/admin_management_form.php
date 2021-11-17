@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
         <input type="file" name="user_img" id="user_img" class="d-none" accept=".jpg,.jpeg,.png">
-        <img class="img-thumbnail img-form-profile-admin cursor-pointer" id="user_img_show" src="<?= base_url('/public/users_img') ?>/<?= isset($user['user_img']) ? img_check($user['user_img']) : 'no-profile.png' ?>" alt="Image Profile">
+        <img class="img-thumbnail img-form-profile-admin cursor-pointer" id="user_img_show" src="<?= base_url('/public/users_img') ?>/<?= isset($user['user_img']) ? img_check($user['user_img']) : 'no-image.png' ?>" alt="Image Profile">
     </div>
     <div class="col-md-8">
         <div class="card card-custom-border">
@@ -43,7 +43,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password">
+                            <input type="password" class="form-control" name="password" id="password" <?= isset($user['user_id']) ? '' : 'required' ?>>
                         </div>
                     </div>
                 </div>

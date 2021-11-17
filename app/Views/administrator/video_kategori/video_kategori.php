@@ -8,14 +8,14 @@
                     <div class="white_card_header">
                         <div class="box_header m-0">
                             <div class="main-title">
-                                <h3 class="m-0">Setting</h3>
+                                <h3 class="m-0">Movies</h3>
                             </div>
                         </div>
                     </div>
                     <div class="white_card_body">
                         <div class="QA_section">
                             <div class="white_box_tittle list_header">
-                                <h4>Admin Management</h4>
+                                <h4>Kategori Movies</h4>
                                 <div class="box_right d-flex lms_block">
                                     <div class="serach_field_2">
                                         <div class="search_inner">
@@ -36,11 +36,8 @@
                                 <table class="table datatables">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nama User</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Tanggal Lahir</th>
-                                            <th scope="col">Is Active</th>
+                                            <th scope="col">Kategori Movies</th>
+                                            <th scope="col">Movies SEO</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -63,10 +60,10 @@
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <form action="<?= base_url('administrator/admin_management' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
+        <form action="<?= base_url('administrator/video_kategori' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Form Admin</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Form Kategori Movies</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -88,7 +85,7 @@
 <script>
     var datatables = $('.datatables').DataTable({
         'ajax': {
-            'url': '<?php echo base_url('administrator/admin_management' . '_fetch') ?>',
+            'url': '<?php echo base_url('administrator/video_kategori' . '_fetch') ?>',
             'dataSrc': 'data',
             'type': 'POST',
             'data': function(form) {
@@ -161,8 +158,8 @@
 
     function dt_form(t) {
         $.LoadingOverlay('show');
-        $.post('<?= base_url('/administrator/admin_management' . '_form') ?>', {
-            'uid': t.getAttribute('target-id')
+        $.post('<?= base_url('/administrator/video_kategori' . '_form') ?>', {
+            'kvid': t.getAttribute('target-id')
         }, function(result, textStatus, xhr) {
             $.LoadingOverlay('hide');
             $('#modal-content').html(result);
@@ -173,7 +170,7 @@
     function dt_del(t) {
         Swal.fire({
             title: 'Warning !',
-            text: 'Hapus Admin Ini ??',
+            text: 'Hapus Kategori Movies Ini ??',
             type: 'warning', //'success', 'error', 'info', 'question'
             showCancelButton: true,
             confirmButtonColor: '#4c6ef8',
@@ -181,8 +178,8 @@
             confirmButtonText: 'Hapus'
         }).then((result) => {
             if (result.value) {
-                $.post('<?= base_url('/administrator/admin_management' . '_del') ?>', {
-                    'uid': t.getAttribute('target-id')
+                $.post('<?= base_url('/administrator/video_kategori' . '_del') ?>', {
+                    'kvid': t.getAttribute('target-id')
                 }, function(result, textStatus, xhr) {
                     $.LoadingOverlay('hide');
                     if (result.status > 0) {
@@ -199,6 +196,11 @@
                 }, 'json');
             }
         });
+    }
+
+    function dt_vid(t) {
+        var link = '<?= base_url('administrator/video') ?>' + '/' + t.getAttribute('target-id');
+        window.location.replace(link);
     }
 </script>
 <?= $this->endSection() ?>

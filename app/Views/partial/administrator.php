@@ -90,7 +90,7 @@
                 </a>
             </li>
             <li class="">
-                <a class="" href="<?= base_url('/administrator/video') ?>" aria-expanded="false">
+                <a class="" href="<?= base_url('/administrator/video_kategori') ?>" aria-expanded="false">
                     <div class="icon_menu">
                         <i class="fa fa-film"></i>
                     </div>

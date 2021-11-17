@@ -2,7 +2,7 @@
 if (!function_exists('img_check')) {
     function img_check($str = '')
     {
-        $img = $str == '' ? 'no-profile.png' : $str;
+        $img = $str == '' ? 'no-image.png' : $str;
         return $img;
     }
 }
