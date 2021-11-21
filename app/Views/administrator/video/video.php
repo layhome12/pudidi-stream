@@ -66,16 +66,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Form Upload Movies</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body" id="modal-content">
 
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" id="close_modal">Close</button>
                 </div>
             </div>
         </form>
@@ -124,56 +121,72 @@
     );
     $('#form-data').submit(
         function() {
-            $.LoadingOverlay('show');
-            $.ajax({
-                url: this.action,
-                type: 'post',
-                data: new FormData(this),
-                dataType: 'json',
-                processData: false,
-                contentType: false,
-                cache: false,
-                async: false,
-                success: function(result, textStatus, xhr) {
-                    $.LoadingOverlay('hide');
-                    if (result.status > 0) {
-                        $('#modal').modal('hide');
-                        Swal.fire({
-                            title: 'Success',
-                            text: result.msg,
-                            type: 'success'
-                        }).then(
-                            function() {
-                                datatables.ajax.reload();
-                            }
-                        );
-                    } else {
-                        Swal.fire({
-                            title: 'Error',
-                            text: result.msg,
-                            type: 'error'
-                        });
+            if ($('#video_id').val() != '') {
+                $.LoadingOverlay('show');
+                $.ajax({
+                    url: this.action,
+                    type: 'post',
+                    data: new FormData(this),
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    async: false,
+                    success: function(result, textStatus, xhr) {
+                        $.LoadingOverlay('hide');
+                        if (result.status > 0) {
+                            $('#modal').modal('hide');
+                            setTimeout(function() {
+                                $('#modal-content').empty();
+                            }, 300);
+
+                            Swal.fire({
+                                title: 'Success',
+                                text: result.msg,
+                                type: 'success'
+                            }).then(
+                                function() {
+                                    datatables.ajax.reload();
+                                }
+                            );
+                        } else {
+                            Swal.fire({
+                                title: 'Error',
+                                text: result.msg,
+                                type: 'error'
+                            });
+                        }
                     }
-                }
-            });
+                });
+            } else {
+                Swal.fire({
+                    title: 'Warning',
+                    text: 'Belum Ada Film yang Diupload !',
+                    type: 'warning'
+                });
+            }
         }
     );
 
     function dt_form(t) {
         $.LoadingOverlay('show');
         $.post('<?= base_url('/administrator/video' . '_form') ?>', {
-            'vid': t.getAttribute('target-id')
+            'vid': t.getAttribute('target-id'),
+            'kvid': '<?= $kvid; ?>'
         }, function(result, textStatus, xhr) {
             $.LoadingOverlay('hide');
             $('#modal-content').html(result);
-            $('#modal').modal('show');
+            $('#modal').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
         });
     }
 
     function dt_del(t) {
         Swal.fire({
             title: 'Warning !',
-            text: 'Hapus Kategori Movies Ini ??',
+            text: 'Hapus Movies Ini ??',
             type: 'warning', //'success', 'error', 'info', 'question'
             showCancelButton: true,
             confirmButtonColor: '#4c6ef8',
@@ -200,5 +213,36 @@
             }
         });
     }
+
+    function table_reload() {
+        datatables.ajax.reload();
+    }
+    $('#close_modal').click(
+        function() {
+            if ($('#video_id').val() != '' && is_update == 0) {
+                Swal.fire({
+                    title: 'Warning',
+                    text: 'Movies Akan Disimpan Sebagai Draf !',
+                    type: 'warning', //'success', 'error', 'info', 'question'
+                    showCancelButton: true,
+                    confirmButtonColor: '#4c6ef8',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Yes'
+                }).then((result) => {
+                    if (result.value) {
+                        $('#modal').modal('hide');
+                        setTimeout(function() {
+                            $('#modal-content').empty();
+                        }, 300);
+                    }
+                });
+            } else {
+                $('#modal').modal('hide');
+                setTimeout(function() {
+                    $('#modal-content').empty();
+                }, 300);
+            }
+        }
+    );
 </script>
 <?= $this->endSection() ?>

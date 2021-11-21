@@ -38,6 +38,7 @@
                                         <tr>
                                             <th scope="col">Kategori Movies</th>
                                             <th scope="col">Movies SEO</th>
+                                            <th scope="col">Total Movies</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>

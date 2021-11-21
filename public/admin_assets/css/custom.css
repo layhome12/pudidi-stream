@@ -24,6 +24,9 @@
 .font-bold {
   font-weight: bold;
 }
+.font-large {
+  font-size: large;
+}
 .icon-user-form {
   font-size: 20px;
 }
@@ -54,10 +57,35 @@
 }
 .thumbnail-img {
   width: 160px;
-  height: 210px;
+  height: 207px;
   object-fit: contain;
   box-shadow: 1px 2px 3px rgb(0, 0, 0, 0.3);
 }
 textarea.form-control {
   height: auto !important;
+}
+.font-x-small {
+  font-size: x-small !important;
+}
+.font-icon-upload {
+  font-size: 60px;
+}
+.box-upload-movies {
+  border: 1px dashed rgb(95, 95, 95);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.plyr {
+  border-radius: 15px !important;
+}
+.plyr--video {
+  /* background: #fff !important; */
+}
+.plyr__video-wrapper {
+  /* background: #fff !important; */
+  border-radius: 12px !important;
+}
+.box-player {
+  border-radius: 12px;
 }

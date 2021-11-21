@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/material_icon/material-icons.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/metisMenu.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/plyr.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/colors/default.css" id="colorSkinCSS" />
@@ -66,7 +67,8 @@
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.en.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.custom.js"></script>
-
+    <!-- Player -->
+    <script src="<?= base_url() ?>/public/public_assets/js/plyr.min.js"></script>
 
 </head>
 
@@ -398,6 +400,33 @@
 
     <!-- Custom JS -->
     <script src="<?= base_url() ?>/public/admin_assets/js/custom.js"></script>
+    <script>
+        function initializePlayer(url) {
+            var wrapper = '<video controls crossorigin playsinline poster="" class="box-player" id="player-clone"></div>';
+            var source = '<source src="' + url + '" type="video/mp4">';
+            $("#content-movies").empty().html(wrapper);
+            $("#player-clone").empty().html(source);
+            setPlayer("#player-clone");
+        }
+
+        function setPlayer(el, cmd = "") {
+            const player = new Plyr(el);
+            switch (cmd) {
+                case "play":
+                    player.play();
+                    break;
+                case "pause":
+                    player.pause();
+                    break;
+                case "stop":
+                    player.stop();
+                    break;
+                default:
+                    // Code
+                    break;
+            }
+        }
+    </script>
     <?= $this->renderSection('custom_js'); ?>
 </body>
 

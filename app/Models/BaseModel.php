@@ -89,4 +89,18 @@ class BaseModel extends Model
         }
         return $history;
     }
+    public function deleteFile($set = [])
+    {
+        $file = $set['file'];
+        $m = $this->db->table($set['table'])
+            ->select($file)
+            ->where($set['table'] . '_id', $set['id'])
+            ->get()
+            ->getRowArray();
+        $path = WRITEPATH . $set['path'] . '\\' . $m[$file];
+
+        if (file_exists($path)) {
+            unlink($path);
+        }
+    }
 }

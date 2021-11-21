@@ -49,7 +49,54 @@ class MVideos extends BaseModel
         $m = $this->db->table('video')
             ->where('video_id', $vid)
             ->get()
-            ->getResultArray();
+            ->getRowArray();
         return $m;
+    }
+    public function videoUpload($data)
+    {
+        $vid = $data['video_id'];
+        unset($data['video_id']);
+        if ($vid) {
+            $this->deleteFile(['table' => 'video', 'id' => $vid, 'file' => 'video_file', 'path' => 'video_file']);
+            $this->db->table('video')
+                ->where('video_id', $vid)
+                ->set($data)
+                ->update();
+            $history = $this->historyCrud('update', ['table' => 'video', 'id' => $vid, 'data' => $data]);
+        } else {
+            $this->db->table('video')
+                ->set($data)
+                ->insert();
+            $vid = $this->db->insertID();
+            $history = $this->historyCrud('insert', ['table' => 'video', 'data' => $data]);
+        }
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return array_merge($history, ['vid' => $vid]);
+    }
+    public function videoSave($data)
+    {
+        $vid = $data['video_id'];
+        $data['is_draft'] = '0';
+        unset($data['video_id']);
+        $this->db->table('video')
+            ->where('video_id', $vid)
+            ->set($data)
+            ->update();
+        $history = $this->historyCrud('update', ['table' => 'video', 'id' => $vid, 'data' => $data]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+    public function videoDel($vid)
+    {
+        $this->deleteFile(['table' => 'video', 'id' => $vid, 'file' => 'video_file', 'path' => 'video_file']);
+        $this->db->table('video')
+            ->where('video_id', $vid)
+            ->delete();
+        $history = $this->historyCrud('delete', ['table' => 'video', 'id' => $vid]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
     }
 }
