@@ -10,4 +10,9 @@ class Landing extends BaseController
     {
         return view('landing/home/home');
     }
+    public function pencarian()
+    {
+        $data['search'] = $this->input->getGet('keyword');
+        return view('landing/pencarian/pencarian', $data);
+    }
 }

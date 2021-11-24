@@ -13,3 +13,12 @@ if (!function_exists('selected')) {
         return $checked;
     }
 }
+if (!function_exists('nickname')) {
+    function nickname($name)
+    {
+        $ex1 = explode(' ', $name)[0];
+        $ex2 = isset(explode(' ', $name)[1]) ? substr(explode(' ', $name)[1], 0, 1) : '';
+        $nickname = $ex1 . ' ' . $ex2;
+        return $nickname;
+    }
+}

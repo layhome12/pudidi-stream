@@ -2,3 +2,36 @@ CRITICAL - 2021-11-24 13:52:48 --> Call to undefined function CodeIgniter\locale
 #0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
 #1 E:\OpenServer\domains\pudidistream\trunk\index.php(35): require('E:\\OpenServer\\d...')
 #2 {main}
+CRITICAL - 2021-11-24 05:22:04 --> Undefined property: CodeIgniter\View\View::$landing
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Views\partial\landing.php(50): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\OpenServer\\d...')
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Landing.php(11): view()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Landing->index()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-11-24 06:27:10 --> Call to undefined method CodeIgniter\HTTP\IncomingRequest::get()
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Landing->pencarian()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#3 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-11-24 06:27:26 --> Invalid file: landing/pencarian/pencarian.php
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render()
+#2 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Landing.php(16): view()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Landing->pencarian()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-11-24 07:13:02 --> syntax error, unexpected '$routes' (T_VARIABLE)
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CLI\Console.php(48): CodeIgniter\CodeIgniter->run()
+#3 E:\OpenServer\domains\pudidistream\trunk\spark(63): CodeIgniter\CLI\Console->run()
+#4 {main}

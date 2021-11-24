@@ -1,10 +1,10 @@
 <?= $this->extend('partial/landing'); ?>
 <?= $this->section('content'); ?>
 <!-- home -->
-<div class="home home--static">
+<div class="home home--title">
     <div class="home__carousel owl-carousel" id="flixtv-hero">
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/1.jpg" alt="">
             </a>
             <div>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/2.jpg" alt="">
             </a>
             <div>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/3.jpg" alt="">
             </a>
             <div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/4.jpg" alt="">
             </a>
             <div>
@@ -84,7 +84,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/5.jpg" alt="">
             </a>
             <div>
@@ -104,7 +104,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/6.jpg" alt="">
             </a>
             <div>
@@ -124,7 +124,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/7.jpg" alt="">
             </a>
             <div>
@@ -144,7 +144,7 @@
         </div>
 
         <div class="home__card">
-            <a href="details.html">
+            <a href="<?= base_url('movies'); ?>">
                 <img src="<?= base_url() ?>/public/public_assets/img/home/8.jpg" alt="">
             </a>
             <div>
@@ -236,7 +236,7 @@
                 <div class="row row--grid">
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/1.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -249,7 +249,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 8.3</span>
-                            <h3 class="card__title"><a href="details.html">The Good Lord Bird</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">The Good Lord Bird</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Action</li>
@@ -260,7 +260,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/2.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -273,7 +273,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 8.1</span>
-                            <h3 class="card__title"><a href="details.html">The Dictator</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">The Dictator</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Comedy</li>
@@ -284,7 +284,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/3.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -297,7 +297,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.9</span>
-                            <h3 class="card__title"><a href="details.html">12 Years a Slave</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">12 Years a Slave</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>History</li>
@@ -308,7 +308,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/4.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -321,7 +321,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 8.8</span>
-                            <h3 class="card__title"><a href="details.html">Get On Up</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Get On Up</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Biography</li>
@@ -332,7 +332,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/5.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -345,7 +345,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.1</span>
-                            <h3 class="card__title"><a href="details.html">Interview With the Vampire</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Interview With the Vampire</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Horror</li>
@@ -356,7 +356,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/6.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -369,7 +369,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 8.6</span>
-                            <h3 class="card__title"><a href="details.html">Pawn Sacrifice</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Pawn Sacrifice</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>History</li>
@@ -380,7 +380,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/7.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -393,7 +393,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.0</span>
-                            <h3 class="card__title"><a href="details.html">Operation Finale</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Operation Finale</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Drama</li>
@@ -404,7 +404,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/8.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -417,7 +417,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.5</span>
-                            <h3 class="card__title"><a href="details.html">Denial</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Denial</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Drama</li>
@@ -428,7 +428,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/9.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -441,7 +441,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.2</span>
-                            <h3 class="card__title"><a href="details.html">Luce</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Luce</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Drama</li>
@@ -452,7 +452,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/10.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -465,7 +465,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 8.9</span>
-                            <h3 class="card__title"><a href="details.html">Fighting with My Family</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Fighting with My Family</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Biography</li>
@@ -476,7 +476,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/11.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -489,7 +489,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.2</span>
-                            <h3 class="card__title"><a href="details.html">Footloose</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Footloose</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Drama</li>
@@ -500,7 +500,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/12.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -513,7 +513,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.6</span>
-                            <h3 class="card__title"><a href="details.html">Swimming for Gold</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Swimming for Gold</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Drama</li>
@@ -524,7 +524,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/13.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -537,7 +537,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.1</span>
-                            <h3 class="card__title"><a href="details.html">Infamous</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Infamous</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Thriller</li>
@@ -548,7 +548,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/14.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -561,7 +561,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 7.2</span>
-                            <h3 class="card__title"><a href="details.html">Above the Shadows</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">Above the Shadows</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Science Fiction</li>
@@ -572,7 +572,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/15.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -585,7 +585,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 9.1</span>
-                            <h3 class="card__title"><a href="details.html">After Darkness</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">After Darkness</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Science Fiction</li>
@@ -596,7 +596,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/16.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -609,7 +609,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 9.0</span>
-                            <h3 class="card__title"><a href="details.html">I Still See You</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">I Still See You</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Horror</li>
@@ -620,7 +620,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/17.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -633,7 +633,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 8.5</span>
-                            <h3 class="card__title"><a href="details.html">The Midnight Man</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">The Midnight Man</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Thriller</li>
@@ -644,7 +644,7 @@
 
                     <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/18.png" alt="">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -657,7 +657,7 @@
                             <span class="card__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
                                 </svg> 9.3</span>
-                            <h3 class="card__title"><a href="details.html">The Dustwalker</a></h3>
+                            <h3 class="card__title"><a href="<?= base_url('movies'); ?>">The Dustwalker</a></h3>
                             <ul class="card__list">
                                 <li>Free</li>
                                 <li>Thriller</li>
@@ -690,7 +690,7 @@
                 <div class="section__carousel-wrap">
                     <div class="section__carousel owl-carousel" id="subscriptions">
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/11.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -700,14 +700,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Sports broadcasts</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Sports broadcasts</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 300 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/15.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -717,14 +717,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Psychological films</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Psychological films</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 200 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/3.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -734,14 +734,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Films about space</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Films about space</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 100 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/1.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -751,14 +751,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Romantic movies</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Romantic movies</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 300 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/18.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -768,14 +768,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Movies about the middle ages</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Movies about the middle ages</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 300 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/2.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -785,14 +785,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Fairy tales</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Fairy tales</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 100 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/17.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -802,14 +802,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Best Movies</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Best Movies</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 300 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/13.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -819,14 +819,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">The best melodramas</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">The best melodramas</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 400 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/10.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -836,14 +836,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Horror movies</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Horror movies</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 500 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/9.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -853,14 +853,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Russian TV Shows</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Russian TV Shows</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 300 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/14.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -870,14 +870,14 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Army films</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Army films</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 250 movies</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <a href="details.html" class="card__cover">
+                            <a href="<?= base_url('movies'); ?>" class="card__cover">
                                 <img src="<?= base_url() ?>/public/public_assets/img/card/12.png" alt="">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -887,7 +887,7 @@
                             <button class="card__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
                                 </svg></button>
-                            <h3 class="card__title card__title--subs"><a href="details.html">Cities of the world</a></h3>
+                            <h3 class="card__title card__title--subs"><a href="<?= base_url('movies'); ?>">Cities of the world</a></h3>
                             <ul class="card__list card__list--subs">
                                 <li>More than 500 movies</li>
                             </ul>
@@ -909,89 +909,6 @@
 </section>
 <!-- end subscriptions -->
 
-<!-- plan -->
-<section class="section section--pb0 section--gradient">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="section__title">Select Your Plan</h2>
-                <p class="section__text">No hidden fees, equipment rentals, or installation appointments.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6 col-xl-4 order-md-2 order-xl-1">
-                <div class="plan">
-                    <h3 class="plan__title">Regular</h3>
-                    <ul class="plan__list">
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> FlixTV Originals</li>
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> Switch plans or cancel anytime</li>
-                        <li class="red"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.596 1.59982L1.60938 17.5865" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M17.601 17.5961L1.60101 1.5928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> Stream 65+ top Live</li>
-                        <li class="red"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.596 1.59982L1.60938 17.5865" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M17.601 17.5961L1.60101 1.5928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> TV channels</li>
-                    </ul>
-                    <span class="plan__price">$11.99<span>/month</span></span>
-                    <button class="plan__btn" type="button">Select plan</button>
-                </div>
-            </div>
-
-            <div class="col-12 col-xl-4 order-md-1 order-xl-2">
-                <div class="plan plan--best">
-                    <h3 class="plan__title">Premium</h3>
-                    <ul class="plan__list">
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> FlixTV Originals</li>
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> Switch plans or cancel anytime</li>
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> Stream 65+ top Live</li>
-                        <li class="red"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.596 1.59982L1.60938 17.5865" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M17.601 17.5961L1.60101 1.5928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> TV channels</li>
-                    </ul>
-                    <span class="plan__price">$34.99<span>/month</span></span>
-                    <button class="plan__btn" type="button">Select plan</button>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4 order-md-3 order-xl-3">
-                <div class="plan">
-                    <h3 class="plan__title">Premium + TV channels</h3>
-                    <ul class="plan__list">
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> FlixTV Originals</li>
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> Switch plans or cancel anytime</li>
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> Stream 65+ top Live</li>
-                        <li class="green"><svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg> TV channels</li>
-                    </ul>
-                    <span class="plan__price">$49.99<span>/month</span></span>
-                    <button class="plan__btn" type="button">Select plan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end plan -->
 
 <!-- videos -->
 <section class="section">

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\Datatables;
+use App\Models\MLanding;
 use App\Models\MUsers;
 use App\Models\MUtils;
 use App\Models\MVideos;
@@ -64,11 +65,14 @@ class BaseController extends Controller
         $this->email = Services::email();
         $this->image = Services::image();
         $this->db = Database::connect();
-        
+
         //Model Load
         $this->users = new MUsers();
         $this->videos = new MVideos();
         $this->utils = new MUtils();
+        $this->landing = new MLanding();
+
+        //Libraries
         $this->datatables = new Datatables();
     }
 
