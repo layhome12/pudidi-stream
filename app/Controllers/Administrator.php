@@ -4,13 +4,12 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-use function PHPUnit\Framework\any;
-
 class Administrator extends BaseController
 {
     public function index()
     {
-        return view('administrator/dashboard/dashboard');
+        $data['cards'] = $this->utils->getCards();
+        return view('administrator/dashboard/dashboard', $data);
     }
 
     //Users

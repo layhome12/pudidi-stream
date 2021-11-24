@@ -13,7 +13,7 @@
                                     <div class="single_quick_activity d-flex justify-content-between">
                                         <div class="count_content">
                                             <p>Users</p>
-                                            <h3><span class="counter">35</span></h3>
+                                            <h3><span class="counter"><?= $cards['users']; ?></span></h3>
                                         </div>
                                         <div class="font-icon-dash">
                                             <i class="fa fa-users"></i>
@@ -23,7 +23,7 @@
                                     <div class="single_quick_activity d-flex justify-content-between">
                                         <div class="count_content">
                                             <p>Movies</p>
-                                            <h3><span class="counter">100</span></h3>
+                                            <h3><span class="counter"><?= $cards['movies']; ?></span></h3>
                                         </div>
                                         <div class="font-icon-dash">
                                             <i class="fa fa-film"></i>
@@ -33,7 +33,7 @@
                                     <div class="single_quick_activity d-flex justify-content-between">
                                         <div class="count_content">
                                             <p>Visitor</p>
-                                            <h3><span class="counter">35000</span></h3>
+                                            <h3><span class="counter">100</span></h3>
                                         </div>
                                         <div class="font-icon-dash">
                                             <i class="fa fa-globe-asia"></i>

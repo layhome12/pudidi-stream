@@ -244,8 +244,8 @@
                                         <h5><?= session()->get('user_nama'); ?></h5>
                                     </div>
                                     <div class="profile_info_details">
-                                        <a href="#">My Profile </a>
-                                        <a href="#">Settings</a>
+                                        <a href="#" onclick="setProfile(this)" data-uid="<?= session()->get('user_id'); ?>">My Profile </a>
+                                        <a href="<?= base_url('/administrator/admin_management') ?>">Settings</a>
                                         <a href="<?= base_url('/logout') ?>">Log Out </a>
                                     </div>
                                 </div>
@@ -276,7 +276,7 @@
         </div>
     </section>
 
-    <!-- ### CHAT_MESSAGE_BOX   ### -->
+    <!-- CHAT_MESSAGE_BOX  -->
 
     <div class="CHAT_MESSAGE_POPUPBOX">
         <div class="CHAT_POPUP_HEADER">
@@ -383,12 +383,35 @@
         </div>
     </div>
 
-    <!--/### CHAT_MESSAGE_BOX  ### -->
+    <!-- CHAT_MESSAGE_BOX -->
 
     <div id="back-top" style="display: none">
         <a title="Go to Top" href="#">
             <i class="ti-angle-up"></i>
         </a>
+    </div>
+
+    <!-- PROFILES -->
+    <div class="modal fade" id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <form action="<?= base_url('administrator/admin_management' . '_save') ?>" method="post" class="form-full" id="form-data-profile" onsubmit="return false" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-content-profile">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Libs JS -->
@@ -426,6 +449,54 @@
                     break;
             }
         }
+
+        function setProfile(t) {
+            $.LoadingOverlay('show');
+            $.post('<?= base_url('/administrator/admin_management' . '_form') ?>', {
+                'uid': t.getAttribute('data-uid')
+            }, function(result, textStatus, xhr) {
+                $.LoadingOverlay('hide');
+                $('#modal-content-profile').html(result);
+                $('#modal-profile').modal('show');
+            });
+        }
+
+        $('#form-data-profile').submit(
+            function() {
+                $.LoadingOverlay('show');
+                $.ajax({
+                    url: this.action,
+                    type: 'post',
+                    data: new FormData(this),
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    async: false,
+                    success: function(result, textStatus, xhr) {
+                        $.LoadingOverlay('hide');
+                        if (result.status > 0) {
+                            $('#modal-profile').modal('hide');
+                            Swal.fire({
+                                title: 'Success',
+                                text: result.msg,
+                                type: 'success'
+                            }).then(
+                                function() {
+                                    location.reload();
+                                }
+                            );
+                        } else {
+                            Swal.fire({
+                                title: 'Error',
+                                text: result.msg,
+                                type: 'error'
+                            });
+                        }
+                    }
+                });
+            }
+        );
     </script>
     <?= $this->renderSection('custom_js'); ?>
 </body>

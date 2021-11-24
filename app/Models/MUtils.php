@@ -42,4 +42,10 @@ class MUtils extends BaseModel
             ->countAllResults();
         return $i;
     }
+    public function getCards()
+    {
+        $i['users'] = $this->db->table('user')->where('user_level_id', 2)->countAllResults();
+        $i['movies'] = $this->db->table('video')->countAllResults();
+        return $i;
+    }
 }
