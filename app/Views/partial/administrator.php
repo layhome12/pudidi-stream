@@ -249,7 +249,7 @@
                                     </div>
                                     <div class="profile_info_details">
                                         <a href="#" onclick="setProfile(this)" data-uid="<?= session()->get('user_id'); ?>">My Profile </a>
-                                        <a href="<?= base_url('/administrator/admin_management') ?>">Settings</a>
+                                        <a href="<?= base_url() ?>">Landing Page</a>
                                         <a href="<?= base_url('/logout') ?>">Log Out </a>
                                     </div>
                                 </div>
