@@ -321,4 +321,67 @@ class Administrator extends BaseController
         $this->historyUser($m);
         $this->SuccessRespon('Data Berhasil Dihapus');
     }
+
+    //Movies Slide
+    public function video_slide()
+    {
+        return view('administrator/video_slide/video_slide');
+    }
+    public function video_slide_fetch()
+    {
+        $this->datatables->search([
+            'svid.video_slide_nama',
+            'vid.video_nama',
+            'vid.video_tahun',
+            'svid.video_slide_id'
+        ]);
+        $this->datatables->select('
+            svid.video_slide_nama,
+            vid.video_nama,
+            vid.video_tahun,
+            svid.video_slide_id
+        ');
+        $this->datatables->from('video_slide as svid');
+        $this->datatables->join('video as vid', 'vid.video_id=svid.video_id');
+        $m = $this->datatables->get();
+        foreach ($m as $key => $value) {
+            $button = '';
+            $button .= "<button onclick=\"dt_form(this)\" target-id=\"$value[video_slide_id]\" class=\"btn mr-1 btn-primary\"><i class=\"far fa-edit\"></i></button>";
+            $button .= "<button onclick=\"dt_del(this)\" target-id=\"$value[video_slide_id]\" class=\"btn btn-secondary\"><i class=\"fa fa-eraser\"></i></button>";
+            $m[$key]['video_slide_id'] = "<div class=\"tb-action\">$button</div>";
+        }
+        $this->datatables->render_no_keys($m);
+    }
+    public function video_slide_form()
+    {
+        $kvid = $this->input->getPost('kvid');
+        $data['slidevid'] = $this->videos->getVideoSlideForm($kvid);
+        return view('administrator/video_slide/video_slide_form', $data);
+    }
+    public function video_slide_save()
+    {
+        $input = $this->input->getPost();
+        $validate = $this->validate([
+            'rules' => 'mime_in[video_slide_img,image/jpg,image/jpeg,image/png]|max_size[video_slide_img,512]'
+        ]);
+        if (!$validate) $this->ErrorRespon('Format yang Didukung JPG, PNG, JPEG dan Max File 512 KB !');
+
+        $file = $this->input->getFile('video_slide_img');
+        if ($file->isValid()) {
+            $rname = $file->getRandomName();
+            $input['video_slide_img'] = $rname;
+            $this->image->withFile($file->getTempName())->save('public/video_slide_img/' . $rname, 50);
+        }
+
+        $m = $this->videos->videoSlideSave($input);
+        $this->historyUser($m);
+        $this->SuccessRespon('Data Berhasil Disimpan');
+    }
+    public function video_slide_del()
+    {
+        $svid = $this->input->getPost('svid');
+        $m = $this->videos->videoSlideDel($svid);
+        $this->historyUser($m);
+        $this->SuccessRespon('Data Berhasil Dihapus');
+    }
 }

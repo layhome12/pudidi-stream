@@ -87,6 +87,12 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
     $routes->add('video_form', 'Administrator::video_form');
     $routes->add('video_save', 'Administrator::video_save');
     $routes->add('video_del', 'Administrator::video_del');
+    //Slide Videos
+    $routes->add('video_slide', 'Administrator::video_slide');
+    $routes->add('video_slide_fetch', 'Administrator::video_slide_fetch');
+    $routes->add('video_slide_form', 'Administrator::video_slide_form');
+    $routes->add('video_slide_save', 'Administrator::video_slide_save');
+    $routes->add('video_slide_del', 'Administrator::video_slide_del');
 });
 
 /*

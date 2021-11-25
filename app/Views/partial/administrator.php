@@ -92,12 +92,16 @@
                 </a>
             </li>
             <li class="">
-                <a class="" href="<?= base_url('/administrator/video_kategori') ?>" aria-expanded="false">
+                <a class="has-arrow" href="#" aria-expanded="false">
                     <div class="icon_menu">
                         <i class="fa fa-film"></i>
                     </div>
                     <span>Movies</span>
                 </a>
+                <ul>
+                    <li><a href="<?= base_url('/administrator/video_kategori') ?>">Movies List</a></li>
+                    <li><a href="<?= base_url('/administrator/video_slide') ?>">Movies Slide</a></li>
+                </ul>
             </li>
             <li class="">
                 <a class="has-arrow" href="#" aria-expanded="false">
