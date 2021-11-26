@@ -6,3 +6,9 @@
 .text-center {
   text-align: center;
 }
+
+@media (max-width: 540px) {
+  .dm-none {
+    display: none;
+  }
+}

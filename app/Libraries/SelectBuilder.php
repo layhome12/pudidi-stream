@@ -3,6 +3,18 @@ namespace App\Libraries;
 
 class SelectBuilder {
 	
+	#=====================================#
+	#	     USE SELECT2 BUILDER		  #
+	#=====================================#
+	# new \App\Libraries\SelectBuilder([  #
+	#	'table' => 'tabel',				  #
+	#	'val_id' => 'tabel_id',           #
+	#	'val_text' => 'tabel_nama',       #
+	#	'id' => 'tabel_id',               #
+	#	'where' => ['status' => 1]        #
+	#	]);                               #
+	#=====================================#
+	
 	function __construct($data=[]) {
 		$str = '';
 		$db      = \Config\Database::connect();

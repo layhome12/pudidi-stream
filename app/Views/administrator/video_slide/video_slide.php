@@ -60,7 +60,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <form action="<?= base_url('administrator/video_slide' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">

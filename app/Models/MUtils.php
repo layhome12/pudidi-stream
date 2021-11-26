@@ -48,4 +48,14 @@ class MUtils extends BaseModel
         $i['movies'] = $this->db->table('video')->countAllResults();
         return $i;
     }
+    public function getSelect2($arr = [])
+    {
+        $keyword = $this->input->getGet('search');
+        $DB = $this->db->table($arr['table']);
+        $DB->select($arr['table'] . '_id as id,' . $arr['table'] . '_nama as text');
+        if ($keyword) $DB->like($arr['table'] . '_nama', $keyword);
+        $DB->where($arr['where']);
+        $data = $DB->get()->getResultArray();
+        $this->SuccessRespon('Data Berhasil Diambil', $data);
+    }
 }

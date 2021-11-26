@@ -93,7 +93,7 @@ $(document).ready(function () {
 		touchDrag: true,
 		dots: true,
 		loop: true,
-		autoplay: false,
+		autoplay: true,
 		smartSpeed: 600,
 		margin: 20,
 		autoHeight: true,

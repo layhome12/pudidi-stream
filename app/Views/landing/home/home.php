@@ -1,173 +1,34 @@
 <?= $this->extend('partial/landing'); ?>
 <?= $this->section('content'); ?>
-<!-- home -->
+
+<!-- Carousel -->
 <div class="home home--title">
     <div class="home__carousel owl-carousel" id="flixtv-hero">
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/1.jpg" alt="">
-            </a>
-            <div>
-                <h2>Money Plane</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Action</li>
-                    <li>2021</li>
-                </ul>
+        <?php foreach ($slider as $row) : ?>
+            <div class="home__card">
+                <a href="<?= base_url('movies'); ?>">
+                    <img src="<?= base_url('/public/video_slide_img') ?>/<?= img_check($row['video_slide_img']); ?>" alt="" style="width: 350px; height: 279px; object-fit: cover;">
+                </a>
+                <div>
+                    <h2><?= $row['video_nama']; ?></h2>
+                    <ul>
+                        <li><?= $row['video_kategori_nama']; ?></li>
+                        <li><?= $row['video_tahun']; ?></li>
+                    </ul>
+                </div>
+                <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
+                    </svg></button>
+                <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
+                    </svg> 9.1</span>
             </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 9.1</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/2.jpg" alt="">
-            </a>
-            <div>
-                <h2>The Art of Political</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Documentary</li>
-                    <li>2019</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 8.3</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/3.jpg" alt="">
-            </a>
-            <div>
-                <h2>Antebellum</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Horror</li>
-                    <li>2021</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 7.9</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/4.jpg" alt="">
-            </a>
-            <div>
-                <h2>Kids Next Door</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Documentary</li>
-                    <li>2017</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 8.4</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/5.jpg" alt="">
-            </a>
-            <div>
-                <h2>The Empty Man</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Horror</li>
-                    <li>2020</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 8.4</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/6.jpg" alt="">
-            </a>
-            <div>
-                <h2>Jungleland</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Documentary</li>
-                    <li>2020</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 9.1</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/7.jpg" alt="">
-            </a>
-            <div>
-                <h2>Bad Impulse</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>History</li>
-                    <li>2017</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 8.8</span>
-        </div>
-
-        <div class="home__card">
-            <a href="<?= base_url('movies'); ?>">
-                <img src="<?= base_url() ?>/public/public_assets/img/home/8.jpg" alt="">
-            </a>
-            <div>
-                <h2>Tenet</h2>
-                <ul>
-                    <li>Free</li>
-                    <li>Action</li>
-                    <li>2021</li>
-                </ul>
-            </div>
-            <button class="home__add" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z" />
-                </svg></button>
-            <span class="home__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                </svg> 7.6</span>
-        </div>
+        <?php endforeach; ?>
     </div>
 
     <button class="home__nav home__nav--prev" data-nav="#flixtv-hero" type="button"></button>
     <button class="home__nav home__nav--next" data-nav="#flixtv-hero" type="button"></button>
 </div>
-<!-- end home -->
 
 <!-- catalog -->
 <div class="catalog">
@@ -175,61 +36,31 @@
         <div class="row">
             <div class="col-12">
                 <div class="catalog__nav">
-                    <div class="catalog__select-wrap">
-                        <select class="catalog__select" name="genres">
-                            <option value="All genres">All genres</option>
-                            <option value="Action/Adventure">Action/Adventure</option>
-                            <option value="Animals">Animals</option>
-                            <option value="Animation">Animation</option>
-                            <option value="Biography">Biography</option>
-                            <option value="Comedy">Comedy</option>
-                            <option value="Cooking">Cooking</option>
-                            <option value="Dance">Dance</option>
-                            <option value="Documentary">Documentary</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Education">Education</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Family">Family</option>
-                            <option value="Fantasy">Fantasy</option>
-                            <option value="History">History</option>
-                            <option value="Horror">Horror</option>
-                            <option value="Independent">Independent</option>
-                            <option value="International">International</option>
-                            <option value="Kids & Family">Kids & Family</option>
-                            <option value="Medical">Medical</option>
-                            <option value="Military/War">Military/War</option>
-                            <option value="Music">Music</option>
-                            <option value="Mystery/Crime">Mystery/Crime</option>
-                            <option value="Nature">Nature</option>
-                            <option value="Paranormal">Paranormal</option>
-                            <option value="Politics">Politics</option>
-                            <option value="Racing">Racing</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Sci-Fi/Horror">Sci-Fi/Horror</option>
-                            <option value="Science">Science</option>
-                            <option value="Science Fiction">Science Fiction</option>
-                            <option value="Science/Nature">Science/Nature</option>
-                            <option value="Travel">Travel</option>
-                            <option value="Western">Western</option>
-                        </select>
+                    <div class="catalog__select-wrap dm-none">
+                        <div class="col-md-3 col-xs-6 p-0">
+                            <select class="sign__input select2" name="genres" style="width: 90%;">
+                                <option value="All genres">Semua Kategori</option>
+                                <option value="Action/Adventure">Action/Adventure</option>
+                                <option value="Animals">Animals</option>
+                                <option value="Animation">Animation</option>
+                            </select>
+                        </div>
 
-                        <select class="catalog__select" name="years" data-scroll='true'>
-                            <option value="All the years">All the years</option>
-                            <option value="1">'50s</option>
-                            <option value="2">'60s</option>
-                            <option value="3">'70s</option>
-                            <option value="4">'80s</option>
-                            <option value="5">'90s</option>
-                            <option value="6">2000-10</option>
-                            <option value="7">2010-20</option>
-                            <option value="8">2021</option>
-                        </select>
+                        <div class="col-md-3 col-xs-6 p-0">
+                            <select class="sign__input select2" name="years" style="width: 90%;">
+                                <option value="All the years">Semua Tahun</option>
+                                <option value="1">'50s</option>
+                                <option value="2">'60s</option>
+                                <option value="3">'70s</option>
+                                <option value="4">'80s</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="slider-radio">
-                        <input type="radio" name="grade" id="featured" checked="checked"><label for="featured">Featured</label>
-                        <input type="radio" name="grade" id="popular"><label for="popular">Popular</label>
-                        <input type="radio" name="grade" id="newest"><label for="newest">Newest</label>
+                    <div class="slider-radio justify-content-center">
+                        <input type="radio" name="grade" id="featured" checked="checked"><label for="featured">Populer</label>
+                        <input type="radio" name="grade" id="popular"><label for="popular">Terbaru</label>
+                        <input type="radio" name="grade" id="newest"><label for="newest">Terbaik</label>
                     </div>
                 </div>
 
@@ -1016,3 +847,9 @@
 </section>
 <!-- end videos -->
 <?= $this->endSection() ?>
+
+<?= $this->section('custom_js'); ?>
+<script>
+    $('.select2').select2();
+</script>
+<?= $this->endSection(); ?>

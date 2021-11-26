@@ -343,6 +343,7 @@ class Administrator extends BaseController
         ');
         $this->datatables->from('video_slide as svid');
         $this->datatables->join('video as vid', 'vid.video_id=svid.video_id');
+        $this->datatables->order_by('vid.video_id', 'desc');
         $m = $this->datatables->get();
         foreach ($m as $key => $value) {
             $button = '';
@@ -354,8 +355,8 @@ class Administrator extends BaseController
     }
     public function video_slide_form()
     {
-        $kvid = $this->input->getPost('kvid');
-        $data['slidevid'] = $this->videos->getVideoSlideForm($kvid);
+        $svid = $this->input->getPost('svid');
+        $data['slidevid'] = $this->videos->getVideoSlideForm($svid);
         return view('administrator/video_slide/video_slide_form', $data);
     }
     public function video_slide_save()

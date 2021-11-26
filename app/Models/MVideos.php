@@ -4,6 +4,7 @@ namespace App\Models;
 
 class MVideos extends BaseModel
 {
+    //Kategori Video
     public function getKategoriForm($kvid)
     {
         $m = $this->db->table('video_kategori')
@@ -44,6 +45,8 @@ class MVideos extends BaseModel
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
         return $history;
     }
+
+    //Video
     public function getVideoForm($vid)
     {
         $m = $this->db->table('video')
@@ -98,5 +101,62 @@ class MVideos extends BaseModel
         $i = $this->db->affectedRows();
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
         return $history;
+    }
+
+    //Video Slider
+    public function getVideoSlideForm($vsid)
+    {
+        return $this->db->table('video_slide as vs')
+            ->select('vs.video_slide_nama, vs.video_slide_img, v.video_nama, v.video_id, vk.video_kategori_id, vs.video_slide_id')
+            ->join('video as v', 'vs.video_id=v.video_id')
+            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->where('vs.video_slide_id', $vsid)
+            ->get()->getRowArray();
+    }
+    public function videoSlideSave($data)
+    {
+        $id = $data['video_slide_id'];
+        unset($data['video_slide_id']);
+
+        if ($id) {
+            $data['updated_time'] = date('Y-m-d H:i:s');
+            $this->db->table('video_slide')
+                ->where('video_slide_id', $id)
+                ->set($data)
+                ->update();
+            $history = $this->historyCrud('update', ['table' => 'video_slide', 'id' => $id, 'data' => $data]);
+        } else {
+            $data['created_time'] = date('Y-m-d H:i:s');
+            $this->db->table('video_slide')
+                ->set($data)
+                ->insert();
+            $history = $this->historyCrud('insert', ['table' => 'video_slide', 'data' => $data]);
+        }
+
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+    public function videoSlideDel($id)
+    {
+        $this->db->table('video_slide')
+            ->where('video_slide_id', $id)
+            ->delete();
+        $history = $this->historyCrud('delete', ['table' => 'video_slide', 'id' => $id]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+
+    //Get Slider
+    public function getSlideVideo()
+    {
+        return $this->db->table('video_slide as vs')
+            ->select('vs.video_slide_img, v.video_nama, v.video_tahun, vk.video_kategori_nama')
+            ->join('video as v', 'v.video_id=vs.video_id')
+            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->where('v.is_draft', '0')
+            ->get()
+            ->getResultArray();
     }
 }
