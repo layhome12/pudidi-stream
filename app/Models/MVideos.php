@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use PhpParser\Node\Stmt\Break_;
+
 class MVideos extends BaseModel
 {
     //Kategori Video
@@ -19,12 +21,14 @@ class MVideos extends BaseModel
         unset($data['video_kategori_id']);
 
         if ($id) {
+            $data['updated_time'] = date('Y-m-d H:i:s');
             $this->db->table('video_kategori')
                 ->where('video_kategori_id', $id)
                 ->set($data)
                 ->update();
             $history = $this->historyCrud('update', ['table' => 'video_kategori', 'id' => $id, 'data' => $data]);
         } else {
+            $data['created_time'] = date('Y-m-d H:i:s');
             $this->db->table('video_kategori')
                 ->set($data)
                 ->insert();
@@ -60,6 +64,7 @@ class MVideos extends BaseModel
         $vid = $data['video_id'];
         unset($data['video_id']);
         if ($vid) {
+            $data['updated_time'] = date('Y-m-d H:i:s');
             $this->deleteFile(['table' => 'video', 'id' => $vid, 'file' => 'video_file', 'path' => 'video_file']);
             $this->db->table('video')
                 ->where('video_id', $vid)
@@ -67,6 +72,7 @@ class MVideos extends BaseModel
                 ->update();
             $history = $this->historyCrud('update', ['table' => 'video', 'id' => $vid, 'data' => $data]);
         } else {
+            $data['created_time'] = date('Y-m-d H:i:s');
             $this->db->table('video')
                 ->set($data)
                 ->insert();
@@ -81,6 +87,7 @@ class MVideos extends BaseModel
     {
         $vid = $data['video_id'];
         $data['is_draft'] = '0';
+        $data['updated_time'] = date('Y-m-d H:i:s');
         unset($data['video_id']);
         $this->db->table('video')
             ->where('video_id', $vid)
@@ -148,7 +155,7 @@ class MVideos extends BaseModel
         return $history;
     }
 
-    //Get Slider
+    //Get Tools
     public function getSlideVideo()
     {
         return $this->db->table('video_slide as vs')
@@ -158,5 +165,30 @@ class MVideos extends BaseModel
             ->where('v.is_draft', '0')
             ->get()
             ->getResultArray();
+    }
+    public function getListMovies($arr)
+    {
+        $DB = $this->db->table('video as v');
+        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, vk.video_kategori_nama, v.video_id');
+        $DB->join('video_kategori as vk', 'v.video_kategori_id=vk.video_kategori_id');
+        if (isset($arr['video_kategori_id'])) $DB->where('v.video_kategori_id', $arr['video_kategori_id']);
+        if (isset($arr['video_tahun'])) $DB->where('v.video_tahun', $arr['video_tahun']);
+
+        switch ($arr['ordering']) {
+            case '1':
+                $DB->orderBy('v.video_dilihat', 'desc');
+                break;
+            case '2':
+                $DB->orderBy('v.video_tahun', 'desc');
+                break;
+            case '3':
+                $DB->orderBy('v.video_rating', 'desc');
+                break;
+            default:
+                #code
+                break;
+        }
+        $data = $DB->get()->getResultArray();
+        return $data;
     }
 }

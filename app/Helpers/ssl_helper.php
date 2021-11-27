@@ -16,3 +16,19 @@ if (!function_exists('str_encrypt')) {
 		return $encrypted_string;
 	}
 }
+if (!function_exists('seo_url_encode')) {
+	function seo_url_encode($text, $id)
+	{
+		$eid = str_encrypt($id);
+		$seo = preg_replace('/[^\w]+/', '-', strtolower($text));
+		$seo .= "-eid-$eid";
+		return $seo;
+	}
+}
+if (!function_exists('seo_url_decode')) {
+	function seo_url_decode($text)
+	{
+		$eid = explode('-eid-', $text)[1];
+		return str_decrypt($eid);
+	}
+}

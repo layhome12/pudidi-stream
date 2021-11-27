@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/magnific-popup.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/plyr.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/main.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/skeleton/jquery.skeleton.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/custom.css">
 
     <!-- Favicons -->
@@ -240,6 +241,7 @@
     <script src="<?= base_url() ?>/public/public_assets/js/jquery.magnific-popup.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/plyr.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/main.js"></script>
+    <script src="<?= base_url() ?>/public/public_assets/skeleton/jquery.scheletrone.js"></script>
     <?= $this->renderSection('custom_js'); ?>
 </body>
 

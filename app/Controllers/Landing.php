@@ -8,7 +8,20 @@ class Landing extends BaseController
 {
     public function index()
     {
+        $data['kategori'] = $this->utils->getSelect2([
+            'table' => 'video_kategori',
+            'type' => 'array'
+        ]);
+        $data['tahun'] = $this->utils->getSelect2([
+            'table' => 'video',
+            'customize' => ['value' => 'video_tahun', 'text' => 'video_tahun'],
+            'where' => ['is_draft' => '0'],
+            'order_by' => ['field' => 'video_tahun', 'order' => 'desc'],
+            'group_by' => 'video_tahun',
+            'type' => 'array'
+        ]);
         $data['slider'] = $this->videos->getSlideVideo();
+        $data['list_movies'] = $this->videos->getListMovies(['ordering' => '1']);
         return view('landing/home/home', $data);
     }
     public function pencarian()

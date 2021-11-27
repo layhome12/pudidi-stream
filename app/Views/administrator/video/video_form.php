@@ -50,9 +50,19 @@
                 <span class="text-danger font-x-small mt-1">* Resolusi 192x270 px</span>
             </div>
             <div class="col-md-8">
-                <div class="form-group">
-                    <label for="video_nama">Nama Movies</label>
-                    <input type="text" class="form-control" name="video_nama" id="video_nama" value="<?= isset($vid['video_nama']) ? $vid['video_nama'] : '' ?>" required>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="video_nama">Nama Movies</label>
+                            <input type="text" class="form-control" name="video_nama" id="video_nama" value="<?= isset($vid['video_nama']) ? $vid['video_nama'] : '' ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="video_nama">Rating IMDb</label>
+                            <input type="text" class="form-control" name="video_rating" id="video_rating" value="<?= isset($vid['video_rating']) ? $vid['video_rating'] : '' ?>" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="subtitle_movies">Subtitle Movies</label>

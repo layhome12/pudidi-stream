@@ -17,6 +17,7 @@ class MUsers extends BaseModel
         $data['user_level_id'] = '2';
         $data['kode_otp'] = rand(111111, 999999);
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        $data['created_time'] = date('Y-m-d H:i:s');
         $this->db->table('user')->set($data)->insert();
         $i = $this->db->affectedRows();
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
@@ -49,7 +50,7 @@ class MUsers extends BaseModel
         $is_active = $uid['key'] == 'unblock' ? 1 : 2;
         $this->db->table('user')
             ->where('user_id', $uid['uid'])
-            ->set(['is_active' => $is_active])
+            ->set(['is_active' => $is_active, 'updated_time' => date('Y-m-d H:i:s')])
             ->update();
         $history = $this->historyCrud($uid['key'], ['table' => 'user', 'id' => $uid['uid']]);
         $i = $this->db->affectedRows();
@@ -70,6 +71,7 @@ class MUsers extends BaseModel
             } else {
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             }
+            $data['updated_time'] = date('Y-m-d H:i:s');
             $this->db->table('user')
                 ->where('user_id', $uid)
                 ->set($data)
@@ -77,6 +79,7 @@ class MUsers extends BaseModel
             $history = $this->historyCrud('update', ['table' => 'user', 'id' => $uid, 'data' => $data]);
         } else {
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            $data['created_time'] = date('Y-m-d H:i:s');
             $this->db->table('user')
                 ->set($data)
                 ->insert();

@@ -52,10 +52,24 @@ class MUtils extends BaseModel
     {
         $keyword = $this->input->getGet('search');
         $DB = $this->db->table($arr['table']);
-        $DB->select($arr['table'] . '_id as id,' . $arr['table'] . '_nama as text');
+
+        if (isset($arr['customize'])) $DB->select($arr['customize']['value'] . ' as id, ' . $arr['customize']['text'] . ' as text');
+        if (!isset($arr['customize'])) $DB->select($arr['table'] . '_id as id,' . $arr['table'] . '_nama as text');
+
         if ($keyword) $DB->like($arr['table'] . '_nama', $keyword);
-        $DB->where($arr['where']);
+        if (isset($arr['where'])) $DB->where($arr['where']);
+        if (isset($arr['order_by'])) $DB->orderBy($arr['order_by']['field'], $arr['order_by']['order']);
+        if (isset($arr['group_by'])) $DB->groupBy($arr['group_by']);
+
         $data = $DB->get()->getResultArray();
-        $this->SuccessRespon('Data Berhasil Diambil', $data);
+
+        switch ($arr['type']) {
+            case 'json':
+                $this->SuccessRespon('Data Berhasil Diambil', $data);
+                break;
+            case 'array':
+                return $data;
+                break;
+        }
     }
 }

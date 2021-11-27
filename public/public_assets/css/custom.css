@@ -6,6 +6,10 @@
 .text-center {
   text-align: center;
 }
+.card-movies {
+  height: 255px;
+  object-fit: cover;
+}
 
 @media (max-width: 540px) {
   .dm-none {
