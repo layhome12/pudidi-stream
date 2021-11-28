@@ -1,0 +1,47 @@
+ERROR - 2021-11-28 02:51:48 --> Unknown column 'rvid.review_video_nama' in 'field list'
+CRITICAL - 2021-11-28 02:51:48 --> Unknown column 'rvid.review_video_nama' in 'field list'
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Libraries\Datatables.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(413): App\Libraries\Datatables->get()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->video_review_fetch()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-11-28 02:52:02 --> Unknown column 'rvid.review_video_nama' in 'field list'
+CRITICAL - 2021-11-28 02:52:02 --> Unknown column 'rvid.review_video_nama' in 'field list'
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Libraries\Datatables.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(413): App\Libraries\Datatables->get()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->video_review_fetch()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-11-28 02:59:23 --> Unknown column 'vs.video_review_nama' in 'field list'
+CRITICAL - 2021-11-28 02:59:23 --> Unknown column 'vs.video_review_nama' in 'field list'
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Models\MVideos.php(166): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator.php(426): App\Models\MVideos->getVideoReviewForm()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Administrator->video_review_form()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-11-28 05:38:38 --> session_start(): A session had already been started - ignoring
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Filters\AdminAuthFilter.php(47): session_start()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Filters\Filters.php(196): App\Filters\AdminAuthFilter->after()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(427): CodeIgniter\Filters\Filters->run()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}

@@ -184,18 +184,23 @@
             <div class="col-12">
                 <div class="section__carousel-wrap">
                     <div class="section__interview owl-carousel" id="flixtv">
-                        <div class="interview">
-                            <a href="interview.html" class="interview__cover">
-                                <img src="<?= base_url() ?>/public/public_assets/img/interview/1.jpg" alt="">
-                                <span>
-                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0501 11.4669C13.3211 12.2529 11.3371 13.5829 10.3221 14.0099C10.1601 14.0779 9.74711 14.2219 9.65811 14.2239C9.46911 14.2299 9.28711 14.1239 9.19911 13.9539C9.16511 13.8879 9.06511 13.4569 9.03311 13.2649C8.93811 12.6809 8.88911 11.7739 8.89011 10.8619C8.88911 9.90489 8.94211 8.95489 9.04811 8.37689C9.07611 8.22089 9.15811 7.86189 9.18211 7.80389C9.22711 7.69589 9.30911 7.61089 9.40811 7.55789C9.48411 7.51689 9.57111 7.49489 9.65811 7.49789C9.74711 7.49989 10.1091 7.62689 10.2331 7.67589C11.2111 8.05589 13.2801 9.43389 14.0401 10.2439C14.1081 10.3169 14.2951 10.5129 14.3261 10.5529C14.3971 10.6429 14.4321 10.7519 14.4321 10.8619C14.4321 10.9639 14.4011 11.0679 14.3371 11.1549C14.3041 11.1999 14.1131 11.3999 14.0501 11.4669Z" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg> 5:33
-                                </span>
-                            </a>
-                            <h3 class="interview__title"><a href="interview.html">What Was Ben Affleck Planning for His Unmade 'Batman' Film?</a></h3>
-                        </div>
+                        <?php foreach ($video_review as $row) : ?>
+                            <div class="interview">
+                                <a href="<?= base_url('/reviews') . '/' . $row['video_review_seo'] ?>" class="interview__cover">
+                                    <img src="<?= base_url() ?>/public/video_review_img/<?= $row['video_review_img'] ?>" alt="" style="height: 237px; object-fit: cover;">
+                                    <span>
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1615 8.05308C13.1615 9.79908 11.7455 11.2141 9.9995 11.2141C8.2535 11.2141 6.8385 9.79908 6.8385 8.05308C6.8385 6.30608 8.2535 4.89108 9.9995 4.89108C11.7455 4.89108 13.1615 6.30608 13.1615 8.05308Z" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.998 15.3549C13.806 15.3549 17.289 12.6169 19.25 8.05289C17.289 3.48888 13.806 0.750885 9.998 0.750885H10.002C6.194 0.750885 2.711 3.48888 0.75 8.05289C2.711 12.6169 6.194 15.3549 10.002 15.3549H9.998Z" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <?= $row['video_review_dilihat']; ?>
+                                    </span>
+                                </a>
+                                <h3 class="interview__title">
+                                    <a href="<?= base_url('/reviews') . '/' . $row['video_review_seo'] ?>"><?= $row['video_review_nama']; ?></a>
+                                </h3>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <button class="section__nav section__nav--interview section__nav--prev" data-nav="#flixtv" type="button">

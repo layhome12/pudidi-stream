@@ -41,20 +41,18 @@ $routes->add('logout', 'Login::logout');
 
 //Search
 $routes->add('pencarian', 'Landing::pencarian');
-
 //Watch
 $routes->add('movies', 'Movies::index');
-
 //Order Filter
 $routes->add('kategori/(:any)', 'Kategori::index/$1');
 $routes->add('list/(:any)', 'ListMovies::index/$1');
-
 //Our Info
 $routes->add('tentang', 'OurInfo::tentang');
 $routes->add('kontak', 'OurInfo::kontak');
 $routes->add('kebijakan_privasi', 'OurInfo::kebijakan_privasi');
 $routes->add('donasi', 'OurInfo::donasi');
-
+//Movies
+$routes->add('movies/(:any)', 'Movies::index/$1');
 //Users
 $routes->add('users/(:any)', 'Users::index/$1', ['filter' => 'userfilt']);
 

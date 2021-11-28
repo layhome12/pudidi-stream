@@ -27,6 +27,7 @@ class Landing extends BaseController
         $data['slider'] = $this->videos->getSlideVideo();
         $data['list_movies'] = $this->videos->getListMovies(['ordering' => '1']);
         $data['rekomendasi'] = $this->videos->getListMovies(['ordering' => '3']);
+        $data['video_review'] = $this->videos->getVideoReview();
         return view('landing/home/home', $data);
     }
     public function pencarian()

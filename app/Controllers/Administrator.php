@@ -385,4 +385,73 @@ class Administrator extends BaseController
         $this->historyUser($m);
         $this->SuccessRespon('Data Berhasil Dihapus');
     }
+
+    //Review Movies
+    public function video_review()
+    {
+        return view('administrator/video_review/video_review');
+    }
+    public function video_review_fetch()
+    {
+        $this->datatables->search([
+            'rvid.video_review_nama',
+            'vid.video_nama',
+            'rvid.video_review_dilihat',
+            'rvid.is_public',
+            'rvid.video_review_id'
+        ]);
+        $this->datatables->select('
+           rvid.video_review_nama,
+           vid.video_nama,
+           rvid.video_review_dilihat,
+           rvid.is_public,
+           rvid.video_review_id
+        ');
+        $this->datatables->from('video_review as rvid');
+        $this->datatables->join('video as vid', 'vid.video_id=rvid.video_id');
+        $this->datatables->order_by('rvid.created_time', 'desc');
+        $m = $this->datatables->get();
+        foreach ($m as $key => $value) {
+            $button = '';
+            $button .= "<button onclick=\"dt_form(this)\" target-id=\"$value[video_review_id]\" class=\"btn mr-1 btn-primary\"><i class=\"far fa-edit\"></i></button>";
+            $button .= "<button onclick=\"dt_del(this)\" target-id=\"$value[video_review_id]\" class=\"btn btn-secondary\"><i class=\"fa fa-eraser\"></i></button>";
+            $m[$key]['video_review_id'] = "<div class=\"tb-action\">$button</div>";
+            $m[$key]['is_public'] = $value['is_public'] == 1 ? 'Publik' : 'Private';
+        }
+        $this->datatables->render_no_keys($m);
+    }
+    public function video_review_form()
+    {
+        $id = $this->input->getPost('rvid');
+        $data['review_vid'] = $this->videos->getVideoReviewForm($id);
+        return view('administrator/video_review/video_review_form', $data);
+    }
+    public function video_review_save()
+    {
+        $input = $this->input->getPost();
+        $validate = $this->validate([
+            'rules' => 'mime_in[video_review_img,image/jpg,image/jpeg,image/png]|max_size[video_review_img,512]'
+        ]);
+        if (!$validate) $this->ErrorRespon('Format yang Didukung JPG, PNG, JPEG dan Max File 512 KB !');
+
+        $file = $this->input->getFile('video_review_img');
+        if ($file->isValid()) {
+            $rname = $file->getRandomName();
+            $input['video_review_img'] = $rname;
+            $this->image->withFile($file->getTempName())->save('public/video_review_img/' . $rname, 50);
+        }
+        if (!isset($input['is_public'])) $input['is_public'] = '0';
+        $input['video_review_seo'] = url_title(strtolower($input['video_review_nama']));
+
+        $m = $this->videos->videoReviewSave($input);
+        $this->historyUser($m);
+        $this->SuccessRespon('Data Berhasil Disimpan');
+    }
+    public function video_review_del()
+    {
+        $svid = $this->input->getPost('rvid');
+        $m = $this->videos->videoReviewDel($svid);
+        $this->historyUser($m);
+        $this->SuccessRespon('Data Berhasil Dihapus');
+    }
 }

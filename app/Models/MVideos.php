@@ -155,6 +155,51 @@ class MVideos extends BaseModel
         return $history;
     }
 
+    //Video Review
+    public function getVideoReviewForm($id)
+    {
+        return $this->db->table('video_review as vr')
+            ->select('vr.video_review_nama, vr.video_review_img, vr.video_review_isi, vr.is_public, v.video_nama, v.video_id, vk.video_kategori_id, vr.video_review_id')
+            ->join('video as v', 'vr.video_id=v.video_id')
+            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->where('vr.video_review_id', $id)
+            ->get()->getRowArray();
+    }
+    public function videoReviewSave($data)
+    {
+        $id = $data['video_review_id'];
+        unset($data['video_review_id']);
+
+        if ($id) {
+            $data['updated_time'] = date('Y-m-d H:i:s');
+            $this->db->table('video_review')
+                ->where('video_review_id', $id)
+                ->set($data)
+                ->update();
+            $history = $this->historyCrud('update', ['table' => 'video_review', 'id' => $id, 'data' => $data]);
+        } else {
+            $data['created_time'] = date('Y-m-d H:i:s');
+            $this->db->table('video_review')
+                ->set($data)
+                ->insert();
+            $history = $this->historyCrud('insert', ['table' => 'video_review', 'data' => $data]);
+        }
+
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+    public function videoReviewDel($id)
+    {
+        $this->db->table('video_review')
+            ->where('video_review_id', $id)
+            ->delete();
+        $history = $this->historyCrud('delete', ['table' => 'video_review', 'id' => $id]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+
     //Get Tools
     public function getSlideVideo()
     {
@@ -163,6 +208,8 @@ class MVideos extends BaseModel
             ->join('video as v', 'v.video_id=vs.video_id')
             ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
             ->where('v.is_draft', '0')
+            ->orderBy('v.video_dilihat', 'desc')
+            ->limit('5')
             ->get()
             ->getResultArray();
     }
@@ -198,5 +245,15 @@ class MVideos extends BaseModel
 
         $data = $DB->get()->getResultArray();
         return $data;
+    }
+    public function getVideoReview()
+    {
+        return $this->db->table('video_review')
+            ->select('video_review_nama, video_review_seo, video_review_img, video_review_dilihat')
+            ->where('is_public', '1')
+            ->orderBy('created_time', 'desc')
+            ->limit('5')
+            ->get()
+            ->getResultArray();
     }
 }
