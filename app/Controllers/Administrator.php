@@ -223,6 +223,7 @@ class Administrator extends BaseController
             'v.video_nama',
             'v.video_tahun',
             'v.video_deskripsi',
+            'v.video_dilihat',
             'v.video_id'
         ]);
         $this->datatables->select('
@@ -230,6 +231,7 @@ class Administrator extends BaseController
             c.country_nama,
             v.video_tahun,
             v.video_deskripsi,
+            v.video_dilihat,
             v.is_draft,
             v.video_id
         ');

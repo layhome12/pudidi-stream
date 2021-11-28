@@ -40,6 +40,7 @@
                                             <th scope="col">Negara Movies</th>
                                             <th scope="col">Tahun Movies</th>
                                             <th scope="col">Deskripsi</th>
+                                            <th scope="col">Dilihat</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>

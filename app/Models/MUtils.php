@@ -49,6 +49,15 @@ class MUtils extends BaseModel
             ->countAllResults();
         return $i;
     }
+    public function getShowItem($arr = [])
+    {
+        $m = $this->db->table($arr['table'])
+            ->select($arr['select'])
+            ->where($arr['where'])
+            ->get()
+            ->getRowArray();
+        return $m;
+    }
     public function getCards()
     {
         $i['users'] = $this->db->table('user')->where('user_level_id', 2)->countAllResults();

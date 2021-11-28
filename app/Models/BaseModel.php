@@ -103,4 +103,37 @@ class BaseModel extends Model
             unlink($path);
         }
     }
+    public function videoShowLog($id)
+    {
+        $uid = $this->session->get('user_id');
+        if ($uid) {
+            $m = $this->db->table('history_dilihat')
+                ->select('history_dilihat_id')
+                ->like('created_time', date('Y-m-d'))
+                ->where('user_id', $uid)
+                ->where('video_id', $id)
+                ->get()->getRowArray();
+
+            if (isset($m['history_dilihat_id'])) {
+                $this->db->table('history_dilihat')
+                    ->where('history_dilihat_id', $m['history_dilihat_id'])
+                    ->set(['created_time' => date('Y-m-d H:i:s')])
+                    ->update();
+            } else {
+                $this->db->table('history_dilihat')->set([
+                    'user_id' => $uid,
+                    'video_id' => $id,
+                    'created_time' => date('Y-m-d')
+                ])->insert();
+            }
+        }
+        $i = $this->db->table('video')
+            ->select('video_dilihat')
+            ->where('video_id', $id)
+            ->get()
+            ->getRowArray()['video_dilihat'];
+        $this->db->table('video')->where('video_id', $id)->set([
+            'video_dilihat' => (int) $i + 1
+        ])->update();
+    }
 }

@@ -13,6 +13,16 @@
 .font-s15px {
   font-size: 15px;
 }
+.plyr {
+  border-radius: 15px !important;
+}
+.plyr--video {
+  /* background: #fff !important; */
+}
+.plyr__video-wrapper {
+  /* background: #fff !important; */
+  border-radius: 12px !important;
+}
 
 @media (min-width: 768px) {
   .section {

@@ -208,7 +208,7 @@ class MVideos extends BaseModel
             ->join('video as v', 'v.video_id=vs.video_id')
             ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
             ->where('v.is_draft', '0')
-            ->orderBy('v.video_dilihat', 'desc')
+            ->orderBy('v.created_time', 'desc')
             ->limit('5')
             ->get()
             ->getResultArray();
@@ -255,5 +255,17 @@ class MVideos extends BaseModel
             ->limit('5')
             ->get()
             ->getResultArray();
+    }
+    public function getVideoByID($id)
+    {
+        if (!$id) $this->ErrorRespon('Film Tidak Ditemukan !');
+        $this->videoShowLog($id);
+        $m = $this->db->table('video as v')
+            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vk.video_kategori_nama, vk.video_kategori_img')
+            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->where('video_id', $id)
+            ->get()
+            ->getRowArray();
+        return $m;
     }
 }
