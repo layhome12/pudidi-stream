@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/plyr.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/main.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/skeleton/jquery.skeleton.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/custom.css">
 
     <!-- Favicons -->
@@ -110,12 +111,12 @@
                             <?php if (session()->get('user_id')) : ?>
                                 <a href="<?= base_url('/users/' . str_encrypt(session()->get('user_id'))) ?>" class="header__user">
                                     <span><?= nickname(session()->get('user_nama')); ?></span>
-                                    <i class="fa fa-user"></i>
+                                    <i class="far fa-user"></i>
                                 </a>
                             <?php else : ?>
                                 <a href="<?= base_url() ?>/login" class="header__user">
                                     <span>Sign in</span>
-                                    <i class="fa fa-users"></i>
+                                    <i class="fa fa-sign-in-alt"></i>
                                 </a>
                             <?php endif; ?>
                         </div>

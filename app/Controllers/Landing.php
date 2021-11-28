@@ -20,8 +20,13 @@ class Landing extends BaseController
             'group_by' => 'video_tahun',
             'type' => 'array'
         ]);
+        $data['total_movies'] = $this->utils->countData([
+            'table' => 'video',
+            'where' => ['is_draft' => '0']
+        ]);
         $data['slider'] = $this->videos->getSlideVideo();
         $data['list_movies'] = $this->videos->getListMovies(['ordering' => '1']);
+        $data['rekomendasi'] = $this->videos->getListMovies(['ordering' => '3']);
         return view('landing/home/home', $data);
     }
     public function pencarian()

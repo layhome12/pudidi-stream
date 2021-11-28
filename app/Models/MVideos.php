@@ -159,7 +159,7 @@ class MVideos extends BaseModel
     public function getSlideVideo()
     {
         return $this->db->table('video_slide as vs')
-            ->select('vs.video_slide_img, v.video_nama, v.video_tahun, vk.video_kategori_nama')
+            ->select('vs.video_slide_img, v.video_nama, v.video_tahun, vk.video_kategori_nama, v.video_id')
             ->join('video as v', 'v.video_id=vs.video_id')
             ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
             ->where('v.is_draft', '0')
@@ -169,7 +169,7 @@ class MVideos extends BaseModel
     public function getListMovies($arr)
     {
         $DB = $this->db->table('video as v');
-        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, vk.video_kategori_nama, v.video_id');
+        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vk.video_kategori_nama, v.video_id');
         $DB->join('video_kategori as vk', 'v.video_kategori_id=vk.video_kategori_id');
         if (isset($arr['video_kategori_id'])) $DB->where('v.video_kategori_id', $arr['video_kategori_id']);
         if (isset($arr['video_tahun'])) $DB->where('v.video_tahun', $arr['video_tahun']);
@@ -188,6 +188,14 @@ class MVideos extends BaseModel
                 #code
                 break;
         }
+
+        if (isset($arr['pagination'])) {
+            $dari = 12 * (int) $arr['pagination'];
+            $DB->limit('12', $dari);
+        } else {
+            $DB->limit('12', 0);
+        }
+
         $data = $DB->get()->getResultArray();
         return $data;
     }

@@ -10,6 +10,15 @@
   height: 255px;
   object-fit: cover;
 }
+.font-s15px {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 50px 0 !important;
+  }
+}
 
 @media (max-width: 540px) {
   .dm-none {

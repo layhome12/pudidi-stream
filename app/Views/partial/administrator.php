@@ -94,6 +94,17 @@
             <li class="">
                 <a class="has-arrow" href="#" aria-expanded="false">
                     <div class="icon_menu">
+                        <i class="far fa-newspaper"></i>
+                    </div>
+                    <span>Artikel</span>
+                </a>
+                <ul>
+                    <li><a href="<?= base_url('/administrator/video_review') ?>">Review Movies</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <div class="icon_menu">
                         <i class="fa fa-film"></i>
                     </div>
                     <span>Movies</span>
@@ -113,6 +124,9 @@
                 <ul>
                     <li><a href="<?= base_url('/administrator/admin_management') ?>">Admin Management</a></li>
                     <li><a href="<?= base_url('/administrator/users_management') ?>">Users Management</a></li>
+                    <li><a href="<?= base_url('/administrator/info_management') ?>">Identitas Website</a></li>
+                    <li><a href="<?= base_url('/administrator/menu_management') ?>">Menu Landing</a></li>
+                    <li><a href="<?= base_url('/administrator/pages_management') ?>">Pages Landing</a></li>
                 </ul>
             </li>
         </ul>

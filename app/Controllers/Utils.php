@@ -26,4 +26,13 @@ class Utils extends BaseController
         $data['list_movies'] = $this->videos->getListMovies($input);
         return view('landing/utils/listmovies', $data);
     }
+    public function get_count_data()
+    {
+        $input = $this->input->getPost();
+        $m = $this->utils->countData([
+            'table' => 'video',
+            'where' => array_filter($input)
+        ]);
+        $this->SuccessRespon('Data Berhasil Diambil', ['amount' => $m]);
+    }
 }

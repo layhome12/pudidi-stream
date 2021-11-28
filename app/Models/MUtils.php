@@ -35,6 +35,13 @@ class MUtils extends BaseModel
         $log['created_time'] = date('Y-m-d H:i:s');
         $this->db->table('history_user')->set($log)->insert();
     }
+    public function countData($set = [])
+    {
+        $i = $this->db->table($set['table'])
+            ->where($set['where'])
+            ->countAllResults();
+        return $i;
+    }
     public function countChild($set = [])
     {
         $i = $this->db->table($set['table'])
