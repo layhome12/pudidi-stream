@@ -240,7 +240,7 @@ class MVideos extends BaseModel
             $dari = 12 * (int) $arr['pagination'];
             $DB->limit('12', $dari);
         } else {
-            $DB->limit('12', 0);
+            isset($arr['limit']) ? $DB->limit($arr['limit'], 0) : $DB->limit('12', 0);
         }
 
         $data = $DB->get()->getResultArray();
@@ -261,7 +261,7 @@ class MVideos extends BaseModel
         if (!$id) $this->ErrorRespon('Film Tidak Ditemukan !');
         $this->videoShowLog($id);
         $m = $this->db->table('video as v')
-            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vk.video_kategori_nama, vk.video_kategori_img')
+            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vk.video_kategori_nama, vk.video_kategori_img, v.video_genre')
             ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
             ->where('video_id', $id)
             ->get()

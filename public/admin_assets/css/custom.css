@@ -95,3 +95,13 @@ textarea.form-control {
 .box-player {
   border-radius: 12px;
 }
+.custom-file-label::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f07b" !important;
+  height: calc(1.8em + 0.65rem + 2px) !important;
+  line-height: 1.8 !important;
+}
+.custom-file-label{
+  height: calc(1.8em + 0.8rem + 2px) !important;
+  line-height: 1.8 !important;
+}

@@ -34,4 +34,11 @@
   .dm-none {
     display: none;
   }
+  .section--details-bg {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+  .article__actions {
+    justify-content: space-around;
+  }
 }

@@ -64,21 +64,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="subtitle_movies">Subtitle Movies</label>
-                    <div class="custom-file">
-                        <input type="file" name="video_subtitle" class="custom-file-input" id="subtitle_movies" accept=".vtt">
-                        <label class="custom-file-label" for="subtitle_movies"><?= isset($vid['video_subtitle']) ? $vid['video_subtitle'] : 'Pilih Subtitle'; ?></label>
-                    </div>
-                </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="form-group">
-                            <label for="video_tahun">Tahun Movies</label>
+                            <label for="subtitle_movies">Subtitle Movies</label>
+                            <div class="custom-file">
+                                <input type="file" name="video_subtitle" class="custom-file-input" id="subtitle_movies" accept=".vtt">
+                                <label class="custom-file-label" for="subtitle_movies"><?= isset($vid['video_subtitle']) ? $vid['video_subtitle'] : 'Pilih Subtitle'; ?></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="video_tahun">Tahun</label>
                             <input type="text" class="form-control date-picker" name="video_tahun" value="<?= isset($vid['video_tahun']) ? $vid['video_tahun'] : '' ?>" id="video_tahun" data-language="en" data-min-view="years" data-view="years" data-date-format="yyyy" readonly required>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <label for="country">Genre</label>
+                        <select class="form-control select2" name="video_genre[]" multiple="multiple" style="width: 100%;" required>
+                            <?php new \App\Libraries\SelectBuilder([
+                                'table' => 'video_genre',
+                                'val_id' => 'video_genre_id',
+                                'val_text' => 'video_genre_nama',
+                                'id' => isset($vid['video_genre']) ? json_decode($vid['video_genre']) : []
+                            ]); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
                         <div class="form-group">
                             <label for="country">Negara Movies</label>
                             <select class="form-control select2" name="country_id" id="country" style="width: 100%;">

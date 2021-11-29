@@ -65,7 +65,7 @@
     padding: 0;
     max-width: 100%;
     resize: none;
-    height: 18px;
+    height: 26px;
     vertical-align: bottom;
     font-family: sans-serif;
     overflow: hidden;
@@ -339,7 +339,7 @@
 }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-    border: solid black 1px;
+    border: solid #a2a2a2 1px;
     outline: 0
 }
 

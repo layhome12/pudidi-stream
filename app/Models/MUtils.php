@@ -88,4 +88,18 @@ class MUtils extends BaseModel
                 break;
         }
     }
+    public function getGenre($jse)
+    {
+        $data = [];
+        $jsd = json_decode($jse) ? json_decode($jse) : [];
+        foreach ($jsd as $id) {
+            $m = $this->db->table('video_genre')
+                ->select('video_genre_id, video_genre_nama')
+                ->where('video_genre_id', $id)
+                ->get()
+                ->getRowArray();
+            $data[] = $m;
+        }
+        return $data;
+    }
 }

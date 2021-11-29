@@ -22,3 +22,10 @@ if (!function_exists('nickname')) {
         return $nickname;
     }
 }
+if (!function_exists('seo_url')) {
+    function seo_url($text)
+    {
+        $seo = url_title(strtolower($text));
+        return $seo;
+    }
+}

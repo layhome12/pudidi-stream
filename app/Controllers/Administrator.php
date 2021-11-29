@@ -292,6 +292,7 @@ class Administrator extends BaseController
     public function video_save()
     {
         $input = $this->input->getPost();
+        $input['video_genre'] = json_encode($input['video_genre']);
         $validate = $this->validate([
             'rules' => 'mime_in[video_thumbnail,image/jpg,image/jpeg,image/png]|max_size[video_thumbnail,512]'
         ]);
