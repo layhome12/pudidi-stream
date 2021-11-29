@@ -52,13 +52,13 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Settings</a>
                         </li>
+                        <?php if (session()->get('user_level_id') == 1) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('administrator'); ?>">A-Panel</a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                     <!-- end tabs nav -->
-                    <?php if (session()->get('user_level_id') == 1) : ?>
-                        <a href="<?= base_url('administrator'); ?>" class="profile__logout mr-2">
-                            <span>Admin Panel</span>
-                        </a>
-                    <?php endif; ?>
                     <a href="<?= base_url('logout'); ?>" class="profile__logout">
                         <span>Sign out</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

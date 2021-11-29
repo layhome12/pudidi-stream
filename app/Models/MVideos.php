@@ -200,6 +200,29 @@ class MVideos extends BaseModel
         return $history;
     }
 
+    //Get Video Comments
+    public function getVideoComment($id)
+    {
+        return $this->db->table('video_komentar as vk')
+            ->select('vk.video_komentar, vk.created_time, u.user_nama, u.user_img')
+            ->join('user as u', 'u.user_id=vk.user_id')
+            ->where('video_id', $id)
+            ->orderBy('created_time', 'asc')
+            ->get()
+            ->getResultArray();
+    }
+    public function videoCommentSave($data)
+    {
+        $data['video_id'] = str_decrypt($data['video_key']);
+        $data['created_time'] = date('Y-m-d H:i:s');
+        unset($data['video_key']);
+        $this->db->table('video_komentar')
+            ->set($data)
+            ->insert();
+        $history = $this->historyCrud('insert', ['table' => 'video_komentar', 'data' => $data]);
+        return $history;
+    }
+
     //Get Tools
     public function getSlideVideo()
     {

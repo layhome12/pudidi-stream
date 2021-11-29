@@ -53,6 +53,8 @@ $routes->add('kebijakan_privasi', 'OurInfo::kebijakan_privasi');
 $routes->add('donasi', 'OurInfo::donasi');
 //Movies
 $routes->add('movies/(:any)', 'Movies::index/$1');
+$routes->add('movies_comment', 'Movies::get_comments');
+$routes->add('comment_save', 'Movies::comments_save');
 //Users
 $routes->add('users/(:any)', 'Users::index/$1', ['filter' => 'userfilt']);
 

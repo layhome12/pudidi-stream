@@ -3996,6 +3996,8 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 10px;
 }
 .comments__name {

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/plyr.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/main.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/skeleton/jquery.skeleton.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/toastr.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/custom.css">
 
@@ -243,6 +244,7 @@
     <script src="<?= base_url() ?>/public/public_assets/js/plyr.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/main.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/skeleton/jquery.scheletrone.js"></script>
+    <script src="<?= base_url() ?>/public/public_assets/js/toastr.min.js"></script>
     <?= $this->renderSection('custom_js'); ?>
 </body>
 
