@@ -3,15 +3,15 @@
 
  Source Server         : mysql_pc
  Source Server Type    : MySQL
- Source Server Version : 50729
+ Source Server Version : 50647
  Source Host           : localhost:3306
  Source Schema         : pudidi_stream
 
  Target Server Type    : MySQL
- Target Server Version : 50729
+ Target Server Version : 50647
  File Encoding         : 65001
 
- Date: 25/11/2021 22:29:05
+ Date: 01/12/2021 18:18:08
 */
 
 SET NAMES utf8mb4;
@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country`  (
   `country_id` int(11) NOT NULL AUTO_INCREMENT,
   `country_nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`country_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of country
@@ -46,11 +46,29 @@ CREATE TABLE `history_dilihat`  (
   `history_dilihat_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NULL DEFAULT NULL,
   `video_id` int(11) NULL DEFAULT NULL,
-  `history_dilihat` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`history_dilihat_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of history_dilihat
+-- ----------------------------
+INSERT INTO `history_dilihat` VALUES (3, 1, 25, '2021-11-28 20:45:03', NULL);
+INSERT INTO `history_dilihat` VALUES (4, 1, 30, '2021-11-28 20:44:22', NULL);
+INSERT INTO `history_dilihat` VALUES (5, 1, 27, '2021-11-28 20:45:57', NULL);
+INSERT INTO `history_dilihat` VALUES (6, 1, 32, '2021-11-28 21:02:36', NULL);
+INSERT INTO `history_dilihat` VALUES (7, 1, 26, '2021-11-28 18:05:39', NULL);
+INSERT INTO `history_dilihat` VALUES (8, 1, 28, '2021-11-28 21:11:04', NULL);
+INSERT INTO `history_dilihat` VALUES (9, 1, 31, '2021-11-28 21:18:45', NULL);
+INSERT INTO `history_dilihat` VALUES (10, 1, 29, '2021-11-28 00:00:00', NULL);
+INSERT INTO `history_dilihat` VALUES (11, 1, 27, '2021-11-29 09:26:41', NULL);
+INSERT INTO `history_dilihat` VALUES (12, 26, 32, '2021-11-29 09:41:24', NULL);
+INSERT INTO `history_dilihat` VALUES (13, 1, 32, '2021-11-29 09:33:36', NULL);
+INSERT INTO `history_dilihat` VALUES (14, 26, 29, '2021-11-29 00:00:00', NULL);
+INSERT INTO `history_dilihat` VALUES (15, 26, 31, '2021-11-29 00:00:00', NULL);
+INSERT INTO `history_dilihat` VALUES (16, 26, 26, '2021-11-29 00:00:00', NULL);
+INSERT INTO `history_dilihat` VALUES (17, 26, 27, '2021-11-30 00:00:00', NULL);
 
 -- ----------------------------
 -- Table structure for history_user
@@ -66,7 +84,7 @@ CREATE TABLE `history_user`  (
   `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`history_user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 198 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 331 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of history_user
@@ -210,6 +228,139 @@ INSERT INTO `history_user` VALUES (194, 1, 1, 'fa fa-plus', 'Insert', 'INSERT IN
 INSERT INTO `history_user` VALUES (195, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `user` SET `user_nama` = \'Pudidi S\', `user_tgl_lahir` = \'2021-11-02\', `country_id` = \'1\', `email` = \'pudidi@gmail.com\', `is_active` = \'1\', `user_level_id` = \'1\', `kode_otp` = 634934\nWHERE `user_id` = \'27\'', '2021-11-25 08:44:01', NULL);
 INSERT INTO `history_user` VALUES (196, 1, 1, 'fa fa-delete', 'Delete', 'DELETE FROM `user`\nWHERE `user_id` = \'27\'', '2021-11-25 08:44:11', NULL);
 INSERT INTO `history_user` VALUES (197, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-25 09:28:41', '2021-11-25 09:28:41', NULL);
+INSERT INTO `history_user` VALUES (198, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-25 17:57:51', '2021-11-25 17:57:51', NULL);
+INSERT INTO `history_user` VALUES (199, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-25 18:06:57', '2021-11-25 18:06:57', NULL);
+INSERT INTO `history_user` VALUES (200, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-26 05:49:14', '2021-11-26 05:49:14', NULL);
+INSERT INTO `history_user` VALUES (201, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_slide` (`video_slide_nama`, `video_id`, `video_slide_img`) VALUES (\'Japanese\', \'25\', \'1637936312_fa9fd44377ad7d77b885.png\')', '2021-11-26 08:18:33', NULL);
+INSERT INTO `history_user` VALUES (202, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Japanese Festival\', `video_id` = \'25\'\nWHERE `video_slide_id` = \'3\'', '2021-11-26 08:20:19', NULL);
+INSERT INTO `history_user` VALUES (203, 1, 1, 'fa fa-delete', 'Delete', 'DELETE FROM `video_slide`\nWHERE `video_slide_id` = \'2\'', '2021-11-26 08:25:04', NULL);
+INSERT INTO `history_user` VALUES (204, 1, 1, 'fa fa-delete', 'Delete', 'DELETE FROM `video_slide`\nWHERE `video_slide_id` = \'3\'', '2021-11-26 08:25:12', NULL);
+INSERT INTO `history_user` VALUES (205, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_slide` (`video_slide_nama`, `video_id`, `video_slide_img`, `created_time`) VALUES (\'Japanese Festival\', \'26\', \'1637936731_a87aa06f7660e23aed8b.png\', \'2021-11-26 08:25:31\')', '2021-11-26 08:25:31', NULL);
+INSERT INTO `history_user` VALUES (206, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Hasune Mitsu\', `video_id` = \'26\', `updated_time` = \'2021-11-26 08:25:43\'\nWHERE `video_slide_id` = \'4\'', '2021-11-26 08:25:43', NULL);
+INSERT INTO `history_user` VALUES (207, 1, 1, 'fa fa-delete', 'Delete', 'DELETE FROM `video_slide`\nWHERE `video_slide_id` = \'4\'', '2021-11-26 08:25:59', NULL);
+INSERT INTO `history_user` VALUES (208, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_slide` (`video_slide_nama`, `video_id`, `video_slide_img`, `created_time`) VALUES (\'Hasune Mitsu\', \'26\', \'1637936777_c15f31eb3a19dd63c66c.png\', \'2021-11-26 08:26:17\')', '2021-11-26 08:26:17', NULL);
+INSERT INTO `history_user` VALUES (209, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_slide` (`video_slide_nama`, `video_id`, `video_slide_img`, `created_time`) VALUES (\'Bayu Skak\', \'27\', \'1637936807_543660f248038298f50a.png\', \'2021-11-26 08:26:47\')', '2021-11-26 08:26:47', NULL);
+INSERT INTO `history_user` VALUES (210, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_slide` (`video_slide_nama`, `video_id`, `video_slide_img`, `created_time`) VALUES (\'Colour Full\', \'31\', \'1637936850_4c8254e4b2dfb9d5375a.png\', \'2021-11-26 08:27:30\')', '2021-11-26 08:27:30', NULL);
+INSERT INTO `history_user` VALUES (211, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_slide` (`video_slide_nama`, `video_id`, `video_slide_img`, `created_time`) VALUES (\'Love Anime\', \'25\', \'1637938097_5238e51ff60c3dae57dc.jpg\', \'2021-11-26 08:48:17\')', '2021-11-26 08:48:17', NULL);
+INSERT INTO `history_user` VALUES (212, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-26 08:59:30', '2021-11-26 08:59:30', NULL);
+INSERT INTO `history_user` VALUES (213, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-26 09:21:14', '2021-11-26 09:21:14', NULL);
+INSERT INTO `history_user` VALUES (214, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-26 09:26:55', '2021-11-26 09:26:55', NULL);
+INSERT INTO `history_user` VALUES (215, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-26 17:26:15', '2021-11-26 17:26:15', NULL);
+INSERT INTO `history_user` VALUES (216, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-26 17:27:11', '2021-11-26 17:27:11', NULL);
+INSERT INTO `history_user` VALUES (217, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-27 06:03:27', '2021-11-27 06:03:27', NULL);
+INSERT INTO `history_user` VALUES (218, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'5\', `video_nama` = \'Kygo-Give me a sign\', `video_rating` = \'9.3\', `video_tahun` = \'2020\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\'\nWHERE `video_id` = \'31\'', '2021-11-27 06:11:33', NULL);
+INSERT INTO `history_user` VALUES (219, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'5\', `video_nama` = \'Tobu   Wholm\', `video_rating` = \'8.4\', `video_tahun` = \'2020\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\'\nWHERE `video_id` = \'30\'', '2021-11-27 06:12:00', NULL);
+INSERT INTO `history_user` VALUES (220, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'5\', `video_nama` = \'Tobu - Calling\', `video_rating` = \'9.3\', `video_tahun` = \'2020\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\'\nWHERE `video_id` = \'29\'', '2021-11-27 06:12:17', NULL);
+INSERT INTO `history_user` VALUES (221, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-27 06:12:55', '2021-11-27 06:12:55', NULL);
+INSERT INTO `history_user` VALUES (222, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-27 12:32:09', '2021-11-27 12:32:09', NULL);
+INSERT INTO `history_user` VALUES (223, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-27 12:56:34', '2021-11-27 12:56:34', NULL);
+INSERT INTO `history_user` VALUES (224, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-27 18:02:36', '2021-11-27 18:02:36', NULL);
+INSERT INTO `history_user` VALUES (225, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-27 18:04:22', '2021-11-27 18:04:22', NULL);
+INSERT INTO `history_user` VALUES (226, 26, 2, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-27 18:04:31', '2021-11-27 18:04:31', NULL);
+INSERT INTO `history_user` VALUES (227, 26, 2, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-27 18:04:43', '2021-11-27 18:04:43', NULL);
+INSERT INTO `history_user` VALUES (228, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-27 21:53:34', '2021-11-27 21:53:34', NULL);
+INSERT INTO `history_user` VALUES (229, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Hasune Mitsu\', `video_id` = \'26\', `video_slide_img` = \'1638071735_6cdbe1540b447e2f4cf2.jpg\', `updated_time` = \'2021-11-27 21:55:35\'\nWHERE `video_slide_id` = \'5\'', '2021-11-27 21:55:35', NULL);
+INSERT INTO `history_user` VALUES (230, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Bayu Skak\', `video_id` = \'27\', `video_slide_img` = \'1638071783_2a98608771eeb0bb4159.png\', `updated_time` = \'2021-11-27 21:56:23\'\nWHERE `video_slide_id` = \'6\'', '2021-11-27 21:56:23', NULL);
+INSERT INTO `history_user` VALUES (231, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Hatsune Miku - Levan Polka\', `video_rating` = \'7.4\', `video_tahun` = \'2020\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-27 22:05:11\'\nWHERE `video_id` = \'26\'', '2021-11-27 22:05:11', NULL);
+INSERT INTO `history_user` VALUES (232, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-27 22:07:16', '2021-11-27 22:07:16', NULL);
+INSERT INTO `history_user` VALUES (233, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-27 22:24:09', '2021-11-27 22:24:09', NULL);
+INSERT INTO `history_user` VALUES (234, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-27 22:35:33', '2021-11-27 22:35:33', NULL);
+INSERT INTO `history_user` VALUES (235, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 01:38:48', '2021-11-28 01:38:48', NULL);
+INSERT INTO `history_user` VALUES (236, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Color Full\', `video_id` = \'31\', `updated_time` = \'2021-11-28 02:34:57\'\nWHERE `video_slide_id` = \'7\'', '2021-11-28 02:34:57', NULL);
+INSERT INTO `history_user` VALUES (237, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Colour Full\', `video_id` = \'31\', `updated_time` = \'2021-11-28 02:35:06\'\nWHERE `video_slide_id` = \'7\'', '2021-11-28 02:35:06', NULL);
+INSERT INTO `history_user` VALUES (238, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Color Full\', `video_id` = \'31\', `updated_time` = \'2021-11-28 02:35:17\'\nWHERE `video_slide_id` = \'7\'', '2021-11-28 02:35:17', NULL);
+INSERT INTO `history_user` VALUES (239, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_slide` SET `video_slide_nama` = \'Colour Full\', `video_id` = \'31\', `updated_time` = \'2021-11-28 02:35:26\'\nWHERE `video_slide_id` = \'7\'', '2021-11-28 02:35:26', NULL);
+INSERT INTO `history_user` VALUES (240, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 05:29:23', '2021-11-28 05:29:23', NULL);
+INSERT INTO `history_user` VALUES (241, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 05:29:35', '2021-11-28 05:29:35', NULL);
+INSERT INTO `history_user` VALUES (242, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 05:33:09', '2021-11-28 05:33:09', NULL);
+INSERT INTO `history_user` VALUES (243, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 05:33:18', '2021-11-28 05:33:18', NULL);
+INSERT INTO `history_user` VALUES (244, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 05:38:20', '2021-11-28 05:38:20', NULL);
+INSERT INTO `history_user` VALUES (245, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 05:38:32', '2021-11-28 05:38:32', NULL);
+INSERT INTO `history_user` VALUES (246, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 05:40:57', '2021-11-28 05:40:57', NULL);
+INSERT INTO `history_user` VALUES (247, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 05:41:11', '2021-11-28 05:41:11', NULL);
+INSERT INTO `history_user` VALUES (248, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_review` (`video_review_nama`, `is_public`, `video_id`, `video_review_isi`, `video_review_img`, `video_review_seo`, `created_time`) VALUES (\'Review Video Test\', \'1\', \'25\', \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', \'1638100723_e8f90203c7fa229a7d82.jpg\', \'review-video-test\', \'2021-11-28 05:58:43\')', '2021-11-28 05:58:43', NULL);
+INSERT INTO `history_user` VALUES (249, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Review Video Test\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `video_review_seo` = \'review-video-test\', `updated_time` = \'2021-11-28 05:59:20\'\nWHERE `video_review_id` = \'2\'', '2021-11-28 05:59:21', NULL);
+INSERT INTO `history_user` VALUES (250, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Review Video Test\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `is_public` = 0, `video_review_seo` = \'review-video-test\', `updated_time` = \'2021-11-28 06:02:19\'\nWHERE `video_review_id` = \'2\'', '2021-11-28 06:02:19', NULL);
+INSERT INTO `history_user` VALUES (251, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Review Video Test\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `is_public` = \'0\', `video_review_seo` = \'review-video-test\', `updated_time` = \'2021-11-28 06:02:52\'\nWHERE `video_review_id` = \'2\'', '2021-11-28 06:02:52', NULL);
+INSERT INTO `history_user` VALUES (252, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Review Video\', `video_id` = \'25\', `video_review_isi` = \'<p>aaaaa</p>\\r\\n\', `is_public` = \'0\', `video_review_seo` = \'review-video\', `updated_time` = \'2021-11-28 06:08:30\'\nWHERE `video_review_id` = \'1\'', '2021-11-28 06:08:30', NULL);
+INSERT INTO `history_user` VALUES (253, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Review Video Test\', `is_public` = \'1\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `video_review_seo` = \'review-video-test\', `updated_time` = \'2021-11-28 06:08:36\'\nWHERE `video_review_id` = \'2\'', '2021-11-28 06:08:36', NULL);
+INSERT INTO `history_user` VALUES (254, 1, 1, 'fa fa-delete', 'Delete', 'DELETE FROM `video_review`\nWHERE `video_review_id` = \'1\'', '2021-11-28 06:09:55', NULL);
+INSERT INTO `history_user` VALUES (255, 1, 1, 'fa fa-delete', 'Delete', 'DELETE FROM `video_review`\nWHERE `video_review_id` = \'2\'', '2021-11-28 06:09:59', NULL);
+INSERT INTO `history_user` VALUES (256, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_review` (`video_review_nama`, `is_public`, `video_id`, `video_review_isi`, `video_review_img`, `video_review_seo`, `created_time`) VALUES (\'What Sayonara Arigatou ??\', \'1\', \'25\', \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', \'1638101469_466dbf6ad29cab380ae5.jpg\', \'what-sayonara-arigatou\', \'2021-11-28 06:11:10\')', '2021-11-28 06:11:10', NULL);
+INSERT INTO `history_user` VALUES (257, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'What Sayonara Arigatou Huh??\', `is_public` = \'1\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `video_review_seo` = \'what-sayonara-arigatou-huh\', `updated_time` = \'2021-11-28 06:11:45\'\nWHERE `video_review_id` = \'3\'', '2021-11-28 06:11:45', NULL);
+INSERT INTO `history_user` VALUES (258, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 06:11:54', '2021-11-28 06:11:54', NULL);
+INSERT INTO `history_user` VALUES (259, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 06:42:59', '2021-11-28 06:42:59', NULL);
+INSERT INTO `history_user` VALUES (260, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_review` (`video_review_nama`, `is_public`, `video_id`, `video_review_isi`, `video_review_img`, `video_review_seo`, `created_time`) VALUES (\'Yowes Ben Serialnya Apakah Berhenti?? Ask Movies !\', \'1\', \'27\', \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', \'1638103545_4b38b7a831e1c5498e5f.jpg\', \'yowes-ben-serialnya-apakah-berhenti-ask-movies\', \'2021-11-28 06:45:45\')', '2021-11-28 06:45:45', NULL);
+INSERT INTO `history_user` VALUES (261, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Yowes Ben Serialnya Apakah Berhenti ?? Ask Movies !\', `is_public` = \'1\', `video_id` = \'27\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `video_review_seo` = \'yowes-ben-serialnya-apakah-berhenti-ask-movies\', `updated_time` = \'2021-11-28 06:46:24\'\nWHERE `video_review_id` = \'4\'', '2021-11-28 06:46:25', NULL);
+INSERT INTO `history_user` VALUES (262, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Apa Maksued Dari Sayonara Arigatou ?? Ask Movies !\', `is_public` = \'1\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `video_review_seo` = \'apa-maksued-dari-sayonara-arigatou-ask-movies\', `updated_time` = \'2021-11-28 06:47:39\'\nWHERE `video_review_id` = \'3\'', '2021-11-28 06:47:39', NULL);
+INSERT INTO `history_user` VALUES (263, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Sayonara Arigatou\', `video_rating` = \'9.5\', `video_tahun` = \'2017\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 08:42:37\'\nWHERE `video_id` = \'25\'', '2021-11-28 08:42:37', NULL);
+INSERT INTO `history_user` VALUES (264, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video_review` SET `video_review_nama` = \'Apa Maksut Dari Sayonara Arigatou ?? Ask Movies !\', `is_public` = \'1\', `video_id` = \'25\', `video_review_isi` = \'<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\\r\\n\', `video_review_seo` = \'apa-maksut-dari-sayonara-arigatou-ask-movies\', `updated_time` = \'2021-11-28 09:04:21\'\nWHERE `video_review_id` = \'3\'', '2021-11-28 09:04:21', NULL);
+INSERT INTO `history_user` VALUES (265, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video` (`video_kategori_id`, `video_file`, `video_nama`, `created_time`) VALUES (\'3\', \'1638111924_a07f2054e28dc7e5d826.mp4\', \'videoplayback\', \'2021-11-28 09:05:28\')', '2021-11-28 09:05:28', NULL);
+INSERT INTO `history_user` VALUES (266, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Yousa - Japanese Version\', `video_rating` = \'9.5\', `video_tahun` = \'2021\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 09:06:30\'\nWHERE `video_id` = \'32\'', '2021-11-28 09:06:30', NULL);
+INSERT INTO `history_user` VALUES (267, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 09:09:44', '2021-11-28 09:09:44', NULL);
+INSERT INTO `history_user` VALUES (268, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-28 17:53:07', '2021-11-28 17:53:07', NULL);
+INSERT INTO `history_user` VALUES (269, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Yousa - Japanese Version\', `video_rating` = \'9.5\', `video_tahun` = \'2021\', `video_genre` = \'[\\\"2\\\",\\\"3\\\"]\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 20:43:20\'\nWHERE `video_id` = \'32\'', '2021-11-28 20:43:21', NULL);
+INSERT INTO `history_user` VALUES (270, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Yousa - Japanese Version\', `video_rating` = \'9.5\', `video_tahun` = \'2021\', `video_genre` = \'[\\\"6\\\"]\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 20:43:43\'\nWHERE `video_id` = \'32\'', '2021-11-28 20:43:43', NULL);
+INSERT INTO `history_user` VALUES (271, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Hatsune Miku - Levan Polka\', `video_rating` = \'7.4\', `video_tahun` = \'2020\', `video_genre` = \'[\\\"5\\\"]\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 20:46:40\'\nWHERE `video_id` = \'26\'', '2021-11-28 20:46:40', NULL);
+INSERT INTO `history_user` VALUES (272, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Sayonara Arigatou\', `video_rating` = \'9.5\', `video_tahun` = \'2017\', `video_genre` = \'[\\\"6\\\"]\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 20:46:51\'\nWHERE `video_id` = \'25\'', '2021-11-28 20:46:51', NULL);
+INSERT INTO `history_user` VALUES (273, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Yousa - Japanese Version\', `video_rating` = \'9.5\', `video_tahun` = \'2021\', `video_genre` = \'[\\\"1\\\",\\\"2\\\",\\\"3\\\",\\\"6\\\"]\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 20:56:40\'\nWHERE `video_id` = \'32\'', '2021-11-28 20:56:40', NULL);
+INSERT INTO `history_user` VALUES (274, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'3\', `video_nama` = \'Yousa - Japanese Version\', `video_rating` = \'9.5\', `video_tahun` = \'2021\', `video_genre` = \'[\\\"2\\\",\\\"6\\\"]\', `country_id` = \'5\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 21:02:32\'\nWHERE `video_id` = \'32\'', '2021-11-28 21:02:32', NULL);
+INSERT INTO `history_user` VALUES (275, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'4\', `video_nama` = \'Nella Kharisma - Sayur Kol\', `video_rating` = \'8.2\', `video_tahun` = \'2020\', `video_genre` = \'[\\\"5\\\"]\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 21:09:22\'\nWHERE `video_id` = \'28\'', '2021-11-28 21:09:22', NULL);
+INSERT INTO `history_user` VALUES (276, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'4\', `video_nama` = \'Yowis Ben\', `video_rating` = \'9.2\', `video_tahun` = \'2020\', `video_genre` = \'[\\\"6\\\"]\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 21:09:29\'\nWHERE `video_id` = \'27\'', '2021-11-28 21:09:29', NULL);
+INSERT INTO `history_user` VALUES (277, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'5\', `video_nama` = \'Kygo-Give me a sign\', `video_rating` = \'9.3\', `video_tahun` = \'2020\', `video_genre` = \'[\\\"6\\\"]\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 21:10:17\'\nWHERE `video_id` = \'31\'', '2021-11-28 21:10:17', NULL);
+INSERT INTO `history_user` VALUES (278, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'5\', `video_nama` = \'Tobu   Wholm\', `video_rating` = \'8.4\', `video_tahun` = \'2020\', `video_genre` = \'[\\\"1\\\",\\\"2\\\"]\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 21:10:30\'\nWHERE `video_id` = \'30\'', '2021-11-28 21:10:31', NULL);
+INSERT INTO `history_user` VALUES (279, 1, 1, 'fa fa-edit', 'Update', 'UPDATE `video` SET `video_kategori_id` = \'5\', `video_nama` = \'Tobu - Calling\', `video_rating` = \'9.3\', `video_tahun` = \'2020\', `video_genre` = \'[\\\"1\\\"]\', `country_id` = \'1\', `video_deskripsi` = \'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', `is_draft` = \'0\', `updated_time` = \'2021-11-28 21:10:45\'\nWHERE `video_id` = \'29\'', '2021-11-28 21:10:46', NULL);
+INSERT INTO `history_user` VALUES (280, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-28 21:24:49', '2021-11-28 21:24:49', NULL);
+INSERT INTO `history_user` VALUES (281, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-29 06:02:36', '2021-11-29 06:02:36', NULL);
+INSERT INTO `history_user` VALUES (282, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwehehehe\', \'1\', \'27\', \'2021-11-29 08:50:53\')', '2021-11-29 08:50:53', NULL);
+INSERT INTO `history_user` VALUES (283, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwehwhe\', \'1\', \'27\', \'2021-11-29 08:52:38\')', '2021-11-29 08:52:38', NULL);
+INSERT INTO `history_user` VALUES (284, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhehehe\', \'1\', \'27\', \'2021-11-29 08:53:34\')', '2021-11-29 08:53:34', NULL);
+INSERT INTO `history_user` VALUES (285, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'jancuk\', \'1\', \'27\', \'2021-11-29 08:53:45\')', '2021-11-29 08:53:45', NULL);
+INSERT INTO `history_user` VALUES (286, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Test\', \'1\', \'27\', \'2021-11-29 08:56:34\')', '2021-11-29 08:56:35', NULL);
+INSERT INTO `history_user` VALUES (287, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhehwe\', \'1\', \'27\', \'2021-11-29 08:56:46\')', '2021-11-29 08:56:46', NULL);
+INSERT INTO `history_user` VALUES (288, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhehwe\', \'1\', \'27\', \'2021-11-29 08:56:50\')', '2021-11-29 08:56:50', NULL);
+INSERT INTO `history_user` VALUES (289, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhehwe\', \'1\', \'27\', \'2021-11-29 08:56:53\')', '2021-11-29 08:56:53', NULL);
+INSERT INTO `history_user` VALUES (290, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaaa\', \'1\', \'27\', \'2021-11-29 08:58:01\')', '2021-11-29 08:58:01', NULL);
+INSERT INTO `history_user` VALUES (291, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaa\', \'1\', \'27\', \'2021-11-29 09:00:42\')', '2021-11-29 09:00:43', NULL);
+INSERT INTO `history_user` VALUES (292, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaa\', \'1\', \'27\', \'2021-11-29 09:00:49\')', '2021-11-29 09:00:49', NULL);
+INSERT INTO `history_user` VALUES (293, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaa\', \'1\', \'27\', \'2021-11-29 09:03:45\')', '2021-11-29 09:03:45', NULL);
+INSERT INTO `history_user` VALUES (294, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhewhehe\', \'1\', \'27\', \'2021-11-29 09:04:12\')', '2021-11-29 09:04:12', NULL);
+INSERT INTO `history_user` VALUES (295, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwehwhehe\', \'1\', \'27\', \'2021-11-29 09:05:14\')', '2021-11-29 09:05:14', NULL);
+INSERT INTO `history_user` VALUES (296, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwehehwehwe\', \'1\', \'27\', \'2021-11-29 09:06:39\')', '2021-11-29 09:06:39', NULL);
+INSERT INTO `history_user` VALUES (297, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhewhew\', \'1\', \'27\', \'2021-11-29 09:07:14\')', '2021-11-29 09:07:14', NULL);
+INSERT INTO `history_user` VALUES (298, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhewhew\', \'1\', \'27\', \'2021-11-29 09:07:18\')', '2021-11-29 09:07:18', NULL);
+INSERT INTO `history_user` VALUES (299, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhewhew\', \'1\', \'27\', \'2021-11-29 09:07:34\')', '2021-11-29 09:07:34', NULL);
+INSERT INTO `history_user` VALUES (300, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mehwhewhew\', \'1\', \'27\', \'2021-11-29 09:07:40\')', '2021-11-29 09:07:40', NULL);
+INSERT INTO `history_user` VALUES (301, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaaa\', \'1\', \'27\', \'2021-11-29 09:08:08\')', '2021-11-29 09:08:08', NULL);
+INSERT INTO `history_user` VALUES (302, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhhehehe\', \'1\', \'27\', \'2021-11-29 09:08:37\')', '2021-11-29 09:08:38', NULL);
+INSERT INTO `history_user` VALUES (303, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhhehehe\', \'1\', \'27\', \'2021-11-29 09:08:40\')', '2021-11-29 09:08:40', NULL);
+INSERT INTO `history_user` VALUES (304, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhhehehe\', \'1\', \'27\', \'2021-11-29 09:08:45\')', '2021-11-29 09:08:45', NULL);
+INSERT INTO `history_user` VALUES (305, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaaa\', \'1\', \'27\', \'2021-11-29 09:09:01\')', '2021-11-29 09:09:01', NULL);
+INSERT INTO `history_user` VALUES (306, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaa\', \'1\', \'27\', \'2021-11-29 09:09:45\')', '2021-11-29 09:09:45', NULL);
+INSERT INTO `history_user` VALUES (307, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaa\', \'1\', \'27\', \'2021-11-29 09:09:48\')', '2021-11-29 09:09:48', NULL);
+INSERT INTO `history_user` VALUES (308, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'aaa\', \'1\', \'27\', \'2021-11-29 09:09:51\')', '2021-11-29 09:09:51', NULL);
+INSERT INTO `history_user` VALUES (309, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhehehe\', \'1\', \'27\', \'2021-11-29 09:10:29\')', '2021-11-29 09:10:29', NULL);
+INSERT INTO `history_user` VALUES (310, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwhehehe\', \'1\', \'27\', \'2021-11-29 09:10:34\')', '2021-11-29 09:10:34', NULL);
+INSERT INTO `history_user` VALUES (311, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mantapp\', \'1\', \'27\', \'2021-11-29 09:12:31\')', '2021-11-29 09:12:31', NULL);
+INSERT INTO `history_user` VALUES (312, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'test\', \'1\', \'27\', \'2021-11-29 09:12:43\')', '2021-11-29 09:12:43', NULL);
+INSERT INTO `history_user` VALUES (313, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-29 09:13:11', '2021-11-29 09:13:11', NULL);
+INSERT INTO `history_user` VALUES (314, 26, 2, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-29 09:14:11', '2021-11-29 09:14:11', NULL);
+INSERT INTO `history_user` VALUES (315, 26, 2, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\', \'26\', \'32\', \'2021-11-29 09:15:11\')', '2021-11-29 09:15:11', NULL);
+INSERT INTO `history_user` VALUES (316, 26, 2, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-29 09:15:32', '2021-11-29 09:15:32', NULL);
+INSERT INTO `history_user` VALUES (317, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-29 09:15:40', '2021-11-29 09:15:40', NULL);
+INSERT INTO `history_user` VALUES (318, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwehehehe\', \'1\', \'32\', \'2021-11-29 09:16:06\')', '2021-11-29 09:16:06', NULL);
+INSERT INTO `history_user` VALUES (319, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'akaowkoakwoakwok..\', \'1\', \'32\', \'2021-11-29 09:19:19\')', '2021-11-29 09:19:20', NULL);
+INSERT INTO `history_user` VALUES (320, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-29 09:19:59', '2021-11-29 09:19:59', NULL);
+INSERT INTO `history_user` VALUES (321, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-29 09:20:58', '2021-11-29 09:20:58', NULL);
+INSERT INTO `history_user` VALUES (322, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Bjir.. Bahasa apa tu tod??\', \'1\', \'32\', \'2021-11-29 09:27:17\')', '2021-11-29 09:27:17', NULL);
+INSERT INTO `history_user` VALUES (323, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-29 09:28:21', '2021-11-29 09:28:21', NULL);
+INSERT INTO `history_user` VALUES (324, 1, 1, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-29 09:33:10', '2021-11-29 09:33:10', NULL);
+INSERT INTO `history_user` VALUES (325, 1, 1, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Mwehehehehe\', \'1\', \'32\', \'2021-11-29 09:33:53\')', '2021-11-29 09:33:53', NULL);
+INSERT INTO `history_user` VALUES (326, 1, 1, 'fa fa-sign-out-alt', 'Logout', 'Melakukan Logout Pada Waktu 2021-11-29 09:35:21', '2021-11-29 09:35:21', NULL);
+INSERT INTO `history_user` VALUES (327, 26, 2, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-29 09:36:05', '2021-11-29 09:36:05', NULL);
+INSERT INTO `history_user` VALUES (328, 26, 2, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Jasa joki website profesional.. \\r\\nHubungi layhome12@gmail.com\', \'26\', \'29\', \'2021-11-29 09:37:09\')', '2021-11-29 09:37:09', NULL);
+INSERT INTO `history_user` VALUES (329, 26, 2, 'fa fa-sign-in-alt', 'Login', 'Melakukan Login Pada Waktu 2021-11-30 08:23:20', '2021-11-30 08:23:20', NULL);
+INSERT INTO `history_user` VALUES (330, 26, 2, 'fa fa-plus', 'Insert', 'INSERT INTO `video_komentar` (`video_komentar`, `user_id`, `video_id`, `created_time`) VALUES (\'Butuh Jasa web profesional..?? Hubungi layhome12@gmail.com\', \'26\', \'27\', \'2021-11-30 08:24:20\')', '2021-11-30 08:24:20', NULL);
 
 -- ----------------------------
 -- Table structure for user
@@ -226,10 +377,10 @@ CREATE TABLE `user`  (
   `user_tgl_lahir` date NULL DEFAULT NULL,
   `kode_otp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `is_active` int(11) NULL DEFAULT 0,
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
@@ -245,10 +396,10 @@ CREATE TABLE `user_favorit`  (
   `user_favorit_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NULL DEFAULT NULL,
   `video_id` int(11) NULL DEFAULT NULL,
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`user_favorit_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for user_level
@@ -257,10 +408,10 @@ DROP TABLE IF EXISTS `user_level`;
 CREATE TABLE `user_level`  (
   `user_level_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_level_nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`user_level_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_level
@@ -282,22 +433,48 @@ CREATE TABLE `video`  (
   `video_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `video_subtitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `video_thumbnail` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `video_genre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `video_rating` float(2, 1) NULL DEFAULT NULL,
+  `video_dilihat` int(11) NULL DEFAULT 0,
   `is_draft` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '1',
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES (25, 5, 3, 'Sayonara Arigatou', '2017', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637506895_e7515660989c82f24604.mp4', '1637506984_b40952d4ac7981222cea.vtt', '1637506984_474774c0dea03797db78.png', '0', NULL, NULL);
-INSERT INTO `video` VALUES (26, 5, 3, 'Hatsune Mitsu - Levan Polka', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587131_b6d77b9176b04b47be5e.mp4', NULL, NULL, '0', NULL, NULL);
-INSERT INTO `video` VALUES (27, 1, 4, 'Yowis Ben', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587445_db8e61d65995e9dbcaeb.mp4', NULL, NULL, '0', NULL, NULL);
-INSERT INTO `video` VALUES (28, 1, 4, 'Nella Kharisma - Sayur Kol', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587508_a142583515af116e4438.mp4', NULL, NULL, '0', NULL, NULL);
-INSERT INTO `video` VALUES (29, 1, 5, 'Tobu - Calling', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587632_7b5b52acd0343f749ccc.mp4', NULL, NULL, '0', NULL, NULL);
-INSERT INTO `video` VALUES (30, 1, 5, 'Tobu   Wholm', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587656_a63048bdec345150ad08.mp4', NULL, NULL, '0', NULL, NULL);
-INSERT INTO `video` VALUES (31, 1, 5, 'Kygo-Give me a sign', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637765658_9353520110f692a4cd2b.mp4', NULL, '1637765739_4ab303402d77dd1eda26.png', '0', NULL, NULL);
+INSERT INTO `video` VALUES (25, 5, 3, 'Sayonara Arigatou', '2017', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637506895_e7515660989c82f24604.mp4', '1637506984_b40952d4ac7981222cea.vtt', '', '[\"6\"]', 9.5, 11, '0', NULL, '2021-11-28 20:46:51');
+INSERT INTO `video` VALUES (26, 5, 3, 'Hatsune Miku - Levan Polka', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587131_b6d77b9176b04b47be5e.mp4', NULL, NULL, '[\"5\"]', 7.4, 9, '0', NULL, '2021-11-28 20:46:40');
+INSERT INTO `video` VALUES (27, 1, 4, 'Yowis Ben', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587445_db8e61d65995e9dbcaeb.mp4', NULL, NULL, '[\"6\"]', 9.2, 122, '0', NULL, '2021-11-28 21:09:29');
+INSERT INTO `video` VALUES (28, 1, 4, 'Nella Kharisma - Sayur Kol', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587508_a142583515af116e4438.mp4', NULL, NULL, '[\"5\"]', 8.2, 9, '0', NULL, '2021-11-28 21:09:22');
+INSERT INTO `video` VALUES (29, 1, 5, 'Tobu - Calling', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587632_7b5b52acd0343f749ccc.mp4', NULL, NULL, '[\"1\"]', 9.3, 7, '0', NULL, '2021-11-28 21:10:45');
+INSERT INTO `video` VALUES (30, 1, 5, 'Tobu   Wholm', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637587656_a63048bdec345150ad08.mp4', NULL, NULL, '[\"1\",\"2\"]', 8.4, 4, '0', NULL, '2021-11-28 21:10:30');
+INSERT INTO `video` VALUES (31, 1, 5, 'Kygo-Give me a sign', '2020', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1637765658_9353520110f692a4cd2b.mp4', NULL, '', '[\"6\"]', 9.3, 5, '0', NULL, '2021-11-28 21:10:17');
+INSERT INTO `video` VALUES (32, 5, 3, 'Yousa - Japanese Version', '2021', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1638111924_a07f2054e28dc7e5d826.mp4', NULL, NULL, '[\"2\",\"6\"]', 9.5, 51, '0', '2021-11-28 09:05:28', '2021-11-28 21:02:32');
+
+-- ----------------------------
+-- Table structure for video_genre
+-- ----------------------------
+DROP TABLE IF EXISTS `video_genre`;
+CREATE TABLE `video_genre`  (
+  `video_genre_id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_genre_nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_time` datetime(0) NULL DEFAULT NULL,
+  `updated_time` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`video_genre_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of video_genre
+-- ----------------------------
+INSERT INTO `video_genre` VALUES (1, 'Action', NULL, NULL);
+INSERT INTO `video_genre` VALUES (2, 'Thiller', NULL, NULL);
+INSERT INTO `video_genre` VALUES (3, 'Crime', NULL, NULL);
+INSERT INTO `video_genre` VALUES (4, 'Horor', NULL, NULL);
+INSERT INTO `video_genre` VALUES (5, 'Komedi', NULL, NULL);
+INSERT INTO `video_genre` VALUES (6, 'Romance', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for video_kategori
@@ -311,14 +488,14 @@ CREATE TABLE `video_kategori`  (
   `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_kategori_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of video_kategori
 -- ----------------------------
-INSERT INTO `video_kategori` VALUES (3, 'Japanese', '1637158935_955b20552211b6e55f3e.png', 'japanese', NULL, NULL);
-INSERT INTO `video_kategori` VALUES (4, 'Indonesia', '1637587424_b3be8cf539eb5dfbef07.png', 'indonesia', NULL, NULL);
-INSERT INTO `video_kategori` VALUES (5, 'Barat', '1637587569_9e96a789da611a3e7b48.png', 'barat', NULL, NULL);
+INSERT INTO `video_kategori` VALUES (3, 'Japanese', '', 'japanese', NULL, NULL);
+INSERT INTO `video_kategori` VALUES (4, 'Indonesia', '', 'indonesia', NULL, NULL);
+INSERT INTO `video_kategori` VALUES (5, 'Barat', '', 'barat', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for video_komentar
@@ -329,10 +506,18 @@ CREATE TABLE `video_komentar`  (
   `video_id` int(11) NULL DEFAULT NULL,
   `user_id` int(11) NULL DEFAULT NULL,
   `video_komentar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_komentar_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of video_komentar
+-- ----------------------------
+INSERT INTO `video_komentar` VALUES (32, 32, 26, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2021-11-29 09:15:11', NULL);
+INSERT INTO `video_komentar` VALUES (36, 32, 1, 'Mwehehehehe', '2021-11-29 09:33:53', NULL);
+INSERT INTO `video_komentar` VALUES (37, 29, 26, 'Jasa joki website profesional.. \r\nHubungi layhome12@gmail.com', '2021-11-29 09:37:09', NULL);
+INSERT INTO `video_komentar` VALUES (38, 27, 26, 'Butuh Jasa web profesional..?? Hubungi layhome12@gmail.com', '2021-11-30 08:24:20', NULL);
 
 -- ----------------------------
 -- Table structure for video_rating
@@ -345,7 +530,31 @@ CREATE TABLE `video_rating`  (
   `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_rating_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for video_review
+-- ----------------------------
+DROP TABLE IF EXISTS `video_review`;
+CREATE TABLE `video_review`  (
+  `video_review_id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_id` int(11) NULL DEFAULT NULL,
+  `video_review_nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `video_review_seo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `video_review_isi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `video_review_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `video_review_dilihat` int(11) NULL DEFAULT 0,
+  `is_public` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '1',
+  `created_time` datetime(0) NULL DEFAULT NULL,
+  `updated_time` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`video_review_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of video_review
+-- ----------------------------
+INSERT INTO `video_review` VALUES (3, 25, 'Apa Maksut Dari Sayonara Arigatou ?? Ask Movies !', 'apa-maksut-dari-sayonara-arigatou-ask-movies', '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '1638101469_466dbf6ad29cab380ae5.jpg', 0, '1', '2021-11-28 06:11:10', '2021-11-28 09:04:21');
+INSERT INTO `video_review` VALUES (4, 27, 'Yowes Ben Serialnya Apakah Berhenti ?? Ask Movies !', 'yowes-ben-serialnya-apakah-berhenti-ask-movies', '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '1638103545_4b38b7a831e1c5498e5f.jpg', 0, '1', '2021-11-28 06:45:45', '2021-11-28 06:46:24');
 
 -- ----------------------------
 -- Table structure for video_slide
@@ -356,14 +565,17 @@ CREATE TABLE `video_slide`  (
   `video_id` int(11) NULL DEFAULT NULL,
   `video_slide_nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `video_slide_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `created_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `created_time` datetime(0) NULL DEFAULT NULL,
   `updated_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_slide_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of video_slide
 -- ----------------------------
-INSERT INTO `video_slide` VALUES (2, 25, 'Sayonara Arigatou', 'aaa.jpg', NULL, NULL);
+INSERT INTO `video_slide` VALUES (5, 26, 'Hasune Mitsu', '', '2021-11-26 08:26:17', '2021-11-27 21:55:35');
+INSERT INTO `video_slide` VALUES (6, 27, 'Bayu Skak', '', '2021-11-26 08:26:47', '2021-11-27 21:56:23');
+INSERT INTO `video_slide` VALUES (7, 31, 'Colour Full', '', '2021-11-26 08:27:30', '2021-11-28 02:35:26');
+INSERT INTO `video_slide` VALUES (8, 25, 'Love Anime', '', '2021-11-26 08:48:17', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

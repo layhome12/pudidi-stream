@@ -21,6 +21,10 @@ class Movies extends BaseController
             'table' => 'video_komentar',
             'where' => ['video_id' => $id]
         ]);
+        $data['rekomendasi'] = $this->videos->getListMovies([
+            'ordering' => '3',
+            'limit' => 8
+        ]);
         return view('landing/movies/movies', $data);
     }
     public function get_comments()
