@@ -224,7 +224,8 @@ class MVideos extends BaseModel
     //Get Tools
     public function getSlideVideo()
     {
-        return $this->db->table('video_slide as vs')
+        $id = $this->session->get('user_id');
+        $data = $this->db->table('video_slide as vs')
             ->select('vs.video_slide_img, v.video_nama, v.video_tahun, vg.video_genre_nama, v.video_id')
             ->join('video as v', 'v.video_id=vs.video_id')
             ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
@@ -233,9 +234,12 @@ class MVideos extends BaseModel
             ->limit('5')
             ->get()
             ->getResultArray();
+        if ($id) $data = $this->checkFavorit($id, $data);
+        return $data;
     }
     public function getListMovies($arr)
     {
+        $id = $this->session->get('user_id');
         $DB = $this->db->table('video as v');
         $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vg.video_genre_nama, v.video_id');
         $DB->join('video_genre as vg', 'v.video_genre_id=vg.video_genre_id');
@@ -265,6 +269,21 @@ class MVideos extends BaseModel
         }
 
         $data = $DB->get()->getResultArray();
+        if ($id) $data = $this->checkFavorit($id, $data);
+        return $data;
+    }
+    public function checkFavorit($uid, $res)
+    {
+        $data = [];
+        foreach ($res as $key => $value) {
+            $m = $this->db->table('user_favorit')
+                ->where('video_id', $value['video_id'])
+                ->where('user_id', $uid)
+                ->get()
+                ->getRowArray();
+            $data[$key] = $res[$key];
+            if ($m) $data[$key]['is_favorit'] = true;
+        }
         return $data;
     }
     public function getVideoReview()

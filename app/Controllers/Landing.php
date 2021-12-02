@@ -10,6 +10,7 @@ class Landing extends BaseController
     {
         $data['negara'] = $this->utils->getSelect2([
             'table' => 'country',
+            'order_by' => ['field' => 'country_nama', 'order' => 'asc'],
             'type' => 'array'
         ]);
         $data['tahun'] = $this->utils->getSelect2([
