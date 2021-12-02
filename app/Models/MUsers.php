@@ -100,4 +100,14 @@ class MUsers extends BaseModel
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
         return $history;
     }
+    public function getUserbyId($uid)
+    {
+        $data = $this->db->table('user as u')
+            ->select('c.country_nama, u.email, u.user_img, u.user_nama, u.user_tgl_lahir, u.is_active')
+            ->join('country as c', 'c.country_id=u.country_id')
+            ->where('u.user_id', $uid)
+            ->get()
+            ->getRowArray();
+        return $data;
+    }
 }

@@ -8,6 +8,8 @@ class Users extends BaseController
 {
     public function index($uid)
     {
-        return view('landing/user/user');
+        $uid = str_decrypt($uid);
+        $data['user'] = $this->users->getUserbyId($uid);
+        return view('landing/user/user', $data);
     }
 }
