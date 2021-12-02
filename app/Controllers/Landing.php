@@ -8,8 +8,8 @@ class Landing extends BaseController
 {
     public function index()
     {
-        $data['kategori'] = $this->utils->getSelect2([
-            'table' => 'video_kategori',
+        $data['negara'] = $this->utils->getSelect2([
+            'table' => 'country',
             'type' => 'array'
         ]);
         $data['tahun'] = $this->utils->getSelect2([

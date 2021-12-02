@@ -2,37 +2,35 @@
 
 namespace App\Models;
 
-use PhpParser\Node\Stmt\Break_;
-
 class MVideos extends BaseModel
 {
     //Kategori Video
     public function getKategoriForm($kvid)
     {
-        $m = $this->db->table('video_kategori')
-            ->where('video_kategori_id', $kvid)
+        $m = $this->db->table('video_genre')
+            ->where('video_genre_id', $kvid)
             ->get()
             ->getRowArray();
         return $m;
     }
     public function KategoriSave($data)
     {
-        $id = $data['video_kategori_id'];
-        unset($data['video_kategori_id']);
+        $id = $data['video_genre_id'];
+        unset($data['video_genre_id']);
 
         if ($id) {
             $data['updated_time'] = date('Y-m-d H:i:s');
-            $this->db->table('video_kategori')
-                ->where('video_kategori_id', $id)
+            $this->db->table('video_genre')
+                ->where('video_genre_id', $id)
                 ->set($data)
                 ->update();
-            $history = $this->historyCrud('update', ['table' => 'video_kategori', 'id' => $id, 'data' => $data]);
+            $history = $this->historyCrud('update', ['table' => 'video_genre', 'id' => $id, 'data' => $data]);
         } else {
             $data['created_time'] = date('Y-m-d H:i:s');
-            $this->db->table('video_kategori')
+            $this->db->table('video_genre')
                 ->set($data)
                 ->insert();
-            $history = $this->historyCrud('insert', ['table' => 'video_kategori', 'data' => $data]);
+            $history = $this->historyCrud('insert', ['table' => 'video_genre', 'data' => $data]);
         }
 
         $i = $this->db->affectedRows();
@@ -41,10 +39,10 @@ class MVideos extends BaseModel
     }
     public function KategoriDel($uid)
     {
-        $this->db->table('video_kategori')
-            ->where('video_kategori_id', $uid)
+        $this->db->table('video_genre')
+            ->where('video_genre_id', $uid)
             ->delete();
-        $history = $this->historyCrud('delete', ['table' => 'video_kategori', 'id' => $uid]);
+        $history = $this->historyCrud('delete', ['table' => 'video_genre', 'id' => $uid]);
         $i = $this->db->affectedRows();
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
         return $history;
@@ -114,9 +112,9 @@ class MVideos extends BaseModel
     public function getVideoSlideForm($vsid)
     {
         return $this->db->table('video_slide as vs')
-            ->select('vs.video_slide_nama, vs.video_slide_img, v.video_nama, v.video_id, vk.video_kategori_id, vs.video_slide_id')
+            ->select('vs.video_slide_nama, vs.video_slide_img, v.video_nama, v.video_id, vg.video_genre_id, vs.video_slide_id')
             ->join('video as v', 'vs.video_id=v.video_id')
-            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
             ->where('vs.video_slide_id', $vsid)
             ->get()->getRowArray();
     }
@@ -159,9 +157,9 @@ class MVideos extends BaseModel
     public function getVideoReviewForm($id)
     {
         return $this->db->table('video_review as vr')
-            ->select('vr.video_review_nama, vr.video_review_img, vr.video_review_isi, vr.is_public, v.video_nama, v.video_id, vk.video_kategori_id, vr.video_review_id')
+            ->select('vr.video_review_nama, vr.video_review_img, vr.video_review_isi, vr.is_public, v.video_nama, v.video_id, vg.video_genre_id, vr.video_review_id')
             ->join('video as v', 'vr.video_id=v.video_id')
-            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
             ->where('vr.video_review_id', $id)
             ->get()->getRowArray();
     }
@@ -203,9 +201,9 @@ class MVideos extends BaseModel
     //Get Video Comments
     public function getVideoComment($id)
     {
-        return $this->db->table('video_komentar as vk')
-            ->select('vk.video_komentar, vk.created_time, u.user_nama, u.user_img')
-            ->join('user as u', 'u.user_id=vk.user_id')
+        return $this->db->table('video_komentar as vg')
+            ->select('vg.video_komentar, vg.created_time, u.user_nama, u.user_img')
+            ->join('user as u', 'u.user_id=vg.user_id')
             ->where('video_id', $id)
             ->orderBy('created_time', 'asc')
             ->get()
@@ -227,9 +225,9 @@ class MVideos extends BaseModel
     public function getSlideVideo()
     {
         return $this->db->table('video_slide as vs')
-            ->select('vs.video_slide_img, v.video_nama, v.video_tahun, vk.video_kategori_nama, v.video_id')
+            ->select('vs.video_slide_img, v.video_nama, v.video_tahun, vg.video_genre_nama, v.video_id')
             ->join('video as v', 'v.video_id=vs.video_id')
-            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
             ->where('v.is_draft', '0')
             ->orderBy('v.created_time', 'desc')
             ->limit('5')
@@ -239,9 +237,9 @@ class MVideos extends BaseModel
     public function getListMovies($arr)
     {
         $DB = $this->db->table('video as v');
-        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vk.video_kategori_nama, v.video_id');
-        $DB->join('video_kategori as vk', 'v.video_kategori_id=vk.video_kategori_id');
-        if (isset($arr['video_kategori_id'])) $DB->where('v.video_kategori_id', $arr['video_kategori_id']);
+        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vg.video_genre_nama, v.video_id');
+        $DB->join('video_genre as vg', 'v.video_genre_id=vg.video_genre_id');
+        if (isset($arr['country_id'])) $DB->where('v.country_id', $arr['country_id']);
         if (isset($arr['video_tahun'])) $DB->where('v.video_tahun', $arr['video_tahun']);
 
         switch ($arr['ordering']) {
@@ -284,8 +282,8 @@ class MVideos extends BaseModel
         if (!$id) $this->ErrorRespon('Film Tidak Ditemukan !');
         $this->videoShowLog($id);
         $m = $this->db->table('video as v')
-            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vk.video_kategori_nama, vk.video_kategori_img, v.video_genre')
-            ->join('video_kategori as vk', 'vk.video_kategori_id=v.video_kategori_id')
+            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vg.video_genre_nama, vg.video_genre_img, v.video_genre')
+            ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
             ->where('video_id', $id)
             ->get()
             ->getRowArray();

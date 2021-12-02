@@ -15,7 +15,7 @@
                     <div class="white_card_body">
                         <div class="QA_section">
                             <div class="white_box_tittle list_header">
-                                <h4>Kategori Movies</h4>
+                                <h4>Genre Movies</h4>
                                 <div class="box_right d-flex lms_block">
                                     <div class="serach_field_2">
                                         <div class="search_inner">
@@ -36,7 +36,7 @@
                                 <table class="table datatables">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Kategori Movies</th>
+                                            <th scope="col">Genre Movies</th>
                                             <th scope="col">Movies SEO</th>
                                             <th scope="col">Total Movies</th>
                                             <th scope="col">Aksi</th>
@@ -64,7 +64,7 @@
         <form action="<?= base_url('administrator/video_kategori' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Form Kategori Movies</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Form Genre Movies</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -171,7 +171,7 @@
     function dt_del(t) {
         Swal.fire({
             title: 'Warning !',
-            text: 'Hapus Kategori Movies Ini ??',
+            text: 'Hapus Genre Movies Ini ??',
             type: 'warning', //'success', 'error', 'info', 'question'
             showCancelButton: true,
             confirmButtonColor: '#4c6ef8',

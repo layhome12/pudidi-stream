@@ -11,7 +11,7 @@ class Utils extends BaseController
         $conf = [
             'table' => 'video',
             'where' => [
-                'video_kategori_id' => $this->input->getGet('kvid'),
+                'video_genre_id' => $this->input->getGet('kvid'),
                 'is_draft' => '0'
             ],
             'type' => 'json'
@@ -21,7 +21,7 @@ class Utils extends BaseController
     public function get_list_movies()
     {
         $input = $this->input->getPost();
-        if ($input['video_kategori_id'] == 0) unset($input['video_kategori_id']);
+        if ($input['country_id'] == 0) unset($input['country_id']);
         if ($input['video_tahun'] == 0) unset($input['video_tahun']);
         $data['list_movies'] = $this->videos->getListMovies($input);
         return view('landing/utils/listmovies', $data);

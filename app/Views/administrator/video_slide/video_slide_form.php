@@ -17,14 +17,14 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="video_id">Kategori Movies</label>
-                    <select class="form-control select2" id="video_kategori" style="width: 100%;">
-                        <option value="" <?= !isset($slidevid['video_kategori_id']) ? 'selected' : '' ?>>-</option>
+                    <label for="video_id">Genre Movies</label>
+                    <select class="form-control select2" id="video_genre" style="width: 100%;">
+                        <option value="" <?= !isset($slidevid['video_genre_id']) ? 'selected' : '' ?>>-</option>
                         <?php new \App\Libraries\SelectBuilder([
-                            'table' => 'video_kategori',
-                            'val_id' => 'video_kategori_id',
-                            'val_text' => 'video_kategori_nama',
-                            'id' => isset($slidevid['video_kategori_id']) ? $slidevid['video_kategori_id'] : ''
+                            'table' => 'video_genre',
+                            'val_id' => 'video_genre_id',
+                            'val_text' => 'video_genre_nama',
+                            'id' => isset($slidevid['video_genre_id']) ? $slidevid['video_genre_id'] : ''
                         ]); ?>
                     </select>
                 </div>
@@ -59,7 +59,7 @@
             reader.readAsDataURL(img);
         }
     );
-    $('#video_kategori').change(
+    $('#video_genre').change(
         function() {
             $.LoadingOverlay('show');
             $('#video').empty().select2({
@@ -68,7 +68,7 @@
                     dataType: 'json',
                     data: function(p) {
                         var get = {
-                            kvid: $('#video_kategori').val(),
+                            kvid: $('#video_genre').val(),
                             search: p.term
                         }
                         return get;

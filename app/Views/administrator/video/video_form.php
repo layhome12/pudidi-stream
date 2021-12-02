@@ -6,7 +6,7 @@
                 <div id="form-upload-movies">
                     <input type="file" id="movies-file" class="d-none">
                     <input type="hidden" name="video_id" id="video_id" value="<?= isset($vid['video_id']) ? $vid['video_id'] : '' ?>">
-                    <input type="hidden" name="video_kategori_id" id="kategori_video_id" value="<?= $kvid ?>">
+                    <input type="hidden" name="video_genre_id" id="kategori_video_id" value="<?= $kvid ?>">
                     <div class="text-center box-upload-movies">
                         <span class="font-large d-block font-icon-upload text-secondary">
                             <i class="fa fa-cloud-upload-alt"></i>

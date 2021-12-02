@@ -20,7 +20,7 @@
             </span>
             <h3 class="card__title"><a href="<?= base_url('movies/' . seo_url_encode($row['video_nama'], $row['video_id'])); ?>" class="skeleton_linked"><?= $row['video_nama']; ?></a></h3>
             <ul class="card__list">
-                <li><?= $row['video_kategori_nama']; ?></li>
+                <li><?= $row['video_genre_nama']; ?></li>
                 <li><?= $row['video_tahun']; ?></li>
             </ul>
         </div>

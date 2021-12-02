@@ -53,7 +53,7 @@
                             </li>
                             <li class="header__nav-item">
                                 <a class="header__nav-link" href="#" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kategori
+                                    Genre
                                     <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z"></path>
                                     </svg>
@@ -61,7 +61,7 @@
                                 <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenu2">
                                     <?php foreach ($LD->getKategori() as $row) : ?>
                                         <li>
-                                            <a href="<?= base_url('/kategori/' . $row['video_kategori_seo']) ?>"><?= $row['video_kategori_nama']; ?></a>
+                                            <a href="<?= base_url('/kategori/' . $row['video_genre_seo']) ?>"><?= $row['video_genre_nama']; ?></a>
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>

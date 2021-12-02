@@ -12,7 +12,7 @@
                 <div>
                     <h2><?= $row['video_nama']; ?></h2>
                     <ul>
-                        <li><?= $row['video_kategori_nama']; ?></li>
+                        <li><?= $row['video_genre_nama']; ?></li>
                         <li><?= $row['video_tahun']; ?></li>
                     </ul>
                 </div>
@@ -42,9 +42,9 @@
                 <div class="catalog__nav">
                     <div class="catalog__select-wrap dm-none">
                         <div class="col-md-3 col-xs-6 p-0">
-                            <select class="sign__input select2" id="video_kategori" style="width: 90%;">
-                                <option value="0">Semua Kategori</option>
-                                <?php foreach ($kategori as $row) : ?>
+                            <select class="sign__input select2" id="video_negara" style="width: 90%;">
+                                <option value="0">Semua Negara</option>
+                                <?php foreach ($negara as $row) : ?>
                                     <option value="<?= $row['id'] ?>"><?= $row['text'] ?></option>
                                 <?php endforeach; ?>
                             </select>
@@ -91,7 +91,7 @@
                                 </span>
                                 <h3 class="card__title"><a href="<?= base_url('movies/' . seo_url_encode($row['video_nama'], $row['video_id'])); ?>" class="skeleton_linked"><?= $row['video_nama']; ?></a></h3>
                                 <ul class="card__list">
-                                    <li><?= $row['video_kategori_nama']; ?></li>
+                                    <li><?= $row['video_genre_nama']; ?></li>
                                     <li><?= $row['video_tahun']; ?></li>
                                 </ul>
                             </div>
@@ -235,7 +235,7 @@
         $('.skeleton_linked').attr('href', '#');
         $('#skeleton').scheletrone();
         $.post('<?= base_url('utils/get_list_movies'); ?>', {
-            'video_kategori_id': $('#video_kategori').val(),
+            'country_id': $('#video_negara').val(),
             'video_tahun': $('#video_tahun').val(),
             'ordering': $('input:checked').val()
         }, function(result, textStatus, xhr) {
@@ -247,10 +247,10 @@
     }
 
     function get_pagination() {
-        var vkid = $('#video_kategori').val();
+        var vnid = $('#video_negara').val();
         var tahun = $('#video_tahun').val();
         $.post('<?= base_url('utils/get_count_data') ?>', {
-            'video_kategori_id': vkid,
+            'country_id': vnid,
             'video_tahun': tahun
         }, function(result, textStatus, xhr) {
             $('#skeleton').attr('data-movies', result.data.amount);
@@ -265,7 +265,7 @@
         }, 'json');
     }
 
-    $('#video_kategori').change(
+    $('#video_negara').change(
         function() {
             skeleton_loader();
         }
@@ -290,7 +290,7 @@
             $(this).empty().html("<i class='fa fa-spinner fa-spin font-s15px'></i>");
             $(this).prop('disabled', true);
             $.post('<?= base_url('utils/get_list_movies'); ?>', {
-                'video_kategori_id': $('#video_kategori').val(),
+                'country_id': $('#video_negara').val(),
                 'video_tahun': $('#video_tahun').val(),
                 'ordering': $('input:checked').val(),
                 'pagination': page

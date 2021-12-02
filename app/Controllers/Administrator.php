@@ -151,26 +151,26 @@ class Administrator extends BaseController
     public function video_kategori_fetch()
     {
         $this->datatables->search([
-            'video_kategori_nama',
-            'video_kategori_seo',
-            'video_kategori_id'
+            'video_genre_nama',
+            'video_genre_seo',
+            'video_genre_id'
         ]);
         $this->datatables->select('
-            video_kategori_nama,
-            video_kategori_seo,
-            video_kategori_img AS jumlah_video,
-            video_kategori_id
+            video_genre_nama,
+            video_genre_seo,
+            video_genre_img AS jumlah_video,
+            video_genre_id
         ');
-        $this->datatables->from('video_kategori');
-        $this->datatables->order_by('video_kategori_id', 'desc');
+        $this->datatables->from('video_genre');
+        $this->datatables->order_by('video_genre_id', 'desc');
         $m = $this->datatables->get();
         foreach ($m as $key => $value) {
             $button = '';
-            $button .= "<button onclick=\"dt_vid(this)\" target-id=\"$value[video_kategori_id]\" class=\"btn mr-1 btn-warning\"><i class=\"fa fa-film\"></i></button>";
-            $button .= "<button onclick=\"dt_form(this)\" target-id=\"$value[video_kategori_id]\" class=\"btn mr-1 btn-primary\"><i class=\"far fa-edit\"></i></button>";
-            $button .= "<button onclick=\"dt_del(this)\" target-id=\"$value[video_kategori_id]\" class=\"btn btn-secondary\"><i class=\"fa fa-eraser\"></i></button>";
-            $m[$key]['jumlah_video'] = $this->utils->countChild(['table' => 'video', 'parent' => 'video_kategori', 'id' => $value['video_kategori_id']]);
-            $m[$key]['video_kategori_id'] = "<div class=\"tb-action\">$button</div>";
+            $button .= "<button onclick=\"dt_vid(this)\" target-id=\"$value[video_genre_id]\" class=\"btn mr-1 btn-warning\"><i class=\"fa fa-film\"></i></button>";
+            $button .= "<button onclick=\"dt_form(this)\" target-id=\"$value[video_genre_id]\" class=\"btn mr-1 btn-primary\"><i class=\"far fa-edit\"></i></button>";
+            $button .= "<button onclick=\"dt_del(this)\" target-id=\"$value[video_genre_id]\" class=\"btn btn-secondary\"><i class=\"fa fa-eraser\"></i></button>";
+            $m[$key]['jumlah_video'] = $this->utils->countChild(['table' => 'video', 'parent' => 'video_genre', 'id' => $value['video_genre_id']]);
+            $m[$key]['video_genre_id'] = "<div class=\"tb-action\">$button</div>";
         }
         $this->datatables->render_no_keys($m);
     }
@@ -184,14 +184,14 @@ class Administrator extends BaseController
     {
         $input = $this->input->getPost();
         $validate = $this->validate([
-            'rules' => 'mime_in[video_kategori_img,image/jpg,image/jpeg,image/png]|max_size[video_kategori_img,512]'
+            'rules' => 'mime_in[video_genre_img,image/jpg,image/jpeg,image/png]|max_size[video_genre_img,512]'
         ]);
         if (!$validate) $this->ErrorRespon('Format yang Didukung JPG, PNG, JPEG dan Max File 512 KB !');
 
-        $file = $this->input->getFile('video_kategori_img');
+        $file = $this->input->getFile('video_genre_img');
         if ($file->isValid()) {
             $rname = $file->getRandomName();
-            $input['video_kategori_img'] = $rname;
+            $input['video_genre_img'] = $rname;
             $this->image->withFile($file->getTempName())->save('public/video_kategori_img/' . $rname, 50);
         }
 
@@ -238,7 +238,7 @@ class Administrator extends BaseController
         $this->datatables->from('video as v');
         $this->datatables->join('country as c', 'c.country_id=v.country_id', 'left');
         $this->datatables->order_by('video_id', 'desc');
-        $this->datatables->where('video_kategori_id', $katvid);
+        $this->datatables->where('video_genre_id', $katvid);
         $m = $this->datatables->get();
         foreach ($m as $key => $value) {
             if ($value['is_draft'] == 0) {
@@ -267,7 +267,7 @@ class Administrator extends BaseController
     public function video_upload()
     {
         $input = [
-            'video_kategori_id' => $this->input->getPost('kvid'),
+            'video_genre_id' => $this->input->getPost('kvid'),
             'video_id' => $this->input->getPost('vid')
         ];
         $validate = $this->validate([
