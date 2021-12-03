@@ -14,6 +14,7 @@ class Movies extends BaseController
         $data['genre'] = $this->utils->getGenre($data['movies']['video_genre']);
         $data['comment'] = $this->videos->getVideoComment($id);
         $data['terbaru'] = $this->videos->getListMovies([
+            'where' => ['video_id!=' => $id],
             'ordering' => '2',
             'limit' => 4
         ]);
@@ -22,6 +23,7 @@ class Movies extends BaseController
             'where' => ['video_id' => $id]
         ]);
         $data['rekomendasi'] = $this->videos->getListMovies([
+            'where' => ['video_id!=' => $id],
             'ordering' => '3',
             'limit' => 8
         ]);

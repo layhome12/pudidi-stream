@@ -281,7 +281,7 @@ class Administrator extends BaseController
             $rname = $file->getRandomName();
             $input['video_file'] = $rname;
             $input['video_nama'] = substr($fname, 0, -4);
-            $file->move(WRITEPATH . 'video_file', $rname);
+            $file->move(ROOTPATH . 'public/video_file/', $rname);
         }
         $m = $this->videos->videoUpload($input);
         $vid = $m['vid'];
@@ -311,7 +311,7 @@ class Administrator extends BaseController
         if ($subtitle->isValid()) {
             $rname = $subtitle->getRandomName();
             $input['video_subtitle'] = $rname;
-            $subtitle->move(WRITEPATH . 'video_subtitle', $rname);
+            $subtitle->move(ROOTPATH . 'public/video_subtitle/', $rname);
         }
         $m = $this->videos->videoSave($input);
         $this->historyUser($m);

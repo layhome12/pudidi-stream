@@ -54,7 +54,7 @@ class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         //Helper
-        helper(['ssl', 'str']);
+        helper(['ssl', 'str', 'filesystem']);
 
         // Preload any models, libraries, etc, here.
 

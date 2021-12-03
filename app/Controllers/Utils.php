@@ -35,4 +35,14 @@ class Utils extends BaseController
         ]);
         $this->SuccessRespon('Data Berhasil Diambil', ['amount' => $m]);
     }
+    public function add_favorit()
+    {
+        $input = $this->input->getPost();
+        $input['user_id'] = $this->session->get('user_id');
+        $msg = ($input['fav'] == 0) ? 'Ditambahkan ke Favorit' : 'Dihapus dari Favorit';
+        if (!$input['user_id']) $this->ErrorRespon('Anda Harus Login Dahulu !');
+        $m = $this->videos->addFavorite($input);
+        $this->historyUser($m);
+        $this->SuccessRespon($msg);
+    }
 }

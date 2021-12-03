@@ -41,10 +41,10 @@ class BaseModel extends Model
                 ];
                 break;
             case 'update':
-                $qlog = $this->db->table($arr['table'])
-                    ->where($arr['table'] . '_id', $arr['id'])
-                    ->set($arr['data'])
-                    ->getCompiledUpdate();
+                $DB = $this->db->table($arr['table']);
+                (is_array($arr['id'])) ? $DB->where($arr['id']) : $DB->where($arr['table'] . '_id', $arr['id']);
+                $DB->set($arr['data']);
+                $qlog = $DB->getCompiledUpdate();
                 $history = [
                     'history_icon' => 'fa fa-edit',
                     'history_action' => 'Update',
@@ -52,9 +52,9 @@ class BaseModel extends Model
                 ];
                 break;
             case 'delete':
-                $qlog = $this->db->table($arr['table'])
-                    ->where($arr['table'] . '_id', $arr['id'])
-                    ->getCompiledDelete();
+                $DB = $this->db->table($arr['table']);
+                (is_array($arr['id'])) ? $DB->where($arr['id']) : $DB->where($arr['table'] . '_id', $arr['id']);
+                $qlog = $DB->getCompiledDelete();
                 $history = [
                     'history_icon' => 'fa fa-delete',
                     'history_action' => 'Delete',
@@ -97,7 +97,7 @@ class BaseModel extends Model
             ->where($set['table'] . '_id', $set['id'])
             ->get()
             ->getRowArray();
-        $path = WRITEPATH . $set['path'] . '\\' . $m[$file];
+        $path = ROOTPATH . 'public\\'.$set['path'] . '\\' . $m[$file];
 
         if (file_exists($path)) {
             unlink($path);

@@ -245,6 +245,24 @@
     <script src="<?= base_url() ?>/public/public_assets/js/main.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/skeleton/jquery.scheletrone.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/toastr.min.js"></script>
+    <script>
+        function addFavorite(t) {
+            var fav = t.getAttribute('data-fav');
+            var eid = t.getAttribute('data-eid');
+            $.post('<?= base_url('utils/add_favorit') ?>', {
+                'fav': fav,
+                'eid': eid
+            }, function(result, textStatus, xhr) {
+                if (result.status > 0) {
+                    fav == 0 ? $('button[data-eid="' + eid + '"]').attr('data-fav', '1') : $('button[data-eid="' + eid + '"]').attr('data-fav', '0');
+                    fav == 0 ? $('button[data-eid="' + eid + '"]').addClass('active') : $('button[data-eid="' + eid + '"]').removeClass('active');
+                    toastr.success(result.msg);
+                } else {
+                    // window.location.replace('<?= base_url('login') ?>');
+                }
+            }, 'json');
+        }
+    </script>
     <?= $this->renderSection('custom_js'); ?>
 </body>
 

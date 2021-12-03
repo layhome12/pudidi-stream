@@ -32,7 +32,7 @@
                 <div id="content-movies" class="mt-2">
                     <?php if (isset($vid['video_file'])) : ?>
                         <script>
-                            var url = '<?= base_url('/writable/video_file') . '/' . $vid['video_file'] ?>';
+                            var url = '<?= base_url('/public/video_file') . '/' . $vid['video_file'] ?>';
                             $('#form-upload-movies').hide();
                             initializePlayer(url);
                         </script>
@@ -70,7 +70,7 @@
                             <label for="subtitle_movies">Subtitle Movies</label>
                             <div class="custom-file">
                                 <input type="file" name="video_subtitle" class="custom-file-input" id="subtitle_movies" accept=".vtt">
-                                <label class="custom-file-label" for="subtitle_movies"><?= isset($vid['video_subtitle']) ? $vid['video_subtitle'] : 'Pilih Subtitle'; ?></label>
+                                <label class="custom-file-label" for="subtitle_movies"><?= isset($vid['video_subtitle']) ? substr($vid['video_subtitle'], 0, 18) . '..' : 'Pilih Subtitle'; ?></label>
                             </div>
                         </div>
                     </div>
@@ -205,7 +205,7 @@
                 cache: false,
                 success: function(result, textStatus, xhr) {
                     if (result.status > 0) {
-                        var url = '<?= base_url('/writable/video_file') . '/' ?>' + result.data.video_file;
+                        var url = '<?= base_url('/public/video_file') . '/' ?>' + result.data.video_file;
                         $('#video_id').val(result.data.vid);
                         $('#form-upload-movies').hide();
                         initializePlayer(url);
@@ -244,7 +244,7 @@
     $('#subtitle_movies').change(
         function() {
             var sub = this.files[0];
-            $('.custom-file-label').text(sub.name);
+            $('.custom-file-label').text(sub.name.substr(0, 18));
         }
     );
 </script>

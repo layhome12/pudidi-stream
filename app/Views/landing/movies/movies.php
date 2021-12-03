@@ -36,15 +36,15 @@
                 <div class="col-12 col-xl-9">
                     <video controls crossorigin playsinline poster="<?= base_url('/public/video_thumbnail') ?>/<?= img_check($movies['video_thumbnail']) ?>" id="player" data-key="<?= $key ?>">
                         <!-- Video files -->
-                        <source src="<?= base_url('/writable/video_file') ?>/<?= $movies['video_file'] ?>" type="video/mp4">
+                        <source src="<?= base_url('/public/video_file') ?>/<?= $movies['video_file'] ?>" type="video/mp4">
 
                         <!-- Caption files -->
                         <?php if ($movies['video_subtitle'] != '') : ?>
-                            <track kind="captions" label="Indonesia" srclang="ina" src="<?= base_url('/writable/video_subtitle') ?>/<?= $movies['video_subtitle'] ?>" default>
+                            <track kind="captions" label="Indonesia" srclang="ina" src="<?= base_url('/public/video_subtitle') ?>/<?= $movies['video_subtitle'] ?>" default>
                         <?php endif; ?>
 
                         <!-- Fallback for browsers that don't support the <video> element -->
-                        <a href="<?= base_url('/writable/video_file') ?>/<?= $movies['video_file'] ?>" download>Download</a>
+                        <a href="<?= base_url('/public/video_file') ?>/<?= $movies['video_file'] ?>" download>Download</a>
                     </video>
 
                     <div class="article__actions article__actions--details">

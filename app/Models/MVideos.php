@@ -308,4 +308,22 @@ class MVideos extends BaseModel
             ->getRowArray();
         return $m;
     }
+    public function addFavorite($data)
+    {
+        $is_fav = $data['fav'];
+        $data['video_id'] = str_decrypt($data['eid']);
+        unset($data['fav'], $data['eid']);
+
+        if ($is_fav == 0) {
+            $this->db->table('user_favorit')->set($data)->insert();
+            $history = $this->historyCrud('insert', ['table' => 'user_favorit', 'data' => $data]);
+        } else {
+            $this->db->table('user_favorit')->where($data)->delete();
+            $history = $this->historyCrud('delete', ['table' => 'user_favorit', 'id' => $data]);
+        }
+        
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
 }
