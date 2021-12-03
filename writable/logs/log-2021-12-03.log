@@ -1,0 +1,35 @@
+CRITICAL - 2021-12-03 02:21:04 --> You must set the database table to be used with your query.
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Model.php(545): CodeIgniter\Database\BaseConnection->table()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Model.php(717): CodeIgniter\Model->builder()
+#2 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Users.php(13): CodeIgniter\Model->__call()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Users->index()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2021-12-03 02:59:51 --> Column 'created_time' in order clause is ambiguous
+CRITICAL - 2021-12-03 02:59:51 --> Column 'created_time' in order clause is ambiguous
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Models\MVideos.php(343): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Users.php(13): App\Models\MVideos->getLastView()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Users->index()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-12-03 03:18:44 --> Unknown column 'vg.video_genre_nama' in 'field list'
+CRITICAL - 2021-12-03 03:18:44 --> Unknown column 'vg.video_genre_nama' in 'field list'
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Models\MVideos.php(343): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Users.php(13): App\Models\MVideos->getLastView()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Users->index()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}

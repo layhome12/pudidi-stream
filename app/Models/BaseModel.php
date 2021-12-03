@@ -97,7 +97,7 @@ class BaseModel extends Model
             ->where($set['table'] . '_id', $set['id'])
             ->get()
             ->getRowArray();
-        $path = ROOTPATH . 'public\\'.$set['path'] . '\\' . $m[$file];
+        $path = ROOTPATH . 'public\\' . $set['path'] . '\\' . $m[$file];
 
         if (file_exists($path)) {
             unlink($path);
@@ -108,7 +108,7 @@ class BaseModel extends Model
         $uid = $this->session->get('user_id');
         if ($uid) {
             $m = $this->db->table('history_dilihat')
-                ->select('history_dilihat_id')
+                ->select('history_dilihat_id, history_dilihat_loop')
                 ->like('created_time', date('Y-m-d'))
                 ->where('user_id', $uid)
                 ->where('video_id', $id)
@@ -117,13 +117,13 @@ class BaseModel extends Model
             if (isset($m['history_dilihat_id'])) {
                 $this->db->table('history_dilihat')
                     ->where('history_dilihat_id', $m['history_dilihat_id'])
-                    ->set(['created_time' => date('Y-m-d H:i:s')])
+                    ->set(['created_time' => date('Y-m-d H:i:s'), 'history_dilihat_loop' => (int)$m['history_dilihat_loop'] + 1])
                     ->update();
             } else {
                 $this->db->table('history_dilihat')->set([
                     'user_id' => $uid,
                     'video_id' => $id,
-                    'created_time' => date('Y-m-d')
+                    'created_time' => date('Y-m-d H:i:s')
                 ])->insert();
             }
         }

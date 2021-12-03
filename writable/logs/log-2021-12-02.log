@@ -252,3 +252,14 @@ CRITICAL - 2021-12-02 22:33:35 --> filesize(): stat failed for E:\OpenServer\dom
 #4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
 #5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
 #6 {main}
+CRITICAL - 2021-12-02 23:49:08 --> Undefined index: video_id
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Views\landing\movies\movies.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\OpenServer\\d...')
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render()
+#4 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Movies.php(30): view()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Movies->index()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}

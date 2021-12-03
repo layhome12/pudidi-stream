@@ -243,6 +243,7 @@ class MVideos extends BaseModel
         $DB = $this->db->table('video as v');
         $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vg.video_genre_nama, v.video_id');
         $DB->join('video_genre as vg', 'v.video_genre_id=vg.video_genre_id');
+        if (isset($arr['where'])) $DB->where($arr['where']);
         if (isset($arr['country_id'])) $DB->where('v.country_id', $arr['country_id']);
         if (isset($arr['video_tahun'])) $DB->where('v.video_tahun', $arr['video_tahun']);
 
@@ -298,14 +299,16 @@ class MVideos extends BaseModel
     }
     public function getVideoByID($id)
     {
+        $uid = $this->session->get('user_id');
         if (!$id) $this->ErrorRespon('Film Tidak Ditemukan !');
         $this->videoShowLog($id);
         $m = $this->db->table('video as v')
-            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vg.video_genre_nama, vg.video_genre_img, v.video_genre')
+            ->select('v.video_nama, v.video_rating, v.video_tahun, v.video_deskripsi, v.video_thumbnail, v.video_file, v.video_subtitle, v.video_dilihat, vg.video_genre_nama, vg.video_genre_img, v.video_genre, v.video_id')
             ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
             ->where('video_id', $id)
             ->get()
             ->getRowArray();
+        if ($uid) $m = $this->checkFavorit($uid, array($m))[0];
         return $m;
     }
     public function addFavorite($data)
@@ -315,15 +318,31 @@ class MVideos extends BaseModel
         unset($data['fav'], $data['eid']);
 
         if ($is_fav == 0) {
+            $data['created_time'] = date('Y-m-d');
             $this->db->table('user_favorit')->set($data)->insert();
             $history = $this->historyCrud('insert', ['table' => 'user_favorit', 'data' => $data]);
         } else {
             $this->db->table('user_favorit')->where($data)->delete();
             $history = $this->historyCrud('delete', ['table' => 'user_favorit', 'id' => $data]);
         }
-        
+
         $i = $this->db->affectedRows();
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
         return $history;
+    }
+    public function getLastView()
+    {
+        $uid = $this->session->get('user_id');
+        $data = $this->db->table('history_dilihat as hd')
+            ->distinct()
+            ->select('v.video_nama, hd.created_time, hd.history_dilihat_loop, v.video_id')
+            ->join('video as v', 'v.video_id=hd.video_id')
+            ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
+            ->where('hd.user_id', $uid)
+            ->orderBy('hd.created_time', 'desc')
+            ->limit(5)
+            ->get()
+            ->getResultArray();
+        return $data;
     }
 }

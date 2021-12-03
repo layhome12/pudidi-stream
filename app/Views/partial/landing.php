@@ -245,6 +245,7 @@
     <script src="<?= base_url() ?>/public/public_assets/js/main.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/skeleton/jquery.scheletrone.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/toastr.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/loadingoverlay.min.js"></script>
     <script>
         function addFavorite(t) {
             var fav = t.getAttribute('data-fav');
@@ -258,7 +259,7 @@
                     fav == 0 ? $('button[data-eid="' + eid + '"]').addClass('active') : $('button[data-eid="' + eid + '"]').removeClass('active');
                     toastr.success(result.msg);
                 } else {
-                    // window.location.replace('<?= base_url('login') ?>');
+                    window.location.replace('<?= base_url('login') ?>');
                 }
             }, 'json');
         }

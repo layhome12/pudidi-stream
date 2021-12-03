@@ -65,6 +65,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="video_tahun">Tahun</label>
+                            <input type="text" class="form-control date-picker" name="video_tahun" value="<?= isset($vid['video_tahun']) ? $vid['video_tahun'] : '' ?>" id="video_tahun" data-language="en" data-min-view="years" data-view="years" data-date-format="yyyy" readonly required>
+                        </div>
+                    </div>
                     <div class="col-md-8">
                         <div class="form-group">
                             <label for="subtitle_movies">Subtitle Movies</label>
@@ -72,12 +78,6 @@
                                 <input type="file" name="video_subtitle" class="custom-file-input" id="subtitle_movies" accept=".vtt">
                                 <label class="custom-file-label" for="subtitle_movies"><?= isset($vid['video_subtitle']) ? substr($vid['video_subtitle'], 0, 18) . '..' : 'Pilih Subtitle'; ?></label>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="video_tahun">Tahun</label>
-                            <input type="text" class="form-control date-picker" name="video_tahun" value="<?= isset($vid['video_tahun']) ? $vid['video_tahun'] : '' ?>" id="video_tahun" data-language="en" data-min-view="years" data-view="years" data-date-format="yyyy" readonly required>
                         </div>
                     </div>
                 </div>

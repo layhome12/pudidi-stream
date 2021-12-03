@@ -57,6 +57,10 @@ $routes->add('movies_comment', 'Movies::get_comments');
 $routes->add('comment_save', 'Movies::comments_save');
 //Users
 $routes->add('users/(:any)', 'Users::index/$1', ['filter' => 'userfilt']);
+$routes->add('users_profile', 'Users::profile', ['filter' => 'userfilt']);
+$routes->add('users_favorit', 'Users::favorit', ['filter' => 'userfilt']);
+$routes->add('users_setting', 'Users::setting', ['filter' => 'userfilt']);
+$routes->add('users_setting_save', 'Users::setting_save', ['filter' => 'userfilt']);
 
 #======== ADMINISTRATOR ROUTE ========#
 
