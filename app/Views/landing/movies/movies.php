@@ -74,7 +74,7 @@
                     <div class="categories">
                         <h3 class="categories__title">Genre</h3>
                         <?php foreach ($genre as $row) : ?>
-                            <a href="<?= base_url('movies/genre') ?>/<?= seo_url($row['video_genre_nama']) ?>" class="categories__item"><?= $row['video_genre_nama'] ?></a>
+                            <a href="<?= base_url('kategori') ?>/<?= seo_url($row['video_genre_nama']) ?>" class="categories__item"><?= $row['video_genre_nama'] ?></a>
                         <?php endforeach; ?>
                     </div>
                     <!-- end categories -->

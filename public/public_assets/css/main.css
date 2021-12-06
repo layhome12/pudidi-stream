@@ -1690,6 +1690,8 @@ body::-webkit-scrollbar-thumb {
 }
 .profile__avatar img {
   width: 100%;
+  height: 40px;
+  object-fit: cover;
 }
 @media (min-width: 768px) {
   .profile {
@@ -1815,10 +1817,10 @@ body::-webkit-scrollbar-thumb {
   transform: scale(1);
 }
 .card--favorites .card__add svg {
-  fill: #ffc312;
+  /* fill: #ffc312; */
 }
 .card--favorites .card__add:hover svg {
-  fill: #2f80ed;
+  /* fill: #2f80ed; */
 }
 .card__cover {
   display: flex;

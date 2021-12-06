@@ -103,11 +103,38 @@ class MUsers extends BaseModel
     public function getUserbyId($uid)
     {
         $data = $this->db->table('user as u')
-            ->select('c.country_nama, u.email, u.user_img, u.user_nama, u.user_tgl_lahir, u.is_active')
+            ->select('c.country_nama, u.email, u.user_img, u.user_nama, u.user_tgl_lahir, u.is_active, c.country_id , u.user_id')
             ->join('country as c', 'c.country_id=u.country_id')
             ->where('u.user_id', $uid)
             ->get()
             ->getRowArray();
         return $data;
+    }
+    public function getFavoriteUser($uid)
+    {
+        $data = $this->db->table('user_favorit as fav')
+            ->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vg.video_genre_nama, v.video_id')
+            ->join('video as v', 'v.video_id=fav.video_id')
+            ->join('video_genre as vg', 'vg.video_genre_id=v.video_genre_id')
+            ->where('fav.user_id', $uid)
+            ->orderBy('fav.created_time', 'desc')
+            ->get()
+            ->getResultArray();
+        return $data;
+    }
+    public function userProfileEdit($data)
+    {
+        $uid = $this->session->get('user_id');
+        if (!$uid) $this->ErrorRespon('Akses anda ditolak..');
+        $data['updated_time'] = date('Y-m-d');
+
+        $this->db->table('user')
+            ->where('user_id', $uid)
+            ->set($data)
+            ->update();
+        $history = $this->historyCrud('update', ['table' => 'user', 'id' => $uid, 'data' => $data]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
     }
 }

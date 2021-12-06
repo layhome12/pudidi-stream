@@ -41,8 +41,6 @@ $routes->add('logout', 'Login::logout');
 
 //Search
 $routes->add('pencarian', 'Landing::pencarian');
-//Watch
-$routes->add('movies', 'Movies::index');
 //Order Filter
 $routes->add('kategori/(:any)', 'Kategori::index/$1');
 $routes->add('list/(:any)', 'ListMovies::index/$1');
@@ -58,7 +56,7 @@ $routes->add('comment_save', 'Movies::comments_save');
 //Users
 $routes->add('users/(:any)', 'Users::index/$1', ['filter' => 'userfilt']);
 $routes->add('users_profile', 'Users::profile', ['filter' => 'userfilt']);
-$routes->add('users_favorit', 'Users::favorit', ['filter' => 'userfilt']);
+$routes->add('users_favorite', 'Users::favorite', ['filter' => 'userfilt']);
 $routes->add('users_setting', 'Users::setting', ['filter' => 'userfilt']);
 $routes->add('users_setting_save', 'Users::setting_save', ['filter' => 'userfilt']);
 

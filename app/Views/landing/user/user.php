@@ -31,7 +31,7 @@
                 <div class="profile">
                     <div class="profile__user">
                         <div class="profile__avatar">
-                            <img src="<?= base_url('public/public_assets') ?>/img/avatar.svg" alt="">
+                            <img src="<?= $user['user_img'] == '' ? base_url('public/public_assets/img/avatar.svg') : base_url('/public/users_img/' . $user['user_img']) ?>" alt="">
                         </div>
                         <div class="profile__meta">
                             <h3><?= $user['user_nama'] ?></h3>
@@ -218,28 +218,25 @@
                 $('#content-tab').LoadingOverlay('show', {
                     size: 15,
                     imageColor: "#ffffff",
-                    background: "rgba(255, 255, 255, 0.05)"
+                    background: "rgba(255, 255, 255, 0.03)"
                 });
                 switch (tabs) {
                     case 'tab-1':
                         url = '<?= base_url('users_profile') ?>';
-                        data = {
-                            'data': '0'
-                        }
                         break;
                     case 'tab-2':
-                        url = '<?= base_url('users_profile') ?>';
-                        data = {
-                            'data': '0'
-                        }
+                        url = '<?= base_url('users_favorite') ?>';
                         break;
                     case 'tab-3':
-                        url = '<?= base_url('users_profile') ?>';
-                        data = {
-                            'data': '0'
-                        }
+                        url = '<?= base_url('users_setting') ?>';
                         break;
                 }
+                $.post(url, {
+                    'data': 0
+                }, function(result, textStatus, xhr) {
+                    $('#content-tab').html(result);
+                    $('#content-tab').LoadingOverlay('hide');
+                });
             });
         }
     );

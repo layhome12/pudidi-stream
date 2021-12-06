@@ -169,7 +169,6 @@
 </section>
 <!-- end subscriptions -->
 
-
 <!-- videos -->
 <section class="section">
     <div class="container">

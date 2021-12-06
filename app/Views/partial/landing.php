@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/slider-radio.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/datepicker.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/select2.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/magnific-popup.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/plyr.css">
@@ -239,6 +240,7 @@
     <script src="<?= base_url() ?>/public/public_assets/js/owl.carousel.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/slider-radio.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/select2.min.js"></script>
+    <script src="<?= base_url() ?>/public/public_assets/js/datepicker.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/smooth-scrollbar.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/jquery.magnific-popup.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/plyr.min.js"></script>

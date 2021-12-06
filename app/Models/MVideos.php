@@ -246,6 +246,7 @@ class MVideos extends BaseModel
         if (isset($arr['where'])) $DB->where($arr['where']);
         if (isset($arr['country_id'])) $DB->where('v.country_id', $arr['country_id']);
         if (isset($arr['video_tahun'])) $DB->where('v.video_tahun', $arr['video_tahun']);
+        if (isset($arr['video_genre'])) $DB->where('vg.video_genre_id', $arr['video_genre']);
 
         switch ($arr['ordering']) {
             case '1':
