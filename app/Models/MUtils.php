@@ -102,4 +102,21 @@ class MUtils extends BaseModel
         }
         return $data;
     }
+    public function getIdentitasWeb()
+    {
+        return $this->db->table('identitas_web')
+            ->where('identitas_web_id', 1)
+            ->get()
+            ->getRowArray();
+    }
+    public function identitasWebSave($data)
+    {
+        $data['updated_time'] = date('Y-m-d H:i:s');
+        $this->db->table('identitas_web')
+            ->where('identitas_web_id', 1)
+            ->set($data)
+            ->update();
+        $history = $this->historyCrud('update', ['table' => 'identitas_web', 'id' => 1, 'data' => $data]);
+        return $history;
+    }
 }

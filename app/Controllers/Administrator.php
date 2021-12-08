@@ -457,12 +457,34 @@ class Administrator extends BaseController
         $this->historyUser($m);
         $this->SuccessRespon('Data Berhasil Dihapus');
     }
-    
+
     //Identitas Web
-    public function info_management(){
-
+    public function info_management()
+    {
+        $data['identitas'] = $this->utils->getShowItem([
+            'table' => 'identitas_web',
+            'select' => 'identitas_web_nama, identitas_web_img, identitas_web_deskripsi, identitas_web_facebook, identitas_web_twitter, identitas_web_instagram, identitas_web_youtube',
+            'where' => ['identitas_web_id' => 1]
+        ]);
+        return view('administrator/identitas_web/identitas_web', $data);
     }
-    public function info_management_save(){
+    public function info_management_save()
+    {
+        $input = $this->input->getPost();
+        $validate = $this->validate([
+            'rules' => 'mime_in[identitas_web_img,image/jpg,image/jpeg,image/png]|max_size[identitas_web_img,512]'
+        ]);
+        if (!$validate) $this->ErrorRespon('Format yang Didukung JPG, PNG, JPEG dan Max File 512 KB !');
 
+        $file = $this->input->getFile('identitas_web_img');
+        if ($file->isValid()) {
+            $rname = $file->getRandomName();
+            $input['identitas_web_img'] = $rname;
+            $this->image->withFile($file->getTempName())->save('public/identitas_web_img/' . $rname, 100);
+        }
+
+        $m = $this->utils->identitasWebSave($input);
+        $this->historyUser($m);
+        $this->SuccessRespon('Data Berhasil Disimpan');
     }
 }

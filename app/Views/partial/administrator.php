@@ -3,11 +3,12 @@
 
 <head>
     <!-- Required meta tags -->
+    <?php $MUtils = new \App\Models\MUtils(); ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>PUDIDI STREAMS - ADMINISTRATOR</title>
+    <title><?= $MUtils->getIdentitasWeb()['identitas_web_nama']; ?> - ADMINISTRATOR</title>
 
-    <link rel="icon" href="<?= base_url() ?>/public/admin_assets/img/logo.png" type="image/png" />
+    <link rel="icon" href="<?= base_url() ?>/public/admin_assets/img/favicon-32x32.png" type="image/png" />
     <!-- Main Assets CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/themefy_icon/themify-icons.css" />
@@ -82,7 +83,7 @@
     <!-- Side Bar Menu -->
     <nav class="sidebar vertical-scroll ps-container ps-theme-default ps-active-y">
         <div class="logo d-flex justify-content-between">
-            <a href="<?= base_url('/administrator'); ?>"><img src="<?= base_url() ?>/public/admin_assets/img/logo.png" alt="" /></a>
+            <a href="<?= base_url('/administrator'); ?>"><img src="<?= base_url() ?>/public/identitas_web_img/<?= $MUtils->getIdentitasWeb()['identitas_web_img']; ?>" alt="" /></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -122,6 +123,18 @@
             <li class="">
                 <a class="has-arrow" href="#" aria-expanded="false">
                     <div class="icon_menu">
+                        <i class="fa fa-toolbox"></i>
+                    </div>
+                    <span>Utils</span>
+                </a>
+                <ul>
+                    <li><a href="<?= base_url('/administrator/menu_management') ?>">Navbar Landing</a></li>
+                    <li><a href="<?= base_url('/administrator/pages_management') ?>">Pages Landing</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <div class="icon_menu">
                         <i class="fa fa-cog"></i>
                     </div>
                     <span>Settings</span>
@@ -130,8 +143,6 @@
                     <li><a href="<?= base_url('/administrator/admin_management') ?>">Admin Management</a></li>
                     <li><a href="<?= base_url('/administrator/users_management') ?>">Users Management</a></li>
                     <li><a href="<?= base_url('/administrator/info_management') ?>">Identitas Website</a></li>
-                    <li><a href="<?= base_url('/administrator/menu_management') ?>">Menu Landing</a></li>
-                    <li><a href="<?= base_url('/administrator/pages_management') ?>">Pages Landing</a></li>
                 </ul>
             </li>
         </ul>
@@ -289,8 +300,8 @@
                     <div class="col-lg-12">
                         <div class="footer_iner text-center">
                             <p>
-                                2021 © Designed by -
-                                <a href="#"> <i class="ti-heart"></i> </a><a href="#"> PUDIDI STREAMS TEAM</a>
+                                2021 © Designed by
+                                <a href="#"> <i class="ti-heart"></i> </a><a href="<?= base_url('administrator') ?>"> <?= $MUtils->getIdentitasWeb()['identitas_web_nama']; ?> TEAM</a>
                             </p>
                         </div>
                     </div>

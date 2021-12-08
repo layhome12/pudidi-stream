@@ -1,6 +1,7 @@
+<?php $MUtils = new \App\Models\MUtils(); ?>
 <form action="<?= base_url() ?>/register/otp_verify" method="POST" class="sign__form signup_form" id="form-data" onsubmit="return false">
     <a href="<?= base_url() ?>" class="sign__logo">
-        <img src="<?= base_url() ?>/public/public_assets/img/logo.svg" alt="">
+        <img src="<?= base_url() ?>/public/identitas_web_img/<?= $MUtils->getIdentitasWeb()['identitas_web_img']; ?>" alt="" style="width: 200px;">
     </a>
 
     <div class="sign__group">

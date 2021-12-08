@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <?php $MUtils = new \App\Models\MUtils(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -28,12 +29,12 @@
     <script src="<?= base_url() ?>/public/public_assets/select2/select2.min.js"></script>
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="<?= base_url() ?>/public/public_assets/icon/favicon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="<?= base_url() ?>/public/public_assets/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="<?= base_url() ?>/public/public_assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="<?= base_url() ?>/public/public_assets/img/favicon-32x32.png">
 
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <title>PUDIDI STREAMS</title>
+    <title><?= $MUtils->getIdentitasWeb()['identitas_web_nama']; ?></title>
 
 </head>
 

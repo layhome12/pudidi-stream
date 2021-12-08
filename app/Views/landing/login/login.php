@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <?php $MUtils = new \App\Models\MUtils(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,12 +14,12 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/custom.css">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="<?= base_url() ?>/public/public_assets/icon/favicon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="<?= base_url() ?>/public/public_assets/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="<?= base_url() ?>/public/public_assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="<?= base_url() ?>/public/public_assets/img/favicon-32x32.png">
 
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <title>PUDIDI STREAMS</title>
+    <title><?= $MUtils->getIdentitasWeb()['identitas_web_nama']; ?></title>
 
 </head>
 
@@ -32,7 +33,7 @@
 
                         <form action="<?= base_url() ?>/login/auth" method="POST" class="sign__form" id="form-data" onsubmit="return false">
                             <a href="<?= base_url() ?>" class="sign__logo">
-                                <img src="<?= base_url() ?>/public/public_assets/img/logo.svg" alt="">
+                                <img src="<?= base_url() ?>/public/identitas_web_img/<?= $MUtils->getIdentitasWeb()['identitas_web_img']; ?>" alt="" style="width: 200px;">
                             </a>
 
                             <div class="sign__group">
@@ -49,7 +50,7 @@
                             </div>
 
                             <button class="sign__btn" type="submit">Sign in</button>
-                            <span class="sign__text">Don't have an account? <a href="<?=base_url('/register')?>">Sign up!</a></span>
+                            <span class="sign__text">Don't have an account? <a href="<?= base_url('/register') ?>">Sign up!</a></span>
                         </form>
 
                     </div>
