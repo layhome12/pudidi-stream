@@ -457,4 +457,12 @@ class Administrator extends BaseController
         $this->historyUser($m);
         $this->SuccessRespon('Data Berhasil Dihapus');
     }
+    
+    //Identitas Web
+    public function info_management(){
+
+    }
+    public function info_management_save(){
+
+    }
 }

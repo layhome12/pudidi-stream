@@ -53,6 +53,8 @@ $routes->add('donasi', 'OurInfo::donasi');
 $routes->add('movies/(:any)', 'Movies::index/$1');
 $routes->add('movies_comment', 'Movies::get_comments');
 $routes->add('comment_save', 'Movies::comments_save');
+//Reviews
+$routes->add('reviews/(:any)', 'Reviews::index/$1');
 //Users
 $routes->add('users/(:any)', 'Users::index/$1', ['filter' => 'userfilt']);
 $routes->add('users_profile', 'Users::profile', ['filter' => 'userfilt']);
@@ -101,6 +103,9 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
     $routes->add('video_artikel_form', 'Administrator::video_artikel_form');
     $routes->add('video_artikel_save', 'Administrator::video_artikel_save');
     $routes->add('video_artikel_del', 'Administrator::video_artikel_del');
+    //Identitas Web
+    $routes->add('info_management', 'Administrator::info_management');
+    $routes->add('info_management_save', 'Administrator::info_management_save');
 });
 
 /*

@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/metisMenu.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/bootstrap.toggle.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/summernote_js/summernote.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/public_assets/css/plyr.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/style.css" />
@@ -65,6 +66,7 @@
     <script src="<?= base_url() ?>/public/admin_assets/js/sweetalert2.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/bootstrap.toggle.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/summernote_js/summernote.min.js"></script>
     <!-- Date Picker  -->
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.en.js"></script>

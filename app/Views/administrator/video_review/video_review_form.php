@@ -12,6 +12,26 @@
     .toggle.btn {
         min-height: 2rem;
     }
+
+    .note-modal>.modal-dialog>.modal-content>.modal-header>.close {
+        display: none;
+    }
+
+    .note-editor.note-frame .note-btn {
+        color: white;
+    }
+
+    .note-editor.note-frame .note-toolbar {
+        background-color: #aaaaaa;
+    }
+
+    kbd {
+        background-color: #bfbfbf;
+    }
+
+    .note-frame * {
+        color: #484848;
+    }
 </style>
 <div class="row">
     <div class="col-md-12">
@@ -69,7 +89,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="ck_editor">Isi Review</label>
-                    <textarea class="form-control" id="ck_editor" rows="10" name="video_review_isi"><?= isset($review_vid['video_review_isi']) ? $review_vid['video_review_isi'] : '' ?></textarea>
+                    <textarea class="form-control" id="summernote" rows="10" name="video_review_isi"><?= isset($review_vid['video_review_isi']) ? $review_vid['video_review_isi'] : '' ?></textarea>
                 </div>
             </div>
         </div>
@@ -78,6 +98,9 @@
 <script>
     $('.select2').select2();
     $('#switch_toggle').bootstrapToggle();
+    $('#summernote').summernote({
+        height: 250
+    });
     $('#video_review_img_show').click(
         function() {
             $('#video_review_img').trigger('click');
@@ -117,14 +140,4 @@
             $.LoadingOverlay('hide');
         }
     );
-
-    CKEDITOR.replace('ck_editor', {
-        filebrowserImageBrowseUrl: '<?= base_url() ?>/public/admin_assets/vendors/kcfinder/browse.php'
-    });
-
-    function updateCKEditor() {
-        for (instance in CKEDITOR.instances) {
-            CKEDITOR.instances[instance].updateElement();
-        }
-    }
 </script>

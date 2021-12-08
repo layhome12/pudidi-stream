@@ -13,6 +13,9 @@
 .font-s15px {
   font-size: 15px;
 }
+.font-s17px {
+  font-size: 17px;
+}
 .font-s20px {
   font-size: 20px;
 }
@@ -70,6 +73,10 @@
   margin: auto;
   width: 100%;
 }
+.card_cover_custom img {
+  height: 225px;
+  object-fit: cover;
+}
 
 @media (min-width: 768px) {
   .section {
@@ -81,11 +88,18 @@
   .dm-none {
     display: none;
   }
+  .catalog__select-wrap {
+    margin-top: 10px;
+  }
   .section--details-bg {
     padding-top: 50px;
     padding-bottom: 60px;
   }
   .article__actions {
     justify-content: space-around;
+  }
+  .card_cover_custom img {
+    height: 196px;
+    object-fit: cover;
   }
 }

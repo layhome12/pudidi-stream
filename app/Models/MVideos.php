@@ -241,12 +241,13 @@ class MVideos extends BaseModel
     {
         $id = $this->session->get('user_id');
         $DB = $this->db->table('video as v');
-        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, vg.video_genre_nama, v.video_id');
+        $DB->select('v.video_nama, v.video_tahun, v.video_thumbnail, v.video_rating, v.video_dilihat, v.video_deskripsi, vg.video_genre_nama, v.video_id');
         $DB->join('video_genre as vg', 'v.video_genre_id=vg.video_genre_id');
+        if (isset($arr['like'])) $DB->like($arr['like']);
         if (isset($arr['where'])) $DB->where($arr['where']);
         if (isset($arr['country_id'])) $DB->where('v.country_id', $arr['country_id']);
         if (isset($arr['video_tahun'])) $DB->where('v.video_tahun', $arr['video_tahun']);
-        if (isset($arr['video_genre'])) $DB->where('vg.video_genre_id', $arr['video_genre']);
+        if (isset($arr['video_genre']) && $arr['video_genre'] != 0) $DB->where('vg.video_genre_id', $arr['video_genre']);
 
         switch ($arr['ordering']) {
             case '1':

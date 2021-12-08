@@ -34,6 +34,25 @@ class Landing extends BaseController
     public function pencarian()
     {
         $data['search'] = $this->input->getGet('keyword');
+        $data['negara'] = $this->utils->getSelect2([
+            'table' => 'country',
+            'order_by' => ['field' => 'country_nama', 'order' => 'asc'],
+            'type' => 'array'
+        ]);
+        $data['tahun'] = $this->utils->getSelect2([
+            'table' => 'video',
+            'customize' => ['value' => 'video_tahun', 'text' => 'video_tahun'],
+            'where' => ['is_draft' => '0'],
+            'order_by' => ['field' => 'video_tahun', 'order' => 'desc'],
+            'group_by' => 'video_tahun',
+            'type' => 'array'
+        ]);
+        $data['total_movies'] = $this->utils->countData([
+            'table' => 'video',
+            'where' => ['is_draft' => '0']
+        ]);
+        $data['list_movies'] = $this->videos->getListMovies(['ordering' => '2', 'like' => ['video_nama' => $data['search']]]);
+        $data['rekomendasi'] = $this->videos->getListMovies(['ordering' => '1']);
         return view('landing/pencarian/pencarian', $data);
     }
 }
