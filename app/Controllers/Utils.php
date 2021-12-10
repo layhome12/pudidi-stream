@@ -45,4 +45,14 @@ class Utils extends BaseController
         $this->historyUser($m);
         $this->SuccessRespon($msg);
     }
+    public function get_templates()
+    {
+        $pid = $this->input->getPost('pid');
+        $m = $this->utils->getShowItem([
+            'table' => 'pages_template',
+            'select' => 'pages_template_isi',
+            'where' => ['pages_template_id' => $pid]
+        ]);
+        $this->SuccessRespon('Data Berhasil Diambil', $m);
+    }
 }

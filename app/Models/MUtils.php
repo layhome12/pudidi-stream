@@ -119,4 +119,88 @@ class MUtils extends BaseModel
         $history = $this->historyCrud('update', ['table' => 'identitas_web', 'id' => 1, 'data' => $data]);
         return $history;
     }
+
+    public function getPagesForm($id)
+    {
+        return $this->db->table('pages')
+            ->select('pages_template_id, pages_nama, pages_isi, pages_id')
+            ->where('pages_id', $id)
+            ->get()->getRowArray();
+    }
+    public function pagesSave($data)
+    {
+        $id = $data['pages_id'];
+        unset($data['pages_id']);
+
+        if ($id) {
+            $data['updated_time'] = date('Y-m-d H:i:s');
+            $this->db->table('pages')
+                ->where('pages_id', $id)
+                ->set($data)
+                ->update();
+            $history = $this->historyCrud('update', ['table' => 'pages', 'id' => $id, 'data' => $data]);
+        } else {
+            $data['created_time'] = date('Y-m-d H:i:s');
+            $this->db->table('pages')
+                ->set($data)
+                ->insert();
+            $history = $this->historyCrud('insert', ['table' => 'pages', 'data' => $data]);
+        }
+
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+    public function pagesDel($id)
+    {
+        $this->db->table('pages')
+            ->where('pages_id', $id)
+            ->delete();
+        $history = $this->historyCrud('delete', ['table' => 'pages', 'id' => $id]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+
+    public function getMenuManagementForm($id)
+    {
+        return $this->db->table('menu_landing')
+            ->select('menu_landing_id, menu_landing_nama, menu_landing_link, menu_landing_parent, menu_landing_urutan')
+            ->where('menu_landing_id', $id)
+            ->get()->getRowArray();
+    }
+    public function menuManagementSave($data)
+    {
+        $id = $data['menu_landing_id'];
+        unset($data['menu_landing_id']);
+
+        if ($id) {
+            $data['updated_time'] = date('Y-m-d H:i:s');
+            $this->db->table('menu_landing')
+                ->where('menu_landing_id', $id)
+                ->set($data)
+                ->update();
+            $history = $this->historyCrud('update', ['table' => 'menu_landing', 'id' => $id, 'data' => $data]);
+        } else {
+            $data['created_time'] = date('Y-m-d H:i:s');
+            $this->db->table('menu_landing')
+                ->set($data)
+                ->insert();
+            $history = $this->historyCrud('insert', ['table' => 'menu_landing', 'data' => $data]);
+        }
+
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
+    public function menuManagementDel($id)
+    {
+        $this->db->table('menu_landing')
+            ->where('menu_landing_id', $id)
+            ->delete();
+        $history = $this->historyCrud('delete', ['table' => 'menu_landing', 'id' => $id]);
+        $i = $this->db->affectedRows();
+        if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
+        return $history;
+    }
 }

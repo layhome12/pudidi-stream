@@ -27,6 +27,7 @@
     <script src="<?= base_url() ?>/public/public_assets/js/toastr.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/js/datepicker.min.js"></script>
     <script src="<?= base_url() ?>/public/public_assets/select2/select2.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/js/loadingoverlay.min.js"></script>
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="<?= base_url() ?>/public/public_assets/img/favicon-32x32.png" sizes="32x32">

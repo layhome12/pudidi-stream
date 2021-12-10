@@ -8,6 +8,7 @@ class Login extends BaseController
 {
     public function index()
     {
+        if (session()->get('user_id')) return redirect()->to(base_url('/'));
         return view('landing/login/login');
     }
     public function auth()
@@ -17,7 +18,6 @@ class Login extends BaseController
         if (count($m) > 0) {
             if (!password_verify($form['password'], $m[0]['password'])) $this->ErrorRespon('Periksa Email dan Password Anda..');
             if ($m[0]['is_active'] == 2) $this->ErrorRespon('Akun Anda Terblokir.. Hubungi Customer Sevice !');
-            // if ($m[0]['is_active'] == 0) $this->activate();
             $this->session->set($m[0]);
             $this->historyUser(['history_icon' => 'fa fa-sign-in-alt', 'history_action' => 'Login']);
             $this->SuccessRespon('Otentikasi Berhasil..');

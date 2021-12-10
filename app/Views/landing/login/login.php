@@ -50,7 +50,7 @@
                             </div>
 
                             <button class="sign__btn" type="submit">Sign in</button>
-                            <span class="sign__text">Don't have an account? <a href="<?= base_url('/register') ?>">Sign up!</a></span>
+                            <span class="sign__text">Belum punya akun? <a href="<?= base_url('/register') ?>">Sign up!</a></span>
                         </form>
 
                     </div>

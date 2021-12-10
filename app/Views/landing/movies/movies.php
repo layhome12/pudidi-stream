@@ -34,7 +34,7 @@
 
                 <!-- video player -->
                 <div class="col-12 col-xl-9">
-                    <video controls crossorigin playsinline poster="<?= base_url('/public/video_thumbnail') ?>/<?= img_check($movies['video_thumbnail']) ?>" id="player" data-key="<?= $key ?>">
+                    <video controls crossorigin playsinline id="player" data-key="<?= $key ?>">
                         <!-- Video files -->
                         <source src="<?= base_url('/public/video_file') ?>/<?= $movies['video_file'] ?>" type="video/mp4">
 

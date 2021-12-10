@@ -44,4 +44,27 @@ class MLanding extends BaseModel
             ->set(['video_review_dilihat' => (int)$m['video_review_dilihat'] + 1])
             ->update();
     }
+    public function getMenuLanding($limit = '', $order = 'asc')
+    {
+        $DB = $this->db->table('menu_landing');
+        $DB->where('menu_landing_parent', 0);
+        $DB->orderBy('menu_landing_urutan', $order);
+        if ($limit != '') $DB->limit($limit);
+        $m = $DB->get()->getResultArray();
+        return $m;
+    }
+    public function checkMenuParent($mpid)
+    {
+        return $this->db->table('menu_landing')
+            ->where('menu_landing_parent', $mpid)
+            ->countAllResults();
+    }
+    public function getMenuChild($mpid)
+    {
+        return $this->db->table('menu_landing')
+            ->where('menu_landing_parent', $mpid)
+            ->orderBy('menu_landing_urutan', 'asc')
+            ->get()
+            ->getResultArray();
+    }
 }

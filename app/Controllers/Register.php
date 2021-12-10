@@ -8,6 +8,7 @@ class Register extends BaseController
 {
     public function index()
     {
+        if (session()->get('user_id')) return redirect()->to(base_url('/'));
         return view('landing/register/register');
     }
     public function form()
@@ -23,6 +24,11 @@ class Register extends BaseController
     public function save()
     {
         $data = $this->input->getPost();
+        $validate = $this->validate([
+            'konfirmasi_password' => 'matches[password]'
+        ]);
+        if (!$validate) $this->ErrorRespon('Password dan Konfirmasi Password Tidak Sama !');
+        unset($data['konfirmasi_password']);
         $otp = $this->users->saveUsers($data);
         $this->sendOtp($otp, $data['email']);
     }
@@ -36,7 +42,12 @@ class Register extends BaseController
         $key = $this->input->getPost();
         $data['email'] = $this->utils->otpVerify($key);
         $m = $this->users->getAuth($data);
-        $this->session->set($m[0]);
+        $this->sesion_get_auth($m);
         $this->SuccessRespon('Akun Telah Berhasil Dibuat..');
+    }
+    public function sesion_get_auth($m)
+    {
+        if (session()->get('user_id')) $this->session->destroy();
+        $this->session->set($m[0]);
     }
 }

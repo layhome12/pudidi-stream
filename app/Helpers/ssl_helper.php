@@ -3,8 +3,9 @@ if (!function_exists('str_decrypt')) {
 	function str_decrypt($str = '')
 	{
 		$password = "pudidistreams";
-		$decrypted_string = openssl_decrypt($str, "AES-128-ECB", $password);
-		return $decrypted_string;
+		$base_64 = base64_decode($str);
+		$ssl_decr = openssl_decrypt($base_64, "AES-128-ECB", $password);
+		return $ssl_decr;
 	}
 }
 
@@ -12,14 +13,15 @@ if (!function_exists('str_encrypt')) {
 	function str_encrypt($str = '')
 	{
 		$password = "pudidistreams";
-		$encrypted_string = openssl_encrypt($str, "AES-128-ECB", $password);
-		return $encrypted_string;
+		$ssl_enc = openssl_encrypt($str, "AES-128-ECB", $password);
+		$base_64 = base64_encode($ssl_enc);
+		return $base_64;
 	}
 }
 if (!function_exists('seo_url_encode')) {
 	function seo_url_encode($text, $id)
 	{
-		$eid = base64_encode(str_encrypt($id));
+		$eid = str_encrypt($id);
 		$seo = preg_replace('/[^\w]+/', '-', strtolower($text));
 		$seo .= "-eid-$eid";
 		return $seo;
@@ -29,6 +31,6 @@ if (!function_exists('seo_url_decode')) {
 	function seo_url_decode($text)
 	{
 		$eid = explode('-eid-', $text)[1];
-		return str_decrypt(base64_decode($eid));
+		return str_decrypt($eid);
 	}
 }

@@ -10,6 +10,7 @@ class Users extends BaseController
     {
         $uid = str_decrypt($uid);
         $data['user'] = $this->users->getUserbyId($uid);
+        if (!$data['user']) $this->ErrorRespon('Enkripsi user tidak sesuai !');
         $data['terakhir_dilihat'] = $this->videos->getLastView();
         $data['favorit'] = $this->utils->countData([
             'table' => 'user_favorit',

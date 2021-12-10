@@ -53,42 +53,33 @@
                             <li class="header__nav-item">
                                 <a class="header__nav-link" href="<?= base_url(); ?>">Home</a>
                             </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="#" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Genre
-                                    <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z"></path>
-                                    </svg>
-                                </a>
-                                <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenu2">
-                                    <?php foreach ($LD->getKategori() as $row) : ?>
-                                        <li>
-                                            <a href="<?= base_url('/kategori/' . $row['video_genre_seo']) ?>"><?= $row['video_genre_nama']; ?></a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="<?= base_url('/list/populer'); ?>">Populer</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="<?= base_url('/list/terbaru'); ?>">Terbaru</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link header__nav-link--more" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6.93893 14.3033C6.08141 14.3033 5.38477 13.6067 5.38477 12.7505C5.38477 11.8943 6.08141 11.1963 6.93893 11.1963C7.79644 11.1963 8.49309 11.8943 8.49309 12.7505C8.49309 13.6067 7.79644 14.3033 6.93893 14.3033Z" />
-                                        <path d="M12.7501 14.3033C11.8926 14.3033 11.1959 13.6067 11.1959 12.7505C11.1959 11.8943 11.8926 11.1963 12.7501 11.1963C13.6076 11.1963 14.3042 11.8943 14.3042 12.7505C14.3042 13.6067 13.6076 14.3033 12.7501 14.3033Z" />
-                                        <path d="M18.5608 14.3033C17.7032 14.3033 17.0066 13.6067 17.0066 12.7505C17.0066 11.8943 17.7032 11.1963 18.5608 11.1963C19.4183 11.1963 20.1149 11.8943 20.1149 12.7505C20.1149 13.6067 19.4183 14.3033 18.5608 14.3033Z" />
-                                    </svg>
-                                </a>
-                                <ul class="dropdown-menu header__nav-menu header__nav-menu--scroll" aria-labelledby="dropdownMenu3">
-                                    <li><a href="<?= base_url('/tentang') ?>">Tentang Kami</a></li>
-                                    <li><a href="<?= base_url('/kontak') ?>">Hubungi Kami</a></li>
-                                    <li><a href="<?= base_url('/kebijakan_privasi') ?>">Kebijakan Privasi</a></li>
-                                    <li><a href="<?= base_url('/donasi') ?>">Donasi</a></li>
-                                </ul>
-                            </li>
+                            <?php foreach ($LD->getMenuLanding() as $row) : ?>
+                                <?php $i = $LD->checkMenuParent($row['menu_landing_id']); ?>
+                                <?php if ($i == 0) : ?>
+                                    <li class="header__nav-item">
+                                        <a class="header__nav-link" href="<?= (substr($row['menu_landing_link'], 0, 4) == 'http') ? $row['menu_landing_link'] : base_url() . $row['menu_landing_link']; ?>"><?= $row['menu_landing_nama']; ?></a>
+                                    </li>
+                                <?php else : ?>
+                                    <li class="header__nav-item">
+                                        <a class="header__nav-link" href="<?= (substr($row['menu_landing_link'], 0, 4) == 'http') ? $row['menu_landing_link'] : base_url() . $row['menu_landing_link']; ?>" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <?= $row['menu_landing_nama']; ?>
+                                            <?php if ($row['menu_landing_nama'] != '...') : ?>
+                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z"></path>
+                                                </svg>
+                                            <?php endif; ?>
+                                        </a>
+                                        <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenu2">
+                                            <?php foreach ($LD->getMenuChild($row['menu_landing_id']) as $row) : ?>
+                                                <li>
+                                                    <a href="<?= (substr($row['menu_landing_link'], 0, 4) == 'http') ? $row['menu_landing_link'] : base_url() . $row['menu_landing_link']; ?>"><?= $row['menu_landing_nama']; ?></a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+
                         </ul>
 
                         <div class="header__actions">
@@ -137,7 +128,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 order-4 order-md-1 order-lg-4 order-xl-1">
+                <div class="col-12 col-lg-4 col-xl-4">
                     <div class="footer__flixtv">
                         <img src="<?= base_url() ?>/public/identitas_web_img/<?= $MUtils->getIdentitasWeb()['identitas_web_img']; ?>" alt="" style="width: 220px;">
                     </div>
@@ -170,31 +161,37 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="col-6 col-md-4 col-lg-3 col-xl-2 order-1 order-md-2 order-lg-1 order-xl-2 offset-md-2 offset-lg-0 offset-xl-1">
-                    <h6 class="footer__title">FlixTV</h6>
-                    <div class="footer__nav">
-                        <a href="about.html">About us</a>
-                        <a href="profile.html">My profile</a>
-                        <a href="pricing.html">Pricing plans</a>
-                        <a href="contacts.html">Contacts</a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3 col-xl-2 order-2 order-lg-3 order-md-4 order-xl-4">
-                    <h6 class="footer__title">Help</h6>
-                    <div class="footer__nav">
-                        <a href="privacy.html">Account & Billing</a>
-                        <a href="privacy.html">Plans & Pricing</a>
-                        <a href="privacy.html">Supported devices</a>
-                        <a href="privacy.html">Accessibility</a>
+                <div class="col-12 col-lg-8 col-xl-8">
+                    <div class="row">
+                        <?php foreach ($LD->getMenuLanding('4') as $row) : ?>
+                            <?php $i = $LD->checkMenuParent($row['menu_landing_id']); ?>
+                            <?php if ($i == 0) : ?>
+                                <div class="col-6 col-md-6 col-lg-3 col-xl-3 offset-md-2 offset-lg-0 offset-xl-1">
+                                    <h6 class="footer__title"><?= $row['menu_landing_nama']; ?></h6>
+                                    <div class="footer__nav">
+                                        <a href="<?= (substr($row['menu_landing_link'], 0, 4) == 'http') ? $row['menu_landing_link'] : base_url() . $row['menu_landing_link']; ?>"><?= $row['menu_landing_nama']; ?></a>
+                                    </div>
+                                </div>
+                            <?php else : ?>
+                                <div class="col-6 col-md-6 col-lg-3 col-xl-3 offset-md-2 offset-lg-0 offset-xl-1">
+                                    <h6 class="footer__title"><?= $row['menu_landing_nama'] == '...' ? 'Tentang Kami' : $row['menu_landing_nama']; ?></h6>
+                                    <div class="footer__nav">
+                                        <?php foreach ($LD->getMenuChild($row['menu_landing_id']) as $row) : ?>
+                                            <li>
+                                                <a href="<?= (substr($row['menu_landing_link'], 0, 4) == 'http') ? $row['menu_landing_link'] : base_url() . $row['menu_landing_link']; ?>"><?= $row['menu_landing_nama']; ?></a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <div class="footer__content">
+                    <div class="footer__content justify-content-center">
                         <small class="footer__copyright">© <?= $MUtils->getIdentitasWeb()['identitas_web_nama']; ?> 2021</small>
                     </div>
                 </div>

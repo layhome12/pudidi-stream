@@ -45,10 +45,7 @@ $routes->add('pencarian', 'Landing::pencarian');
 $routes->add('kategori/(:any)', 'Kategori::index/$1');
 $routes->add('list/(:any)', 'ListMovies::index/$1');
 //Our Info
-$routes->add('tentang', 'OurInfo::tentang');
-$routes->add('kontak', 'OurInfo::kontak');
-$routes->add('kebijakan_privasi', 'OurInfo::kebijakan_privasi');
-$routes->add('donasi', 'OurInfo::donasi');
+$routes->add('pages/(:any)', 'Pages::index/$1');
 //Movies
 $routes->add('movies/(:any)', 'Movies::index/$1');
 $routes->add('movies_comment', 'Movies::get_comments');
@@ -106,6 +103,21 @@ $routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
     //Identitas Web
     $routes->add('info_management', 'Administrator::info_management');
     $routes->add('info_management_save', 'Administrator::info_management_save');
+    //Pages Management
+    $routes->add('pages_management', 'Administrator::pages_management');
+    $routes->add('pages_management_fetch', 'Administrator::pages_management_fetch');
+    $routes->add('pages_management_form', 'Administrator::pages_management_form');
+    $routes->add('pages_management_save', 'Administrator::pages_management_save');
+    $routes->add('pages_management_del', 'Administrator::pages_management_del');
+    //Menu Management
+    $routes->add('menu_management', 'Administrator::menu_management');
+    $routes->add('menu_management_fetch', 'Administrator::menu_management_fetch');
+    $routes->add('menu_management_form', 'Administrator::menu_management_form');
+    $routes->add('menu_management_save', 'Administrator::menu_management_save');
+    $routes->add('menu_management_del', 'Administrator::menu_management_del');
+    //Summernote
+    $routes->add('summernote_img_save', 'Administrator::summernote_img_save');
+    $routes->add('summernote_img_del', 'Administrator::summernote_img_del');
 });
 
 /*

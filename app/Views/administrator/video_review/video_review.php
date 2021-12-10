@@ -123,7 +123,6 @@
     );
     $('#form-data').submit(
         function() {
-            updateCKEditor();
             $.LoadingOverlay('show');
             $.ajax({
                 url: this.action,

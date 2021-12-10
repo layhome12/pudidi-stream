@@ -14,9 +14,12 @@ class MUsers extends BaseModel
     }
     public function saveUsers($data)
     {
+        $pass = $data['password'];
+        unset($data['password']);
+        
         $data['user_level_id'] = '2';
         $data['kode_otp'] = rand(111111, 999999);
-        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        $data['password'] = password_hash($pass, PASSWORD_DEFAULT);
         $data['created_time'] = date('Y-m-d H:i:s');
         $this->db->table('user')->set($data)->insert();
         $i = $this->db->affectedRows();
