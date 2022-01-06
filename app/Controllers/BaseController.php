@@ -42,7 +42,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['ssl', 'str', 'filesystem'];
 
     /**
      * Constructor.
@@ -52,9 +52,6 @@ class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
-        //Helper
-        helper(['ssl', 'str', 'filesystem']);
 
         // Preload any models, libraries, etc, here.
 
