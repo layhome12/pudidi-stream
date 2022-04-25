@@ -1,0 +1,18 @@
+CRITICAL - 2022-02-22 19:19:58 --> You must set the database table to be used with your query.
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Model.php(545): CodeIgniter\Database\BaseConnection->table()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Model.php(722): CodeIgniter\Model->builder()
+#2 E:\OpenServer\domains\pudidistream\trunk\app\Models\MUtils.php(209): CodeIgniter\Model->__call()
+#3 E:\OpenServer\domains\pudidistream\trunk\app\Filters\STWebFilter.php(30): App\Models\MUtils->statistikWebsite()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\STWebFilter->before()
+#5 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(386): CodeIgniter\Filters\Filters->run()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest()
+#7 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-02-22 20:00:25 --> Object of class stdClass could not be converted to int
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Helpers\str_helper.php(36): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator\Dashboard.php(21): month_name()
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(825): App\Controllers\Administrator\Dashboard->get_chart()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest()
+#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}

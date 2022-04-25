@@ -55,4 +55,34 @@ class Utils extends BaseController
         ]);
         $this->SuccessRespon('Data Berhasil Diambil', $m);
     }
+
+    //Summernote
+    public function summernote_img_save()
+    {
+        $validate = $this->validate([
+            'rules' => 'mime_in[images,image/jpg,image/jpeg,image/png]|max_size[images,1024]'
+        ]);
+        if (!$validate) $this->ErrorRespon('Format yang Didukung JPG, PNG, JPEG dan Max File 1MB !');
+
+        $file = $this->input->getFile('images');
+        if ($file->isValid()) {
+            $rname = $file->getRandomName();
+            $this->image->withFile($file->getTempName())->save('public/summernote_img/' . $rname, 100);
+        }
+        $this->SuccessRespon('Berhasil di Upload !', ['url' => base_url('/public/summernote_img' . '/' . $rname)]);
+    }
+    public function summernote_img_del()
+    {
+        $file = $this->input->getPost('src');
+        $dir = ROOTPATH . 'public\\' . "summernote_img\\" . str_replace(base_url('public/summernote_img' . '/'), '', $file);
+        if (!unlink($dir)) $this->ErrorRespon('Gagal Dihapus');
+        $this->SuccessRespon('Berhasil Dihapus');
+    }
+
+    //MPDF
+
+    public function cetak_pdf()
+    {
+        $this->printPDF('test.pdf', '<h1>TESTING PRINT</h1>');
+    }
 }

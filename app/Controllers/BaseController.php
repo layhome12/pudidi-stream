@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\Datatables;
+use App\Libraries\Systems;
 use App\Models\MLanding;
 use App\Models\MUsers;
 use App\Models\MUtils;
@@ -14,6 +15,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\Database;
 use Config\Services;
+use Mpdf\Mpdf;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -42,7 +44,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['ssl', 'str', 'filesystem'];
+    protected $helpers = ['ssl', 'str', 'url', 'filesystem'];
 
     /**
      * Constructor.
@@ -71,6 +73,8 @@ class BaseController extends Controller
 
         //Libraries
         $this->datatables = new Datatables();
+        $this->systems = new Systems();
+        $this->mpdf = new Mpdf();
     }
 
     public function SuccessRespon($msg, $data = [])
@@ -79,9 +83,9 @@ class BaseController extends Controller
         echo json_encode($json);
         die;
     }
-    public function ErrorRespon($msg)
+    public function ErrorRespon($msg, $data = [])
     {
-        $json = ['status' => 0, 'msg' => $msg];
+        $json = ['status' => 0, 'msg' => $msg, 'data' => $data];
         echo json_encode($json);
         die;
     }
@@ -101,34 +105,16 @@ class BaseController extends Controller
         $this->email->setTo($address);
         $this->email->setSubject('Kode OTP');
         $this->email->setMessage('Hi.. Ini Kode OTP Kamu <b>' . $otp . "</b>\r\n" . 'Jangan Berikan Kode Ini Kesiapapun !');
-        if (!$this->email->send()) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
-        $this->SuccessRespon('Kode OTP Telah Dikirim..', ['key' => str_encrypt($address)]);
-    }
-    public function mailOtp($otp, $address)
-    {
-        $to = $address;
-        $subject = "Kode OTP";
-        $message = "
-        <b>Hello Buddy..</b>, 
-        <br>
-        This is the code for account activation. 
-        <br>
-        <h3><b>" . $otp . "</b></h3>
-        <br><br>
-        Please keep this code secret.
-        ";
-        // Set HTML Type
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-        // Info Pengirim
-        $headers .= 'From: <pudidistreams>' . "\r\n";
-        $headers .= 'Cc: pudidistreams' . "\r\n";
-        if (!mail($to, $subject, $message, $headers)) $this->ErrorRespon('Kode OTP Gagal Dikirim..');
+        if (!$this->email->send()) $this->ErrorRespon('Kode OTP Gagal Dikirim..', ['error' => $this->email->printDebugger()]);
         $this->SuccessRespon('Kode OTP Telah Dikirim..', ['key' => str_encrypt($address)]);
     }
     public function historyUser($log = [])
     {
         $this->utils->historyUser($log);
+    }
+    public function printPDF($name = '', $html = '', $act = 'D')
+    {
+        $this->mpdf->WriteHTML($html);
+        $this->mpdf->Output($name, $act);
     }
 }

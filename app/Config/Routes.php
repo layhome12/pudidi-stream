@@ -35,90 +35,26 @@ $routes->setAutoRoute(true);
 #======== START ROUTE ========#
 
 $routes->get('/', 'Landing::index');
-$routes->add('logout', 'Login::logout');
+$routes->add('/login', 'Auth::index');
+$routes->add('/login/auth', 'Auth::auth');
+$routes->add('/logout', 'Auth::logout');
+
+#======== LANDING REGISTER ========# 
+$routes->add('/register', 'Auth::register');
+$routes->add('/register/form', 'Auth::form');
+$routes->add('/register/save', 'Auth::save');
+$routes->add('/register/verify', 'Auth::verify');
+$routes->add('/register/otp_verify', 'Auth::otp_verify');
+$routes->add('/register/cek_email', 'Auth::cek_email');
+
 
 #======== LANDING ROUTE ========#
-
-//Search
-$routes->add('pencarian', 'Landing::pencarian');
-//Order Filter
-$routes->add('kategori/(:any)', 'Kategori::index/$1');
-$routes->add('list/(:any)', 'ListMovies::index/$1');
-//Our Info
-$routes->add('pages/(:any)', 'Pages::index/$1');
-//Movies
-$routes->add('movies/(:any)', 'Movies::index/$1');
-$routes->add('movies_comment', 'Movies::get_comments');
-$routes->add('comment_save', 'Movies::comments_save');
-//Reviews
-$routes->add('reviews/(:any)', 'Reviews::index/$1');
-//Users
-$routes->add('users/(:any)', 'Users::index/$1', ['filter' => 'userfilt']);
-$routes->add('users_profile', 'Users::profile', ['filter' => 'userfilt']);
-$routes->add('users_favorite', 'Users::favorite', ['filter' => 'userfilt']);
-$routes->add('users_setting', 'Users::setting', ['filter' => 'userfilt']);
-$routes->add('users_setting_save', 'Users::setting_save', ['filter' => 'userfilt']);
-
-#======== ADMINISTRATOR ROUTE ========#
-
-$routes->group('administrator', ['filter' => 'adminfilt'], function ($routes) {
-
-    $routes->add('/', 'Administrator::index');
-    $routes->add('dashboard_fetch', 'Administrator::index');
-    //Users
-    $routes->add('users_management', 'Administrator::users_management');
-    $routes->add('users_management_fetch', 'Administrator::users_management_fetch');
-    $routes->add('users_management_form', 'Administrator::users_management_form');
-    $routes->add('users_management_block', 'Administrator::users_management_block');
-    //Admin
-    $routes->add('admin_management', 'Administrator::admin_management');
-    $routes->add('admin_management_fetch', 'Administrator::admin_management_fetch');
-    $routes->add('admin_management_form', 'Administrator::admin_management_form');
-    $routes->add('admin_management_save', 'Administrator::admin_management_save');
-    $routes->add('admin_management_del', 'Administrator::admin_management_del');
-    //Kategori Videos
-    $routes->add('kategori_video', 'Administrator::kategori_video');
-    $routes->add('kategori_video_fetch', 'Administrator::kategori_video_fetch');
-    $routes->add('kategori_video_form', 'Administrator::kategori_video_form');
-    $routes->add('kategori_video_save', 'Administrator::kategori_video_save');
-    $routes->add('kategori_video_del', 'Administrator::kategori_video_del');
-    //Videos
-    $routes->add('video/(:any)', 'Administrator::video/$1');
-    $routes->add('video_fetch', 'Administrator::video_fetch');
-    $routes->add('video_form', 'Administrator::video_form');
-    $routes->add('video_save', 'Administrator::video_save');
-    $routes->add('video_del', 'Administrator::video_del');
-    //Slide Videos
-    $routes->add('video_slide', 'Administrator::video_slide');
-    $routes->add('video_slide_fetch', 'Administrator::video_slide_fetch');
-    $routes->add('video_slide_form', 'Administrator::video_slide_form');
-    $routes->add('video_slide_save', 'Administrator::video_slide_save');
-    $routes->add('video_slide_del', 'Administrator::video_slide_del');
-    //Artikel Videos
-    $routes->add('video_artikel', 'Administrator::video_artikel');
-    $routes->add('video_artikel_fetch', 'Administrator::video_artikel_fetch');
-    $routes->add('video_artikel_form', 'Administrator::video_artikel_form');
-    $routes->add('video_artikel_save', 'Administrator::video_artikel_save');
-    $routes->add('video_artikel_del', 'Administrator::video_artikel_del');
-    //Identitas Web
-    $routes->add('info_management', 'Administrator::info_management');
-    $routes->add('info_management_save', 'Administrator::info_management_save');
-    //Pages Management
-    $routes->add('pages_management', 'Administrator::pages_management');
-    $routes->add('pages_management_fetch', 'Administrator::pages_management_fetch');
-    $routes->add('pages_management_form', 'Administrator::pages_management_form');
-    $routes->add('pages_management_save', 'Administrator::pages_management_save');
-    $routes->add('pages_management_del', 'Administrator::pages_management_del');
-    //Menu Management
-    $routes->add('menu_management', 'Administrator::menu_management');
-    $routes->add('menu_management_fetch', 'Administrator::menu_management_fetch');
-    $routes->add('menu_management_form', 'Administrator::menu_management_form');
-    $routes->add('menu_management_save', 'Administrator::menu_management_save');
-    $routes->add('menu_management_del', 'Administrator::menu_management_del');
-    //Summernote
-    $routes->add('summernote_img_save', 'Administrator::summernote_img_save');
-    $routes->add('summernote_img_del', 'Administrator::summernote_img_del');
-});
+$routes->add('/pencarian', 'Landing::pencarian');
+$routes->add('/genre/(:any)', 'Landing::genre/$1');
+$routes->add('/list/(:any)', 'Landing::list/$1');
+$routes->add('/movie/(:any)', 'Movies::index/$1');
+$routes->add('/reviews/(:any)', 'Landing::review/$1');
+$routes->add('/pages/(:any)', 'Landing::pages/$1');
 
 /*
  * --------------------------------------------------------------------

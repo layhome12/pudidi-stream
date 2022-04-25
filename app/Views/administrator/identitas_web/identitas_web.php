@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="box_body row justify-content-center">
-                        <form method="POST" action="<?= base_url('administrator/info_management') . '_save'; ?>" class="col-md-11" id="form-data" enctype="multipart/form-data" onsubmit="return false">
+                        <form method="POST" action="<?= base_url('frontend/info_management') . '_save'; ?>" class="col-md-11" id="form-data" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="">

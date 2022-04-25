@@ -61,7 +61,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <form action="<?= base_url('administrator/video_slide' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
+        <form action="<?= base_admin('frontend/video_slide' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Form Slide Movies</h5>
@@ -86,7 +86,7 @@
 <script>
     var datatables = $('.datatables').DataTable({
         'ajax': {
-            'url': '<?php echo base_url('administrator/video_slide' . '_fetch') ?>',
+            'url': '<?php echo base_admin('frontend/video_slide' . '_fetch') ?>',
             'dataSrc': 'data',
             'type': 'POST',
             'data': function(form) {
@@ -159,7 +159,7 @@
 
     function dt_form(t) {
         $.LoadingOverlay('show');
-        $.post('<?= base_url('/administrator/video_slide' . '_form') ?>', {
+        $.post('<?= base_admin('/frontend/video_slide' . '_form') ?>', {
             'svid': t.getAttribute('target-id')
         }, function(result, textStatus, xhr) {
             $.LoadingOverlay('hide');
@@ -179,7 +179,7 @@
             confirmButtonText: 'Hapus'
         }).then((result) => {
             if (result.value) {
-                $.post('<?= base_url('/administrator/video_slide' . '_del') ?>', {
+                $.post('<?= base_admin('/frontend/video_slide' . '_del') ?>', {
                     'svid': t.getAttribute('target-id')
                 }, function(result, textStatus, xhr) {
                     $.LoadingOverlay('hide');

@@ -60,8 +60,15 @@ class MUtils extends BaseModel
     }
     public function getCards()
     {
-        $i['users'] = $this->db->table('user')->where('user_level_id', 2)->countAllResults();
-        $i['movies'] = $this->db->table('video')->countAllResults();
+        $i['users'] = $this->db->table('user')
+            ->where('user_level_id', 2)
+            ->countAllResults();
+        $i['movies'] = $this->db->table('video')
+            ->countAllResults();
+        $i['visitor'] = $this->db->table('statistik')
+            ->selectSum('statistik_count')
+            ->get()
+            ->getRow();
         return $i;
     }
     public function getSelect2($arr = [])
@@ -202,5 +209,38 @@ class MUtils extends BaseModel
         $i = $this->db->affectedRows();
         if (!$i) $this->ErrorRespon('Maaf Server Sedang Perbaikan..');
         return $history;
+    }
+    public function statistikWebsite($arr)
+    {
+        //Cek Apakah Sudah Ada
+        $i = $this->db->table('statistik')
+            ->select('statistik_count')
+            ->like('created_time', explode(' ', $arr['created_time'])[0])
+            ->where('statistik_ip', $arr['statistik_ip'])
+            ->get()
+            ->getRow();
+
+        //Insert or Update
+        if (@$i->statistik_count) {
+            $this->db->table('statistik')
+                ->where('statistik_ip', $arr['statistik_ip'])
+                ->like('created_time', explode(' ', $arr['created_time'])[0])
+                ->set(['statistik_count' => $i->statistik_count + 1, 'updated_time' => date('Y-m-d H:i:s')])
+                ->update();
+        } else {
+            $this->db->table('statistik')
+                ->set($arr)
+                ->insert();
+        }
+
+        return true;
+    }
+    public function getStatistikChart($date)
+    {
+        return $this->db->table('statistik')
+            ->selectSum('statistik_count')
+            ->like('created_time', $date)
+            ->get()
+            ->getRow();
     }
 }

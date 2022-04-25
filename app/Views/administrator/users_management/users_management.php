@@ -83,7 +83,7 @@
 <script>
     var datatables = $('.datatables').DataTable({
         'ajax': {
-            'url': '<?php echo base_url('administrator/users_management' . '_fetch') ?>',
+            'url': '<?php echo base_admin('user/users_management' . '_fetch') ?>',
             'dataSrc': 'data',
             'type': 'POST',
             'data': function(form) {
@@ -120,7 +120,7 @@
 
     function dt_show(t) {
         $.LoadingOverlay('show');
-        $.post('<?= base_url('/administrator/users_management' . '_form') ?>', {
+        $.post('<?= base_admin('/user/users_management' . '_form') ?>', {
             'uid': t.getAttribute('target-id')
         }, function(result, textStatus, xhr) {
             $.LoadingOverlay('hide');
@@ -141,7 +141,7 @@
         }).then((result) => {
             if (result.value) {
                 $.LoadingOverlay('show');
-                $.post('<?= base_url('/administrator/users_management') . '_block' ?>', {
+                $.post('<?= base_admin('/user/users_management') . '_block' ?>', {
                     'uid': t.getAttribute('target-id'),
                     'key': 'block'
                 }, function(result, textStatus, xhr) {
@@ -174,7 +174,7 @@
         }).then((result) => {
             if (result.value) {
                 $.LoadingOverlay('show');
-                $.post('<?= base_url('/administrator/users_management') . '_block' ?>', {
+                $.post('<?= base_admin('/user/users_management') . '_block' ?>', {
                     'uid': t.getAttribute('target-id'),
                     'key': 'unblock'
                 }, function(result, textStatus, xhr) {

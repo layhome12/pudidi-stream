@@ -2,7 +2,7 @@
 if (!function_exists('str_decrypt')) {
 	function str_decrypt($str = '')
 	{
-		$password = "pudidistreams";
+		$password = "@pudidistreams@!";
 		$base_64 = base64_decode($str);
 		$ssl_decr = openssl_decrypt($base_64, "AES-128-ECB", $password);
 		return $ssl_decr;
@@ -12,7 +12,7 @@ if (!function_exists('str_decrypt')) {
 if (!function_exists('str_encrypt')) {
 	function str_encrypt($str = '')
 	{
-		$password = "pudidistreams";
+		$password = "@pudidistreams@!";
 		$ssl_enc = openssl_encrypt($str, "AES-128-ECB", $password);
 		$base_64 = base64_encode($ssl_enc);
 		return $base_64;

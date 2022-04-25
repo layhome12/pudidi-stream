@@ -196,7 +196,7 @@
                     }, false);
                     return xhr;
                 },
-                url: '<?= base_url('/administrator/video_upload') ?>',
+                url: '<?= base_admin('/video/video_upload') ?>',
                 type: 'post',
                 data: form_data,
                 dataType: 'json',

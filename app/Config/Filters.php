@@ -4,6 +4,7 @@ namespace Config;
 
 use App\Filters\AdminAuthFilter;
 use App\Filters\AuthFilter;
+use App\Filters\STWebFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -21,8 +22,8 @@ class Filters extends BaseConfig
         'csrf'     => CSRF::class,
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
-        'adminfilt' => AdminAuthFilter::class,
-        'userfilt' => AuthFilter::class
+        'auth' => AuthFilter::class,
+        'stweb' => STWebFilter::class
     ];
 
     /**
@@ -35,6 +36,26 @@ class Filters extends BaseConfig
         'before' => [
             // 'honeypot',
             // 'csrf',
+            'auth' => [
+                'except' => [
+                    '/',
+                    'login',
+                    'login/auth',
+                    'utils/*',
+                    'pencarian',
+                    'genre/*',
+                    'movie/*',
+                    'movies/*',
+                    'reviews/*',
+                    'register',
+                    'register/*',
+                    'pages/*',
+                    '/list*'
+                ]
+            ],
+            'stweb' => [
+                'except' => ['administrator/*', 'utils/*', 'user/*']
+            ]
         ],
         'after' => [
             'toolbar',

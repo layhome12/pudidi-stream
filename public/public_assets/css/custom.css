@@ -77,6 +77,9 @@
   height: 225px;
   object-fit: cover;
 }
+.footer__title {
+  font-size: 16px !important;
+}
 
 @media (min-width: 768px) {
   .section {

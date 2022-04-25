@@ -63,7 +63,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-        <form action="<?= base_url('administrator/video' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
+        <form action="<?= base_admin('video/video' . '_save') ?>" method="post" class="form-full" id="form-data" onsubmit="return false" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Form Upload Movies</h5>
@@ -85,7 +85,7 @@
 <script>
     var datatables = $('.datatables').DataTable({
         'ajax': {
-            'url': '<?php echo base_url('administrator/video' . '_fetch') ?>',
+            'url': '<?php echo base_admin('video/video' . '_fetch') ?>',
             'dataSrc': 'data',
             'type': 'POST',
             'data': function(form) {
@@ -171,7 +171,7 @@
 
     function dt_form(t) {
         $.LoadingOverlay('show');
-        $.post('<?= base_url('/administrator/video' . '_form') ?>', {
+        $.post('<?= base_admin('/video/video' . '_form') ?>', {
             'vid': t.getAttribute('target-id'),
             'kvid': '<?= $kvid; ?>'
         }, function(result, textStatus, xhr) {
@@ -195,7 +195,7 @@
             confirmButtonText: 'Hapus'
         }).then((result) => {
             if (result.value) {
-                $.post('<?= base_url('/administrator/video' . '_del') ?>', {
+                $.post('<?= base_admin('/video/video' . '_del') ?>', {
                     'vid': t.getAttribute('target-id')
                 }, function(result, textStatus, xhr) {
                     $.LoadingOverlay('hide');

@@ -103,7 +103,7 @@
                                 </svg>
                             </button>
                             <?php if (session()->get('user_id')) : ?>
-                                <a href="<?= base_url('/users/' . str_encrypt(session()->get('user_id'))) ?>" class="header__user">
+                                <a href="<?= base_user('/profile'); ?>" class="header__user">
                                     <span><?= nickname(session()->get('user_nama')); ?></span>
                                     <i class="far fa-user"></i>
                                 </a>

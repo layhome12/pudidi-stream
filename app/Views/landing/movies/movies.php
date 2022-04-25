@@ -36,7 +36,7 @@
                 <div class="col-12 col-xl-9">
                     <video controls crossorigin playsinline id="player" data-key="<?= $key ?>">
                         <!-- Video files -->
-                        <source src="<?= base_url('/public/video_file') ?>/<?= $movies['video_file'] ?>" type="video/mp4">
+                        <source src="<?= base_url('/public/video_file') ?>/<?= $movies['video_file'] ?>" type="video/<?= substr($movies['video_file'], -3, 3) ?>">
 
                         <!-- Caption files -->
                         <?php if ($movies['video_subtitle'] != '') : ?>
@@ -74,7 +74,7 @@
                     <div class="categories">
                         <h3 class="categories__title">Genre</h3>
                         <?php foreach ($genre as $row) : ?>
-                            <a href="<?= base_url('kategori') ?>/<?= seo_url($row['video_genre_nama']) ?>" class="categories__item"><?= $row['video_genre_nama'] ?></a>
+                            <a href="<?= base_url('genre') ?>/<?= seo_url($row['video_genre_nama']) ?>" class="categories__item"><?= $row['video_genre_nama'] ?></a>
                         <?php endforeach; ?>
                     </div>
                     <!-- end categories -->
@@ -157,7 +157,7 @@
 
                                 </ul>
 
-                                <form action="<?= base_url('comment_save') ?>" method="POST" onsubmit="return false" class="comments__form" id="form-comment">
+                                <form action="<?= base_url('movies/comment_save') ?>" method="POST" onsubmit="return false" class="comments__form" id="form-comment">
                                     <div class="sign__group">
                                         <input type="hidden" name="video_key" value="<?= $key; ?>">
                                         <textarea id="video_comment" name="video_komentar" class="sign__textarea" placeholder="Tambah Komentar" required></textarea>
@@ -184,7 +184,7 @@
                             <?php foreach ($terbaru as $row) : ?>
                                 <div class="col-6 col-sm-4 col-md-3 col-xl-6">
                                     <div class="card">
-                                        <a href="<?= base_url('movies/' . seo_url_encode($row['video_nama'], $row['video_id'])); ?>" class="card__cover skeleton_linked">
+                                        <a href="<?= base_url('movie/' . seo_url_encode($row['video_nama'], $row['video_id'])); ?>" class="card__cover skeleton_linked">
                                             <img src="<?= base_url() ?>/public/video_thumbnail/<?= img_check($row['video_thumbnail']); ?>" alt="" class="card-movies">
                                             <svg class="skeleton_removed" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -234,7 +234,7 @@
                     <div class="section__carousel owl-carousel" id="similar">
                         <?php foreach ($rekomendasi as $row) : ?>
                             <div class="card">
-                                <a href="<?= base_url('movies/' . seo_url_encode($row['video_nama'], $row['video_id'])); ?>" class="card__cover skeleton_linked">
+                                <a href="<?= base_url('movie/' . seo_url_encode($row['video_nama'], $row['video_id'])); ?>" class="card__cover skeleton_linked">
                                     <img src="<?= base_url() ?>/public/video_thumbnail/<?= img_check($row['video_thumbnail']); ?>" alt="" class="card-movies">
                                     <svg class="skeleton_removed" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C16.5228 1 21 5.47716 21 11C21 16.5228 16.5228 21 11 21C5.47716 21 1 16.5228 1 11C1 5.47716 5.47716 1 11 1Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -285,7 +285,7 @@
 <script>
     function get_comments() {
         loader_comments();
-        $.post('<?= base_url('movies_comment/') ?>', {
+        $.post('<?= base_url('movies/get_comment') ?>', {
             'vid': $('#player').data('key')
         }, function(result, textStatus, xhr) {
             $('#skeleton').html(result);

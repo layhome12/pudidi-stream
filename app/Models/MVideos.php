@@ -291,10 +291,11 @@ class MVideos extends BaseModel
     }
     public function getVideoReview()
     {
-        return $this->db->table('video_review')
-            ->select('video_review_nama, video_review_seo, video_review_img, video_review_dilihat')
-            ->where('is_public', '1')
-            ->orderBy('created_time', 'desc')
+        return $this->db->table('video_review as vir')
+            ->select('vir.video_review_nama, vir.video_review_seo, vir.video_review_img, vir.video_review_dilihat')
+            ->join('video as vid', 'vir.video_id=vid.video_id')
+            ->where('vir.is_public', '1')
+            ->orderBy('vir.created_time', 'desc')
             ->limit('5')
             ->get()
             ->getResultArray();

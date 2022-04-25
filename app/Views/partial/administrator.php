@@ -2,8 +2,10 @@
 <html lang="zxx">
 
 <head>
-    <!-- Required meta tags -->
     <?php $MUtils = new \App\Models\MUtils(); ?>
+    <?php $MSidebar = new \App\Models\MSidebar(); ?>
+
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title><?= $MUtils->getIdentitasWeb()['identitas_web_nama']; ?> - ADMINISTRATOR</title>
@@ -11,22 +13,16 @@
     <link rel="icon" href="<?= base_url() ?>/public/admin_assets/img/favicon-32x32.png" type="image/png" />
     <!-- Main Assets CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/metisMenu.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/themefy_icon/themify-icons.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/niceselect/css/nice-select.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/owl_carousel/css/owl.carousel.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/gijgo/gijgo.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/font_awesome/css/all.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/tagsinput/tagsinput.css" />
     <!-- Lib Assets -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datepicker/date-picker.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datatable/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datatable/css/responsive.dataTables.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/datatable/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/text_editor/summernote-bs4.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/morris/morris.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/material_icon/material-icons.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/metisMenu.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/css/bootstrap.toggle.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/admin_assets/vendors/summernote_js/summernote.min.css">
@@ -43,38 +39,22 @@
     <!-- Libs Assets JS  -->
     <script src="<?= base_url() ?>/public/admin_assets/js/metisMenu.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/count_up/jquery.waypoints.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/chartlist/Chart.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/count_up/jquery.counterup.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/niceselect/js/jquery.nice-select.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/owl_carousel/js/owl.carousel.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/dataTables.responsive.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.flash.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/jszip.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/pdfmake.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/vfs_fonts.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datatable/js/buttons.print.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/js/chart.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/progressbar/jquery.barfiller.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/tagsinput/tagsinput.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/text_editor/summernote-bs4.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/am_chart/amcharts.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/perfect-scrollbar.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/scroll/scrollable-custom.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.js"></script>
+    <script src="<?= base_url() ?>/public/admin_assets/vendors/summernote_js/summernote.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/loadingoverlay.min.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/sweetalert2.js"></script>
     <script src="<?= base_url() ?>/public/admin_assets/js/bootstrap.toggle.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/select2/select2.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/summernote_js/summernote.min.js"></script>
     <!-- Date Picker  -->
     <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.en.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/datepicker/datepicker.custom.js"></script>
     <!-- Player -->
     <script src="<?= base_url() ?>/public/public_assets/js/plyr.min.js"></script>
-    <script src="<?= base_url() ?>/public/admin_assets/vendors/ckeditor/ckeditor.js"></script>
 
 </head>
 
@@ -83,68 +63,46 @@
     <!-- Side Bar Menu -->
     <nav class="sidebar vertical-scroll ps-container ps-theme-default ps-active-y">
         <div class="logo d-flex justify-content-between">
-            <a href="<?= base_url('/administrator'); ?>"><img src="<?= base_url() ?>/public/identitas_web_img/<?= $MUtils->getIdentitasWeb()['identitas_web_img']; ?>" alt="" /></a>
+            <a href="<?= base_admin('/dashboard'); ?>"><img src="<?= base_url() ?>/public/identitas_web_img/<?= $MUtils->getIdentitasWeb()['identitas_web_img']; ?>" alt="" /></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
         </div>
         <ul id="sidebar_menu">
             <li class="mm-active">
-                <a class="" href="<?= base_url('/administrator'); ?>" aria-expanded="false">
+                <a class="" href="<?= base_admin('/dashboard'); ?>" aria-expanded="false">
                     <div class="icon_menu text-center">
                         <i class="fa fa-house-damage"></i>
                     </div>
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <div class="icon_menu">
-                        <i class="far fa-newspaper"></i>
-                    </div>
-                    <span>Artikel</span>
-                </a>
-                <ul>
-                    <li><a href="<?= base_url('/administrator/video_review') ?>">Review Movies</a></li>
-                </ul>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <div class="icon_menu">
-                        <i class="fa fa-film"></i>
-                    </div>
-                    <span>Movies</span>
-                </a>
-                <ul>
-                    <li><a href="<?= base_url('/administrator/video_kategori') ?>">Movies List</a></li>
-                    <li><a href="<?= base_url('/administrator/video_slide') ?>">Movies Slide</a></li>
-                </ul>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <div class="icon_menu">
-                        <i class="fa fa-toolbox"></i>
-                    </div>
-                    <span>Utils</span>
-                </a>
-                <ul>
-                    <li><a href="<?= base_url('/administrator/menu_management') ?>">Navbar Landing</a></li>
-                    <li><a href="<?= base_url('/administrator/pages_management') ?>">Pages Landing</a></li>
-                </ul>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <div class="icon_menu">
-                        <i class="fa fa-cog"></i>
-                    </div>
-                    <span>Settings</span>
-                </a>
-                <ul>
-                    <li><a href="<?= base_url('/administrator/admin_management') ?>">Admin Management</a></li>
-                    <li><a href="<?= base_url('/administrator/users_management') ?>">Users Management</a></li>
-                    <li><a href="<?= base_url('/administrator/info_management') ?>">Identitas Website</a></li>
-                </ul>
-            </li>
+            <?php foreach ($MSidebar->getSidebars() as $val) : ?>
+                <?php if ($val->sidebar_child) : ?>
+                    <li class="">
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <div class="icon_menu">
+                                <i class="<?= $val->sidebar_icon; ?>"></i>
+                            </div>
+                            <span><?= $val->sidebar_nama; ?></span>
+                        </a>
+                        <ul>
+                            <?php foreach ($val->sidebar_child as $child) : ?>
+                                <li><a href="<?= base_admin($child->sidebar_link); ?>"><?= $child->sidebar_nama; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                <?php else : ?>
+                    <li class="">
+                        <a class="" href="<?= base_admin($val->sidebar_link); ?>" aria-expanded="false">
+                            <div class="icon_menu text-center">
+                                <i class="<?= $val->sidebar_icon; ?>"></i>
+                            </div>
+                            <span><?= $val->sidebar_nama; ?></span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </ul>
 
     </nav>
@@ -271,7 +229,7 @@
                                 </li>
                             </div>
                             <div class="profile_info">
-                                <img src="<?= base_url('/public/users_img') ?>/<?= session()->get('user_img') != '' ? session()->get('user_img') : 'no-profile.png' ?>" alt="#" />
+                                <img src="<?= base_url('/public/users_img') ?>/<?= session()->get('user_img') != '' ? session()->get('user_img') : 'no-image.png' ?>" alt="#" />
                                 <div class="profile_info_iner">
                                     <div class="profile_author_name">
                                         <p>Administrator</p>
@@ -428,7 +386,7 @@
     <!-- PROFILES -->
     <div class="modal fade" id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <form action="<?= base_url('administrator/admin_management' . '_save') ?>" method="post" class="form-full" id="form-data-profile" onsubmit="return false" enctype="multipart/form-data">
+            <form action="<?= base_admin('/user/admin_management' . '_save') ?>" method="post" class="form-full" id="form-data-profile" onsubmit="return false" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Profile</h5>
@@ -486,7 +444,7 @@
 
         function setProfile(t) {
             $.LoadingOverlay('show');
-            $.post('<?= base_url('/administrator/admin_management' . '_form') ?>', {
+            $.post('<?= base_admin('/user/admin_management' . '_form') ?>', {
                 'uid': t.getAttribute('data-uid')
             }, function(result, textStatus, xhr) {
                 $.LoadingOverlay('hide');

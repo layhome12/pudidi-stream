@@ -29,13 +29,13 @@ class Movies extends BaseController
         ]);
         return view('landing/movies/movies', $data);
     }
-    public function get_comments()
+    public function get_comment()
     {
         $id = $this->input->getPost('vid');
         $data['comment'] = $this->videos->getVideoComment(str_decrypt($id));
         return view('landing/movies/movies_comment', $data);
     }
-    public function comments_save()
+    public function comment_save()
     {
         $uid = $this->session->get('user_id');
         $input = $this->input->getPost();

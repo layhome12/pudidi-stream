@@ -1,0 +1,4 @@
+CRITICAL - 2022-03-30 18:19:00 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 E:\OpenServer\domains\pudidistream\trunk\index.php(35): require('E:\\OpenServer\\d...')
+#2 {main}

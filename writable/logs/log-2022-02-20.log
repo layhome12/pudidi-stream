@@ -1,0 +1,12 @@
+CRITICAL - 2022-02-20 16:41:21 --> Cannot use object of type stdClass as array
+#0 E:\OpenServer\domains\pudidistream\trunk\app\Views\partial\administrator.php(80): App\Models\MSidebar->getSidebars()
+#1 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(210): include('E:\\OpenServer\\d...')
+#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render()
+#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render()
+#5 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Administrator\Dashboard.php(12): view()
+#6 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(825): App\Controllers\Administrator\Dashboard->index()
+#7 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController()
+#8 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
