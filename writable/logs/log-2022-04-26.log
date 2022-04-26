@@ -1,0 +1,24 @@
+ERROR - 2022-04-26 18:48:14 --> Error connecting to the database: Unknown database 'pudidi_stream'
+CRITICAL - 2022-04-26 18:48:14 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'pudidi_stream'
+#0 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query()
+#2 C:\OpenServer\domains\pudidistream\trunk\app\Models\MUtils.php(220): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\OpenServer\domains\pudidistream\trunk\app\Filters\STWebFilter.php(30): App\Models\MUtils->statistikWebsite()
+#4 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\STWebFilter->before()
+#5 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(386): CodeIgniter\Filters\Filters->run()
+#6 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest()
+#7 C:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-04-26 18:54:47 --> Error connecting to the database: Unknown database 'pudidi_stream'
+CRITICAL - 2022-04-26 18:54:47 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'pudidi_stream'
+#0 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query()
+#2 C:\OpenServer\domains\pudidistream\trunk\app\Models\MUtils.php(220): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\OpenServer\domains\pudidistream\trunk\app\Filters\STWebFilter.php(30): App\Models\MUtils->statistikWebsite()
+#4 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\Filters\Filters.php(173): App\Filters\STWebFilter->before()
+#5 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(386): CodeIgniter\Filters\Filters->run()
+#6 C:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest()
+#7 C:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
