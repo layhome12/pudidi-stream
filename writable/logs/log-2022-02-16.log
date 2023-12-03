@@ -1,8 +1,0 @@
-CRITICAL - 2022-02-16 21:03:05 --> Undefined offset: 1
-#0 E:\OpenServer\domains\pudidistream\trunk\app\Helpers\ssl_helper.php(33): CodeIgniter\Debug\Exceptions->errorHandler()
-#1 E:\OpenServer\domains\pudidistream\trunk\app\Controllers\Movies.php(11): seo_url_decode()
-#2 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Movies->index()
-#3 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
-#4 E:\OpenServer\domains\pudidistream\trunk\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
-#5 E:\OpenServer\domains\pudidistream\trunk\index.php(44): CodeIgniter\CodeIgniter->run()
-#6 {main}
